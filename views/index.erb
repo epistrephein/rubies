@@ -1,0 +1,56 @@
+<div>
+  <h2><strong>Active branches</strong></h2>
+  <p class="text-muted mb-4">Latest stable releases under active maintenance</p>
+  <p class="lead mb-1"><strong>Normal maintenance</strong></p>
+  <ul class="list-inline">
+    <li><code><%= @normal.join(', ') %></code></li>
+  </ul>
+
+  <p class="lead mb-1"><strong>Security maintenance</strong></p>
+  <ul class="list-inline">
+    <li><code><%= @security.join(', ') %></code></li>
+  </ul>
+</div>
+
+<div class="mt-5">
+  <p class="text-muted small">Last update: <%= @last_update %></p>
+</div>
+
+<hr style="width: 50%;" class="my-5">
+
+<div>
+  <h2><strong>API</strong></h2>
+  <p class="text-muted mb-4">Programmatic access to branches status and release infos</p>
+  <p class="mb-1"><strong>Endpoint</strong></p>
+  <p class="mb-4"><code>https://rubies.io/api</code></p>
+
+  <p class="mb-1">Status</p>
+  <p class="api mb-0"><code>/active</code></p>
+  <p class="api mb-0"><code>/preview</code></p>
+  <p class="api mb-0"><code>/normal</code></p>
+  <p class="api mb-0"><code>/security</code></p>
+  <p class="api mb-4"><code>/eol</code></p>
+
+  <p class="mb-1">Branches</p>
+  <p class="api mb-0"><code>/2.5</code></p>
+  <p class="api mb-0"><code>/2.4</code></p>
+  <p class="mb-4"><code>etc...</code></p>
+
+  <p class="mb-0">Branches</p>
+  <p class="text-muted small mb-1">latest release</p>
+  <p class="api mb-0"><code>/2.5/latest</code></p>
+  <p class="api mb-0"><code>/2.4/latest</code></p>
+  <p class="mb-4"><code>etc...</code></p>
+
+  <p class="mb-1">Releases</p>
+  <p class="api mb-0"><code>/2.5.1</code></p>
+  <p class="api mb-0"><code>/2.5.0</code></p>
+  <p class="api mb-0"><code>/2.4.4</code></p>
+  <p class="api mb-0"><code>/2.4.3</code></p>
+  <p class="mb-4"><code>etc...</code></p>
+</div>
+
+<footer class="text-center mt-5 mb-4">
+  <p class="small text-muted mb-1">Made with Ruby for rubyists</p>
+  <p class="small text-muted">Copyright &copy; <%= Time.now.year %> &middot; MIT License &middot; <a href="https://github.com/epistrephein/rubies">GitHub</a></p>
+</footer>

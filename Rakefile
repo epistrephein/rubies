@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+
+require 'bundler/setup'
+
+Rake.add_rakelib 'tasks/server'
+Rake.add_rakelib 'tasks/redis'

@@ -1,0 +1,2 @@
+--no-notify
+--pattern '{app.rb,helpers/**/*.rb,models/**/*.rb,routes/**/*.rb}'

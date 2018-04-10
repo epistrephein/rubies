@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title><%= @title %></title>
+    <meta name="description" content="an API interface to Ruby versions status and filters">
+    <meta name="author" content="epistrephein">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/css/bootstrap.cosmo.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="text-center">
+        <a href="/"><img class="img-fluid mt-4 mb-2" width="150" src="/img/rubies.png" alt="rubies"></a>
+        <h1 class="display-4">Rubies.io</h1>
+        <p class="lead">Monitor for Ruby versions status</p>
+
+        <hr style="width: 50%;" class="my-5">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

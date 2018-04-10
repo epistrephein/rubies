@@ -1,0 +1,3 @@
+web: bundle exec rerun -- rackup -p ${PORT:-4567} -E ${RACK_ENV:-test} config.ru
+guard: bundle exec guard -i
+redis: redis-server /usr/local/etc/redis.conf
