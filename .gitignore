@@ -37,8 +37,5 @@
 *.sqlite
 *.db
 
-## Foreman/Dotenv:
-.env*
-
 ## RVM:
 .rvmrc
