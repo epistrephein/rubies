@@ -2,14 +2,10 @@
   <h2><strong>Active branches</strong></h2>
   <p class="text-muted mb-4">Latest stable releases under active maintenance</p>
   <p class="lead mb-1"><strong>Normal maintenance</strong></p>
-  <ul class="list-inline">
-    <li><code><%= @normal.join(', ') %></code></li>
-  </ul>
+  <p><code><%= @normal.join(', ') %></code></p>
 
   <p class="lead mb-1"><strong>Security maintenance</strong></p>
-  <ul class="list-inline">
-    <li><code><%= @security.join(', ') %></code></li>
-  </ul>
+  <p><code><%= @security.join(', ') %></code></p>
 </div>
 
 <div class="mt-5">
