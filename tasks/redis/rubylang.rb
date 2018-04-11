@@ -33,7 +33,7 @@ def scrape_branches
   infos = doc.css('#content').css('h3+p')
 
   versions.each_with_object({}).with_index do |(v, hash), i|
-    version = v.text.match(SEMVER).values_at(:major, :minor).join('.')
+    version = v.text.match(SEMVER).values_at(1, 2).join('.')
     branch = infos[i].text.match(Regexp.union(STATUSES)).to_s
     hash[version] = branch
   end
@@ -41,7 +41,7 @@ end
 
 def comparable(version)
   semver   = version.match(SEMVER)
-  integers = semver.values_at(:major, :minor, :patch).map(&:to_i)
+  integers = semver.values_at(1, 2, 3).map(&:to_i)
   build    = semver[:build].to_s[/\d+/].to_i
   pre      = case semver[:pre]
              when nil             then 30
@@ -63,7 +63,7 @@ def latest(versions, preview: false)
 end
 
 def branch(branch, preview: false)
-  sorted = sort(RELEASES.select { |r| r.match?(/^#{branch}/) })
+  sorted = sort(RELEASES.select { |r| r.match(/^#{branch}/) })
   preview ? sorted : sorted.reject { |v| v =~ /rc|preview/ }
 end
 
@@ -92,7 +92,7 @@ def active
 end
 
 def status?(release)
-  mm = release.match(SEMVER).values_at(:major, :minor).join('.')
+  mm = release.match(SEMVER).values_at(1, 2).join('.')
   BRANCHES[mm]
 end
 

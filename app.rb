@@ -35,7 +35,8 @@ class Rubies < Sinatra::Base
   get '/' do
     @normal      = JSON.parse(REDIS.get('normal'))
     @security    = JSON.parse(REDIS.get('security'))
-    @last_update = JSON.parse(REDIS.get('last_update'))
+    @last_update = JSON.parse(REDIS.get('last_update'))['last_update']
+    @version     = JSON.parse(REDIS.get('version'))['version']
     erb :index
   end
 

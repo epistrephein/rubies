@@ -3,7 +3,7 @@
 require 'redis'
 require 'json'
 
-require_relative 'redis'
+require_relative 'rubylang'
 
 namespace :redis do
   desc 'Populate Redis with data'
@@ -17,7 +17,7 @@ namespace :redis do
     REDIS    ||= Redis.new(url: ENV['REDIS_URL'])
 
     # /version
-    REDIS.set('version', VERSION.to_json)
+    REDIS.set('version', { version: VERSION }.to_json)
 
     # /active
     REDIS.set('active', active.to_json)
@@ -41,7 +41,7 @@ namespace :redis do
     end
 
     # /last_update
-    REDIS.set('last_update', Time.now.to_json)
+    REDIS.set('last_update', { last_update: Time.now }.to_json)
 
     puts 'Redis: OK'
   end
