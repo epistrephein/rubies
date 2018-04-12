@@ -10,6 +10,11 @@ gem 'redis', '~> 4.0'
 gem 'sinatra', '~> 2.0'
 gem 'thin', '~> 1.7'
 
+group :production do
+  gem 'unicorn', '~> 5.4'
+  gem 'whenever', '~> 0.10.0'
+end
+
 group :test do
   gem 'guard'
   gem 'guard-rspec'
