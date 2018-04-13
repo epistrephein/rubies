@@ -37,5 +37,8 @@
 *.sqlite
 *.db
 
+## Redis:
+*.rdb
+
 ## RVM:
 .rvmrc
