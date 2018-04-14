@@ -12,7 +12,7 @@ gem 'thin', '~> 1.7'
 
 group :production do
   gem 'unicorn', '~> 5.4'
-  gem 'whenever', '~> 0.10.0'
+  gem 'whenever', '~> 0.10'
 end
 
 group :test do

@@ -121,7 +121,7 @@ DEPENDENCIES
   sinatra (~> 2.0)
   thin (~> 1.7)
   unicorn (~> 5.4)
-  whenever (~> 0.10.0)
+  whenever (~> 0.10)
 
 RUBY VERSION
    ruby 2.3.1p112
