@@ -8,7 +8,6 @@ gem 'nokogiri', '~> 1.8'
 gem 'rake', '~> 12.3'
 gem 'redis', '~> 4.0'
 gem 'sinatra', '~> 2.0'
-gem 'thin', '~> 1.7'
 
 group :production do
   gem 'unicorn', '~> 5.4'
@@ -28,4 +27,5 @@ group :development do
   gem 'pry'
   gem 'rerun'
   gem 'rubocop'
+  gem 'thin'
 end

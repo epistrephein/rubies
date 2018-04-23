@@ -119,7 +119,7 @@ DEPENDENCIES
   rspec
   rubocop
   sinatra (~> 2.0)
-  thin (~> 1.7)
+  thin
   unicorn (~> 5.4)
   whenever (~> 0.10)
 

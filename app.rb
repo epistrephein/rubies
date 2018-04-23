@@ -21,7 +21,6 @@ class Rubies < Sinatra::Base
   end
 
   # Settings
-  set :server,        :thin
   set :app_file,      __FILE__
   set :root,          File.dirname(settings.app_file)
   set :public_folder, File.join(settings.root, 'public')
