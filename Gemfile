@@ -14,6 +14,10 @@ group :production do
   gem 'whenever', '~> 0.10', require: false
 end
 
+group :test, :development do
+  gem 'thin'
+end
+
 group :test do
   gem 'guard'
   gem 'guard-rspec'
@@ -27,5 +31,4 @@ group :development do
   gem 'pry'
   gem 'rerun'
   gem 'rubocop'
-  gem 'thin'
 end
