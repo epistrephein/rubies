@@ -5,4 +5,9 @@ RSpec.describe 'Rubies Web' do
     get '/'
     expect(last_response).to be_ok
   end
+
+  it 'returns a 404 error' do
+    get '/non-existent'
+    expect(last_response.status).to be 404
+  end
 end
