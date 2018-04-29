@@ -42,6 +42,8 @@ class Rubies < Sinatra::Base
   # API
   before '/api/*' do
     content_type 'application/json; charset=utf-8'
+    headers 'Access-Control-Allow-Origin'  => '*',
+            'Access-Control-Allow-Methods' => %w[OPTIONS GET]
   end
 
   get %r{/api/(.*)} do |key|
