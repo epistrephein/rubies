@@ -47,16 +47,18 @@ class Rubies < Sinatra::Base
   end
 
   get %r{/api/(.*)} do |key|
-    unless REDIS.exists(key.to_s)
-      halt 404, { error: 'Not Found', status: 404 }.to_json
-    end
+    halt 404 unless REDIS.exists(key.to_s)
     REDIS.get(key.to_s)
   end
 
   # Errors
   not_found do
     status 404
-    @title = 'Rubies - 404'
-    erb :error unless request.path_info =~ %r{^/api/}
+    if request.path_info =~ %r{^/api/}
+      { error: 'Not Found', status: 404 }.to_json
+    else
+      @title = 'Rubies - 404'
+      erb :error
+    end
   end
 end
