@@ -4,7 +4,9 @@ An API interface to Ruby versions status and filters.
 
 ## API
 
-The endpoint is `https://rubies.io/api`.
+The endpoint is `https://rubies.io/api`.  
+All successful requests return a JSON with Content-Type `application/json; charset=utf-8`.  
+CORS is enabled by default.
 
 ### Status
 
@@ -68,4 +70,4 @@ $ curl -s https://rubies.io/api/eol | jq
 ]
 ```
 
-## Work in progres...
+## Work in progress...
