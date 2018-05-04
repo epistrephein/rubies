@@ -70,4 +70,16 @@ $ curl -s https://rubies.io/api/eol | jq
 ]
 ```
 
+### Errors
+
+Invalid requests return a JSON with 404 status code.
+
+```bash
+$ curl -s https://rubies.io/api/invalid_path | jq
+{
+  "error": "Not Found",
+  "status": 404
+}
+```
+
 ## Work in progress...
