@@ -48,7 +48,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     rack (2.0.5)
-    rack-protection (2.0.1)
+    rack-protection (2.0.2)
       rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -84,10 +84,10 @@ GEM
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     shellany (0.0.1)
-    sinatra (2.0.1)
+    sinatra (2.0.2)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.1)
+      rack-protection (= 2.0.2)
       tilt (~> 2.0)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
@@ -118,7 +118,7 @@ DEPENDENCIES
   rerun
   rspec
   rubocop
-  sinatra (~> 2.0)
+  sinatra (~> 2.0, >= 2.0.2)
   thin
   unicorn (~> 5.4)
   whenever (~> 0.10)
