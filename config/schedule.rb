@@ -3,7 +3,7 @@
 env :PATH, ENV['PATH']
 
 set :environment_variable, 'REDIS_URL'
-set :environment,          'redis://localhost:6379'
+set :environment,          'redis://localhost:6379/0'
 
 set :chronic_options, hours24: true
 set :output,
