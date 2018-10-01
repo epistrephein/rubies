@@ -120,7 +120,7 @@ DEPENDENCIES
   rerun
   rspec
   rubocop
-  sinatra (~> 2.0, >= 2.0.2)
+  sinatra (~> 2.0)
   thin
   unicorn (~> 5.4)
   whenever (~> 0.10)

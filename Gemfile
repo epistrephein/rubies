@@ -7,7 +7,7 @@ ruby '2.3.1'
 gem 'nokogiri', '~> 1.8'
 gem 'rake', '~> 12.3'
 gem 'redis', '~> 4.0'
-gem 'sinatra', '~> 2.0', '>= 2.0.2'
+gem 'sinatra', '~> 2.0'
 
 group :production do
   gem 'unicorn', '~> 5.4'
