@@ -1,5 +1,6 @@
 sudo: false
 language: ruby
+cache: bundler
 before_install: gem install bundler -v 1.15.4
 install: bundle _1.15.4_ install --with test --without development production
 services:
