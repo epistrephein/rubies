@@ -1,14 +1,14 @@
 sudo: false
 language: ruby
 cache: bundler
-before_install: gem install bundler -v 1.15.4
-install: bundle _1.15.4_ install --with test --without development production
+before_install: gem install bundler -v 1.16.3
+install: bundle _1.16.3_ install --with test --without development production
 services:
   - redis-server
 before_script:
-  - bundle _1.15.4_ exec rake redis:populate
-  - bundle _1.15.4_ exec thin start -R config.ru -e $RACK_ENV &
-script: bundle _1.15.4_ exec rspec
+  - bundle _1.16.3_ exec rake redis:populate
+  - bundle _1.16.3_ exec thin start -R config.ru -e $RACK_ENV &
+script: bundle _1.16.3_ exec rspec
 rvm:
   - 2.3.1
 branches:
