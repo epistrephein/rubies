@@ -82,4 +82,22 @@ $ curl -s https://rubies.io/api/invalid_path | jq
 }
 ```
 
-## Work in progress...
+## Contributing
+
+Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rubies).
+
+This project is intended to be a safe, welcoming space for collaboration,
+and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rubies/blob/master/CODE_OF_CONDUCT.md).
+
+You can contribute changes by forking the project and submitting a pull request. To get started:
+
+1. Fork the repo
+2. Install the dependencies (`bin/setup`)
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new pull request
+
+## License
+
+This project is released as open source under the terms of the [MIT License](https://github.com/epistrephein/rubies/blob/master/LICENSE).
