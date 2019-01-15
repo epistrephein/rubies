@@ -18,6 +18,7 @@ class Rubies < Sinatra::Base
     set :raise_errors,    false
     set :show_exceptions, false
     set :session_secret,  ENV.fetch('SESSION_SECRET', SecureRandom.hex(64))
+    set :protection,      except: [:json_csrf]
   end
 
   # Settings
