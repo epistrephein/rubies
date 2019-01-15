@@ -10,7 +10,7 @@ CORS is enabled by default.
 
 ### Status
 
-`/active` - returns the latest releases currently active (meaning in either normal or security maintenance).
+[`/active`](https://rubies.io/api/active) - returns the latest releases currently active (meaning in either normal or security maintenance).
 
 ```bash
 $ curl -s https://rubies.io/api/active | jq
@@ -24,7 +24,7 @@ $ curl -s https://rubies.io/api/active | jq
 
 ---
 
-`/preview` - returns the latest releases currently in preview.
+[`/preview`](https://rubies.io/api/preview) - returns the latest releases currently in preview.
 
 ```bash
 $ curl -s https://rubies.io/api/preview | jq
@@ -35,7 +35,7 @@ $ curl -s https://rubies.io/api/preview | jq
 
 ---
 
-`/normal` - returns the latest releases in normal maintenance (receiving bug fixes and security fixes).
+[`/normal`](https://rubies.io/api/normal) - returns the latest releases in normal maintenance (receiving bug fixes and security fixes).
 
 ```bash
 $ curl -s https://rubies.io/api/normal | jq
@@ -47,7 +47,7 @@ $ curl -s https://rubies.io/api/normal | jq
 
 ---
 
-`/security` - returns the latest releases in security maintenance (receiving security fixes only).
+[`/security`](https://rubies.io/api/security) - returns the latest releases in security maintenance (receiving security fixes only).
 
 ```bash
 $ curl -s https://rubies.io/api/security | jq
@@ -59,7 +59,7 @@ $ curl -s https://rubies.io/api/security | jq
 
 ---
 
-`/eol` - returns the latest end-of-life releases (no longer supported and not receiving any fixes).
+[`/eol`](https://rubies.io/api/eol) - returns the latest end-of-life releases (no longer supported and not receiving any fixes).
 
 ```bash
 $ curl -s https://rubies.io/api/eol | jq
@@ -72,7 +72,7 @@ $ curl -s https://rubies.io/api/eol | jq
 
 ### Errors
 
-Invalid requests return a JSON with 404 status code.
+[Invalid requests](https://rubies.io/api/invalid_path) return a JSON with 404 status code.
 
 ```bash
 $ curl -s https://rubies.io/api/invalid_path | jq
