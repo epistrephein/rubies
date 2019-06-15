@@ -11,7 +11,7 @@ gem 'sinatra', '~> 2.0'
 
 group :production do
   gem 'unicorn', '~> 5.4'
-  gem 'whenever', '~> 0.10', require: false
+  gem 'whenever', '~> 1.0', require: false
 end
 
 group :test, :development do

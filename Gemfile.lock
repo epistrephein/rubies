@@ -99,7 +99,7 @@ GEM
     unicorn (5.5.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    whenever (0.11.0)
+    whenever (1.0.0)
       chronic (>= 0.6.3)
 
 PLATFORMS
@@ -121,7 +121,7 @@ DEPENDENCIES
   sinatra (~> 2.0)
   thin
   unicorn (~> 5.4)
-  whenever (~> 0.10)
+  whenever (~> 1.0)
 
 RUBY VERSION
    ruby 2.3.1p112
