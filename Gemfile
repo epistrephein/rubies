@@ -26,7 +26,6 @@ group :test do
 end
 
 group :development do
-  gem 'bundler'
   gem 'foreman'
   gem 'pry'
   gem 'rerun'
