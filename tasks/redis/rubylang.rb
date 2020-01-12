@@ -88,7 +88,7 @@ def eol
 end
 
 def active
-  normal + security
+  normal | security
 end
 
 def status?(release)
