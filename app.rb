@@ -11,7 +11,6 @@ class Rubies < Sinatra::Base
   # Configuration
   configure :production, :development do
     enable :logging
-    enable :sessions
   end
 
   configure :production do
