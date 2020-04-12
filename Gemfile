@@ -27,5 +27,5 @@ group :development do
   gem 'foreman'
   gem 'pry'
   gem 'rerun'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.81.0'
 end

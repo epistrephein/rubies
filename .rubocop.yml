@@ -1,0 +1,133 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.3
+
+# Check the indentation of the first argument in a method call.
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+
+# Check the indentation of the first element in an array literal.
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+# Check the indentation of the first key in a hash literal.
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+# Align the elements of a hash literal if they span more than one line.
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+# Limit lines to 80 characters.
+Layout/LineLength:
+  Enabled: false
+
+# Enforce the indentation of the method name part in method calls that span more than one line.
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+# Check for ambiguous regexp literals in the first argument of a method invocation without parentheses.
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+
+# Check for statements which are raising Exception class.
+Lint/RaiseException:
+  Enabled: true
+
+# Check unexpected overrides of the Struct built-in methods via Struct.new.
+Lint/StructNewOverride:
+  Enabled: true
+
+# A calculated magnitude based on number of assignments, branches, and conditions.
+Metrics/AbcSize:
+  Enabled: false
+
+# Avoid long blocks with many lines.
+Metrics/BlockLength:
+  Enabled: false
+
+# Avoid excessive block nesting.
+Metrics/BlockNesting:
+  Enabled: false
+
+# Avoid classes longer than 100 lines of code.
+Metrics/ClassLength:
+  Enabled: false
+
+# A complexity metric that is strongly correlated to the number of test cases needed to validate a method.
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+# Avoid methods longer than 10 lines of code.
+Metrics/MethodLength:
+  Enabled: false
+
+# Avoid modules longer than 100 lines of code.
+Metrics/ModuleLength:
+  Enabled: false
+
+# Avoid parameter lists longer than three or four parameters.
+Metrics/ParameterLists:
+  Enabled: false
+
+# A complexity metric geared towards measuring complexity for a human reader.
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# Use only ASCII symbols in comments.
+Style/AsciiComments:
+  Enabled: false
+
+# Do not place comments on the same line as certain keywords.
+Style/CommentedKeyword:
+  Enabled: false
+
+# Document classes and non-namespace modules.
+Style/Documentation:
+  Enabled: false
+
+# Put empty method definitions on a single line.
+Style/EmptyMethod:
+  Enabled: false
+
+# Enforce each_key and each_value Hash methods.
+Style/HashEachMethods:
+  Enabled: true
+
+# Enforce the use of transform_keys Hash method.
+Style/HashTransformKeys:
+  Enabled: false
+
+# Enforce the use of transform_values Hash method.
+Style/HashTransformValues:
+  Enabled: true
+
+# Favor modifier if/unless usage when you have a single-line body.
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Add underscores to large numeric literals to improve their readability.
+Style/NumericLiterals:
+  Enabled: false
+
+# Check for the use of predicate or comparison methods for numeric comparisons.
+Style/NumericPredicate:
+  Enabled: false
+
+# Enforce using / or %r around regular expressions.
+Style/RegexpLiteral:
+  Enabled: false
+
+# Use %i for arrays of symbols.
+Style/SymbolArray:
+  Enabled: false
+
+# Favor modifier while/until usage when you have a single-line body.
+Style/WhileUntilModifier:
+  Enabled: false
+
+# Use %w or %W for arrays of words.
+Style/WordArray:
+  Enabled: false
