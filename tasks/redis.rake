@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require 'redis'
+require 'time'
 
 require_relative '../lib/remote'
 require_relative '../lib/branch'
 require_relative '../lib/release'
+require_relative '../lib/version'
 
 REDIS ||= Redis.new(url: ENV['REDIS_URL'])
 
@@ -16,6 +18,8 @@ namespace :redis do
 
     Branch.all.each  { |b| REDIS.set(b.to_s, b.to_json) }
     Release.all.each { |r| REDIS.set(r.to_s, r.to_json) }
+    # Branch.all.each  { |b| REDIS.set("v#{VERSION_MAJOR}__#{b}", b.to_json) }
+    # Release.all.each { |r| REDIS.set("v#{VERSION_MAJOR}__#{r}", r.to_json) }
 
     Branch::STATUSES.each do |status|
       branches = Branch.status(status)
@@ -26,5 +30,8 @@ namespace :redis do
         latest:   branches.map { |b| b.latest.to_s }
       }.to_json)
     end
+
+    REDIS.set(:last_update, { last_update: Time.now.iso8601 }.to_json)
+    REDIS.set(:version, { version: VERSION_FULL }.to_json)
   end
 end
