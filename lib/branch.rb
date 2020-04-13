@@ -61,7 +61,7 @@ class Branch < Remote
         branch_date = branch['date']
         eol_date    = branch['eol_date']
 
-        next if version <= self::NEWER_THAN.to_s || version =~ /^#{self::NEWER_THAN}/
+        next if version < self::MIN_VERSION
 
         Branch.new(version, status, branch_date, eol_date)
       end.compact

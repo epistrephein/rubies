@@ -67,7 +67,7 @@ class Release < Remote
         version_comparable = Gem::Version.new(version_string)
         release_date       = release['date']
 
-        next if version_comparable <= self::NEWER_THAN
+        next if version_string < self::MIN_VERSION
 
         Release.new(version_string, version_comparable, release_date)
       end
