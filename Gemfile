@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'nokogiri', '~> 1.8'
+gem 'octokit', '~> 4.18'
 gem 'rake', '~> 13.0'
 gem 'redis', '~> 4.0'
 gem 'sinatra', '~> 2.0'
