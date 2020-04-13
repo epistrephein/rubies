@@ -32,14 +32,6 @@ Layout/MultilineMethodCallIndentation:
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
-# Check for statements which are raising Exception class.
-Lint/RaiseException:
-  Enabled: true
-
-# Check unexpected overrides of the Struct built-in methods via Struct.new.
-Lint/StructNewOverride:
-  Enabled: true
-
 # A calculated magnitude based on number of assignments, branches, and conditions.
 Metrics/AbcSize:
   Enabled: false
