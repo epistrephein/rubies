@@ -12,12 +12,13 @@ RSpec.describe 'Rubies API' do
   end
 
   it 'returns each status key' do
-    %w[active normal security preview eol].each do |key|
+    %w[normal security preview eol].each do |key|
       get "/api/#{key}"
       json = JSON.parse(last_response.body)
 
       expect(last_response.status).to be 200
-      expect(json).to be_a(Array)
+      expect(json).to be_a(Hash)
+      expect(json).to include('status', 'branches', 'latest')
     end
   end
 
