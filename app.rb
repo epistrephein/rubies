@@ -25,32 +25,14 @@ class Rubies < Sinatra::Base
   set :root,          File.dirname(settings.app_file)
   set :public_folder, File.join(settings.root, 'public')
 
-  # options '*' do
-  #   response.headers['Allow'] = 'HEAD, GET, OPTIONS'
-  #   response.headers['Access-Control-Allow-Headers'] = %w[
-  #     X-Requested-With
-  #     X-HTTP-Method-Override
-  #     Content-Type
-  #     Cache-Control
-  #     Accept
-  #   ].join(', ')
-
-  #   status 200
-  # end
-
   get '/' do
-    # @normal      = JSON.parse(REDIS.get('normal'))
-    # @security    = JSON.parse(REDIS.get('security'))
+    @normal      = []
+    @security    = []
+
     @last_update = JSON.parse(REDIS.get('last_update'))['last_update']
     @version     = JSON.parse(REDIS.get('version'))['version']
 
-    @normal      = []
-    @security    = []
     erb :index
-  end
-
-  get '/error' do
-    raise StandardError
   end
 
   before '/api/*' do
@@ -61,17 +43,7 @@ class Rubies < Sinatra::Base
             'Access-Control-Allow-Headers' => 'accept, authorization, origin'
   end
 
-  get '/api/error' do
-    raise StandardError
-  end
-
   get %r{/api/(.*)} do |key|
-  # get %r{/api(?:/(v\d+))?/(.*)} do |version, key|
-  # get '/api/?:version?/?:key?' do
-    # logger.debug('/api/') { "version: #{version}, key: #{key}" }
-    # logger.debug('/api/') { "version: #{params[:version]}, key: #{params[:key]}" }
-    # halt 404 unless REDIS.exists("#{version || 2}__#{key}")
-    # REDIS.get("v#{version}__#{key}")
     halt 404 unless REDIS.exists(key.to_s)
     REDIS.get(key.to_s)
   end

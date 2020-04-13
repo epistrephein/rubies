@@ -18,8 +18,6 @@ namespace :redis do
 
     Branch.all.each  { |b| REDIS.set(b.to_s, b.to_json) }
     Release.all.each { |r| REDIS.set(r.to_s, r.to_json) }
-    # Branch.all.each  { |b| REDIS.set("v#{VERSION_MAJOR}__#{b}", b.to_json) }
-    # Release.all.each { |r| REDIS.set("v#{VERSION_MAJOR}__#{r}", r.to_json) }
 
     Branch::STATUSES.each do |status|
       branches = Branch.status(status)
@@ -31,7 +29,7 @@ namespace :redis do
       }.to_json)
     end
 
-    REDIS.set(:last_update, { last_update: Time.now.iso8601 }.to_json)
-    REDIS.set(:version, { version: VERSION_FULL }.to_json)
+    REDIS.set('version', { version: VERSION_FULL }.to_json)
+    REDIS.set('last_update', { last_update: Time.now.iso8601 }.to_json)
   end
 end
