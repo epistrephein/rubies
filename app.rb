@@ -17,17 +17,13 @@ class Rubies < Sinatra::Base
     set :show_exceptions, false
   end
 
-  configure :development do
-    set :logging, Logger::DEBUG
-  end
-
   set :app_file,      __FILE__
   set :root,          File.dirname(settings.app_file)
   set :public_folder, File.join(settings.root, 'public')
 
   get '/' do
-    @normal      = []
-    @security    = []
+    @normal      = JSON.parse(REDIS.get('normal'))['latest']
+    @security    = JSON.parse(REDIS.get('security'))['latest']
 
     @last_update = JSON.parse(REDIS.get('last_update'))['last_update']
     @version     = JSON.parse(REDIS.get('version'))['version']

@@ -1,2 +1,2 @@
 --no-notify
---pattern '{app.rb,helpers/**/*.rb,models/**/*.rb,routes/**/*.rb,views/**/*.erb,public/**/*.{css,js}}'
+--pattern '{app.rb,views/**/*.erb,public/**/*.{css,js}}'
