@@ -44,7 +44,7 @@ RSpec.describe Release, :github do
     pending
   end
 
-  describe '.dict_releases' do
+  describe '.hashmap_releases' do
     pending
   end
 

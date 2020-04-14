@@ -49,11 +49,11 @@ RSpec.describe Branch, :github do
     end
   end
 
-  describe '.dict_branches' do
+  describe '.hashmap_branches' do
     pending
   end
 
-  describe '.dict_statuses' do
+  describe '.hashmap_statuses' do
     pending
   end
 

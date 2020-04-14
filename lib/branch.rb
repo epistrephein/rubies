@@ -49,13 +49,13 @@ class Branch < Remote
       all.select { |b| status.include?(b.status) }
     end
 
-    def dict_branches
+    def hashmap_branches
       all.each_with_object({}) do |branch, hash|
         hash[branch.to_s] = branch.attributes
       end
     end
 
-    def dict_statuses
+    def hashmap_statuses
       self::STATUSES.each_with_object({}) do |status, hash|
         branches = status(status)
 
