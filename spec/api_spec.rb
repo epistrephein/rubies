@@ -3,12 +3,12 @@
 require 'json'
 require 'time'
 
-RSpec.describe 'Rubies API', :redis do
+RSpec.describe Rubies, :redis do
   it 'returns the API versions' do
     get '/api/version'
     json = JSON.parse(last_response.body)
 
-    expect(json.fetch('version')).to eq('2.0.0')
+    expect(json.fetch('version')).to eq(VERSION_FULL)
   end
 
   it 'returns each status key' do

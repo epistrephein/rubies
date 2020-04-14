@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Release, :github do
+  subject(:release) { described_class['2.6.4'] }
+
   before do
     Branch.build!
     Release.build!

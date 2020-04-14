@@ -11,6 +11,7 @@ require 'webmock/rspec'
 require_relative '../lib/remote'
 require_relative '../lib/branch'
 require_relative '../lib/release'
+require_relative '../lib/version'
 require_relative '../app'
 
 ENV['RACK_ENV'] = 'test'
