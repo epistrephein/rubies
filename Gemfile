@@ -16,19 +16,20 @@ group :production do
 end
 
 group :test, :development do
-  gem 'thin'
+  gem 'thin', '~> 1.7'
 end
 
 group :test do
-  gem 'mock_redis'
-  gem 'rack-test'
-  gem 'rspec'
-  gem 'webmock'
+  gem 'mock_redis', '~> 0.19'
+  gem 'rack-test', '~> 1.1'
+  gem 'rspec', '~> 3.6'
+  gem 'simplecov', '~> 0.17'
+  gem 'webmock', '~> 3.8'
 end
 
 group :development do
   gem 'foreman'
-  gem 'pry'
-  gem 'rerun'
+  gem 'pry', '~> 0.12'
+  gem 'rerun', '~> 0.13'
   gem 'rubocop', '~> 0.80.0'
 end
