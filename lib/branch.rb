@@ -44,6 +44,24 @@ class Branch < Remote
       all.select { |b| status.include?(b.status) }
     end
 
+    def dict_branches
+      all.each_with_object({}) do |branch, hash|
+        hash[branch.to_s] = branch.attributes
+      end
+    end
+
+    def dict_statuses
+      self::STATUSES.each_with_object({}) do |status, hash|
+        branches = status(status)
+
+        hash[status.to_s] = {
+          status:   status,
+          branches: branches.map(&:to_s),
+          latest:   branches.map { |b| b.latest.to_s }
+        }
+      end
+    end
+
     def all
       data
     end

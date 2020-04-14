@@ -51,6 +51,12 @@ class Release < Remote
       all.select { |r| r.branch == branch }
     end
 
+    def dict_releases
+      all.each_with_object({}) do |release, hash|
+        hash[release.to_s] = release.attributes
+      end
+    end
+
     def all
       data
     end

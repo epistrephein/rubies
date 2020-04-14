@@ -15,18 +15,9 @@ namespace :redis do
     Branch.build!
     Release.build!
 
-    Branch.all.each  { |branch| REDIS.set(branch.to_s, branch.to_json) }
-    Release.all.each { |release| REDIS.set(release.to_s, release.to_json) }
-
-    Branch::STATUSES.each do |status|
-      branches = Branch.status(status)
-
-      REDIS.set(status, {
-        status:   status,
-        branches: branches.map(&:to_s),
-        latest:   branches.map { |b| b.latest.to_s }
-      }.to_json)
-    end
+    Branch.dict_statuses.each  { |key, attr| REDIS.set(key, attr.to_json) }
+    Branch.dict_branches.each  { |key, attr| REDIS.set(key, attr.to_json) }
+    Release.dict_releases.each { |key, attr| REDIS.set(key, attr.to_json) }
 
     REDIS.set('version', { version: VERSION_FULL }.to_json)
     REDIS.set('last_update', { last_update: Time.now }.to_json)
