@@ -3,7 +3,7 @@
 require 'json'
 require 'time'
 
-RSpec.describe 'Rubies API' do
+RSpec.describe 'Rubies API', :redis do
   it 'returns the API versions' do
     get '/api/version'
     json = JSON.parse(last_response.body)

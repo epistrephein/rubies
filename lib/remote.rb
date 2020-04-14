@@ -11,25 +11,15 @@ class Remote
   STATUSES     = %w[preview normal security eol].freeze
   MIN_VERSION  = '2.1'
 
-  # Abstract class, initialize is implemented in subclasses.
+  # Abstract class, initialize is implemented in subclasses
   def initialize
     raise "Don't instantiate an abstract class"
-  end
-
-  # Dump attributes as JSON string.
-  def to_json(*_args)
-    JSON.generate(attributes)
-  end
-
-  # Dump attributes as YAML string.
-  def to_yaml(*_args)
-    YAML.dump(attributes)
   end
 
   class << self
     private
 
-    # Fetch, decode and parse a remote YAML data file.
+    # Fetch, decode and parse a remote YAML data file
     def fetch(path)
       remote  = Octokit.contents(REPOSITORY, path: path)
       decoded = Base64.decode64(remote.content)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Rubies Web' do
+RSpec.describe 'Rubies Web', :redis do
   it 'loads the home page' do
     get '/'
 

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+SimpleCov.start
+
 require 'bundler/setup'
 require 'mock_redis'
 require 'rack/test'
@@ -57,7 +60,26 @@ RSpec.configure do |config|
   redis.each { |k, v| MOCKREDIS.set(k, v.to_json) }
 
   # Stub Redis as MockRedis
-  config.before(:example) do
+  config.before(:example, :redis) do
     stub_const('REDIS', MOCKREDIS)
+  end
+
+  # Stub GitHub API responses
+  config.before(:all, :github) do
+    stub_request(:get, %r{_data/branches.yml})
+      .to_return(
+        status:  200,
+        body:    fixture('branches'),
+        headers: { 'Content-Type' => 'application/json' }
+      )
+  end
+
+  config.before(:all, :github) do
+    stub_request(:get, %r{_data/releases.yml})
+      .to_return(
+        status:  200,
+        body:    fixture('releases'),
+        headers: { 'Content-Type' => 'application/json' }
+      )
   end
 end

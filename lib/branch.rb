@@ -12,16 +12,21 @@ class Branch < Remote
     @eol_date     = eol_date
   end
 
-  def to_s
-    branch.to_s
-  end
-
   def latest
     releases.first
   end
 
   def releases
     Release.branch(self)
+  end
+
+  def to_s
+    branch.to_s
+  end
+
+  # Dump attributes as JSON string
+  def to_json(*_args)
+    JSON.generate(attributes)
   end
 
   def attributes

@@ -31,6 +31,11 @@ class Release < Remote
     release.to_s
   end
 
+  # Dump attributes as JSON string
+  def to_json(*_args)
+    JSON.generate(attributes)
+  end
+
   def attributes
     {
       release:      to_s,
