@@ -22,10 +22,10 @@ class Rubies < Sinatra::Base
   set :public_folder, File.join(settings.root, 'public')
 
   get '/' do
-    # @normal      = JSON.parse(REDIS.get('normal'))['latest']
-    # @security    = JSON.parse(REDIS.get('security'))['latest']
+    @normal      = JSON.parse(REDIS.get('normal'))['latest']
+    @security    = JSON.parse(REDIS.get('security'))['latest']
 
-    # @last_update = JSON.parse(REDIS.get('last_update'))['last_update']
+    @last_update = JSON.parse(REDIS.get('last_update'))['last_update']
     @version     = JSON.parse(REDIS.get('version'))['version']
 
     erb :index

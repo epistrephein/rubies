@@ -4,11 +4,11 @@ require 'json'
 require 'time'
 
 RSpec.describe 'Rubies API' do
-  fit 'returns the API versions' do
+  it 'returns the API versions' do
     get '/api/version'
     json = JSON.parse(last_response.body)
 
-    expect(json.fetch('version')).to eq('7.0.1')
+    expect(json.fetch('version')).to eq('2.0.0')
   end
 
   it 'returns each status key' do
@@ -29,11 +29,15 @@ RSpec.describe 'Rubies API' do
     expect(Time.parse(json.fetch('last_update'))).to be_a(Time)
   end
 
-  it 'is updated in the last hour' do
-    get '/api/last_update'
-    json = JSON.parse(last_response.body)
+  it 'responds to all endpoints' do
+    endpoints = JSON.parse(fixture('redis')).keys
 
-    expect(Time.parse(json.fetch('last_update')))
-      .to be_within(3600).of Time.now
+    endpoints.each do |endpoint|
+      get "/api/#{endpoint}"
+      json = JSON.parse(last_response.body)
+
+      expect(last_response.status).to be 200
+      expect(json).to be_a(Hash)
+    end
   end
 end

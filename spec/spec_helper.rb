@@ -12,6 +12,8 @@ require_relative '../app'
 
 ENV['RACK_ENV'] = 'test'
 
+MOCKREDIS = MockRedis.new
+
 RSpec.configure do |config|
   # Make Rack::Test available to all spec contexts
   config.include Rack::Test::Methods
@@ -45,14 +47,17 @@ RSpec.configure do |config|
     File.read(file)
   end
 
-  config.before(:example) do
-    mr = MockRedis.new
-    stub_const('REDIS', mr)
-    mr.set('version', {version: "7.0.1"}.to_json)
-  end
-
   # Load Sinatra app for Rack testing
   def app
     Rubies
+  end
+
+  # Populate MockRedis
+  redis = JSON.parse(fixture('redis'))
+  redis.each { |k, v| MOCKREDIS.set(k, v.to_json) }
+
+  # Stub Redis as MockRedis
+  config.before(:example) do
+    stub_const('REDIS', MOCKREDIS)
   end
 end
