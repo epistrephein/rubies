@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe Release, :github do
-  it 'loads the class' do
+  before do
+    Branch.build!
     Release.build!
-    expect(Release.all.count).to be > 5
-    expect(Release).to be_a(Class)
   end
 
   describe '#latest?' do

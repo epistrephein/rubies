@@ -1,22 +1,30 @@
 # frozen_string_literal: true
 
 RSpec.describe Branch, :github do
-  it 'loads the class' do
+  before do
     Branch.build!
-    expect(Branch.all.count).to be > 5
-    expect(Branch).to be_a(Class)
+    Release.build!
   end
 
+  subject { described_class['2.5'] }
+
   describe '#latest' do
-    pending
+    it 'returns the latest version of the branch' do
+      expect(subject.latest).to be_a(Release)
+      expect(subject.latest.to_s).to eq('2.5.8')
+    end
   end
 
   describe '#releases' do
-    pending
+    it 'returns the releases of the branch' do
+      expect(subject.releases).to all(be_a(Release))
+    end
   end
 
   describe '#to_s' do
-    pending
+    it 'returns the branch name as string' do
+      expect(subject.to_s).to eq('2.5')
+    end
   end
 
   describe '#to_json' do
@@ -28,11 +36,17 @@ RSpec.describe Branch, :github do
   end
 
   describe '.[]' do
-    pending
+    it 'returns the branch with the matching name' do
+      expect(described_class['2.5']).to be_a(Branch)
+      expect(described_class['2.5'].to_s).to eq('2.5')
+    end
   end
 
   describe '.status' do
-    pending
+    it 'returns the branches with the matching status' do
+      expect(described_class.status('security')).to all(be_a(Branch))
+      expect(described_class.status('security').first.to_s).to eq('2.5')
+    end
   end
 
   describe '.dict_branches' do
@@ -44,6 +58,8 @@ RSpec.describe Branch, :github do
   end
 
   describe '.all' do
-    pending
+    it 'returns all branches' do
+      expect(described_class.status('security')).to all(be_a(Branch))
+    end
   end
 end

@@ -40,4 +40,10 @@ RSpec.describe 'Rubies API', :redis do
       expect(json).to be_a(Hash)
     end
   end
+
+  it "returns 404 if the key doesn't exist" do
+    get '/api/non-existent'
+
+    expect(last_response.status).to be 404
+  end
 end
