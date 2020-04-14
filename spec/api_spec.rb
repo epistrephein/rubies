@@ -4,11 +4,11 @@ require 'json'
 require 'time'
 
 RSpec.describe 'Rubies API' do
-  it 'returns the API versions' do
+  fit 'returns the API versions' do
     get '/api/version'
     json = JSON.parse(last_response.body)
 
-    expect(json.fetch('version')).to be > '0'
+    expect(json.fetch('version')).to eq('7.0.1')
   end
 
   it 'returns each status key' do

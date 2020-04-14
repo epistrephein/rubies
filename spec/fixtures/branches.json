@@ -1,0 +1,18 @@
+{
+  "name": "branches.yml",
+  "path": "_data/branches.yml",
+  "sha": "6bd57c1980830504dbfc6c02b93ca9640d6dc25d",
+  "size": 998,
+  "url": "https://api.github.com/repos/ruby/www.ruby-lang.org/contents/_data/branches.yml?ref=master",
+  "html_url": "https://github.com/ruby/www.ruby-lang.org/blob/master/_data/branches.yml",
+  "git_url": "https://api.github.com/repos/ruby/www.ruby-lang.org/git/blobs/6bd57c1980830504dbfc6c02b93ca9640d6dc25d",
+  "download_url": "https://raw.githubusercontent.com/ruby/www.ruby-lang.org/master/_data/branches.yml",
+  "type": "file",
+  "content": "IyBUaGlzIGZpbGUgcHJvdmlkZXMgZGV0YWlscyBvbiB0aGUgdmFyaW91cyBS\ndWJ5IGJyYW5jaGVzCiMgYW5kIHRoZWlyIG1haW50ZW5hbmNlIHN0YXR1cy4K\nIwojIEVhY2ggZW50cnkgaGFzIHRoZSBmb2xsb3dpbmcgZm9ybToKIwojIC0g\nbmFtZTogICAgIGJyYW5jaCBuYW1lIChNQUpPUi5NSU5PUiBzaW5jZSAyLjEp\nCiMgICBzdGF0dXM6ICAgbm9ybWFsIG1haW50ZW5hbmNlIHwgc2VjdXJpdHkg\nbWFpbnRlbmFuY2UgfCBlb2wgfCBwcmV2aWV3CiMgICBkYXRlOiAgICAgZGF0\nZSBvZiBmaXJzdCBzdGFibGUgcmVsZWFzZSAoWVlZWS1NTS1ERCkKIyAgIGVv\nbF9kYXRlOiBkYXRlIG9mIEVPTCAoWVlZWS1NTS1ERCkKCi0gbmFtZTogMi43\nCiAgc3RhdHVzOiBub3JtYWwgbWFpbnRlbmFuY2UKICBkYXRlOiAyMDE5LTEy\nLTI1CiAgZW9sX2RhdGU6CgotIG5hbWU6IDIuNgogIHN0YXR1czogbm9ybWFs\nIG1haW50ZW5hbmNlCiAgZGF0ZTogMjAxOC0xMi0yNQogIGVvbF9kYXRlOgoK\nLSBuYW1lOiAyLjUKICBzdGF0dXM6IHNlY3VyaXR5IG1haW50ZW5hbmNlCiAg\nZGF0ZTogMjAxNy0xMi0yNQogIGVvbF9kYXRlOiAyMDIxLTAzLTMxCgotIG5h\nbWU6IDIuNAogIHN0YXR1czogZW9sCiAgZGF0ZTogMjAxNi0xMi0yNQogIGVv\nbF9kYXRlOiAyMDIwLTAzLTMxCgotIG5hbWU6IDIuMwogIHN0YXR1czogZW9s\nCiAgZGF0ZTogMjAxNS0xMi0yNQogIGVvbF9kYXRlOiAyMDE5LTAzLTMxCgot\nIG5hbWU6IDIuMgogIHN0YXR1czogZW9sCiAgZGF0ZTogMjAxNC0xMi0yNQog\nIGVvbF9kYXRlOiAyMDE4LTAzLTMxCgotIG5hbWU6IDIuMQogIHN0YXR1czog\nZW9sCiAgZGF0ZTogMjAxMy0xMi0yNQogIGVvbF9kYXRlOiAyMDE3LTAzLTMx\nCgotIG5hbWU6IDIuMC4wCiAgc3RhdHVzOiBlb2wKICBkYXRlOiAyMDEzLTAy\nLTI0CiAgZW9sX2RhdGU6IDIwMTYtMDItMjQKCi0gbmFtZTogMS45LjMKICBz\ndGF0dXM6IGVvbAogIGRhdGU6IDIwMTEtMTAtMzEKICBlb2xfZGF0ZTogMjAx\nNS0wMi0yMwo=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/ruby/www.ruby-lang.org/contents/_data/branches.yml?ref=master",
+    "git": "https://api.github.com/repos/ruby/www.ruby-lang.org/git/blobs/6bd57c1980830504dbfc6c02b93ca9640d6dc25d",
+    "html": "https://github.com/ruby/www.ruby-lang.org/blob/master/_data/branches.yml"
+  }
+}
