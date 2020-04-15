@@ -57,8 +57,8 @@ RSpec.configure do |config|
   end
 
   # Populate MockRedis
-  redis = JSON.parse(fixture('redis'))
-  redis.each { |k, v| MOCKREDIS.set(k, v.to_json) }
+  redis_fixture = JSON.parse(fixture('redis'))
+  redis_fixture.each { |k, v| MOCKREDIS.set(k, v.to_json) }
 
   # Stub Redis as MockRedis
   config.before(:example, :redis) do
