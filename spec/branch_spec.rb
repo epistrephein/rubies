@@ -28,11 +28,29 @@ RSpec.describe Branch, :github do
   end
 
   describe '#to_json' do
-    pending
+    it 'returns the branch attributes as json' do
+      expect(branch.to_json).to eq(
+        '{"branch":"2.5","status":"security","release_date":"2017-12-25",' \
+        '"eol_date":"2021-03-31","latest":"2.5.8","releases":["2.5.8","2.5.7",' \
+        '"2.5.6","2.5.5","2.5.4","2.5.3","2.5.2","2.5.1","2.5.0","2.5.0-rc1","2.5.0-preview1"]}'
+      )
+    end
   end
 
   describe '#attributes' do
-    pending
+    it 'returns the branch attributes as hash' do
+      expect(branch.attributes).to eq({
+        branch:       '2.5',
+        status:       'security',
+        release_date: Date.new(2017, 12, 25),
+        eol_date:     Date.new(2021, 3, 31),
+        latest:       '2.5.8',
+        releases:     [
+          '2.5.8', '2.5.7', '2.5.6', '2.5.5', '2.5.4', '2.5.3',
+          '2.5.2', '2.5.1', '2.5.0', '2.5.0-rc1', '2.5.0-preview1'
+        ]
+      })
+    end
   end
 
   describe '.[]' do
@@ -50,11 +68,17 @@ RSpec.describe Branch, :github do
   end
 
   describe '.hashmap_branches' do
-    pending
+    it 'returns all branches as hash' do
+      expect(described_class.hashmap_branches.keys).to all(be_a String)
+      expect(described_class.hashmap_branches.values).to all(be_a Hash)
+    end
   end
 
   describe '.hashmap_statuses' do
-    pending
+    it 'returns all statuses as hash' do
+      expect(described_class.hashmap_statuses.keys).to all(be_a String)
+      expect(described_class.hashmap_statuses.values).to all(be_a Hash)
+    end
   end
 
   describe '.all' do

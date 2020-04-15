@@ -3,53 +3,91 @@
 RSpec.describe Release, :github do
   subject(:release) { described_class['2.6.4'] }
 
-  before do
+  before(:each) do
     Branch.build!
     Release.build!
   end
 
   describe '#latest?' do
-    pending
+    it 'returns whether the release is the latest version of the branch' do
+      expect(release.latest?).to be false
+    end
   end
 
   describe '#prerelease?' do
-    pending
+    it 'returns whether the release is a prerelease' do
+      expect(release.prerelease?).to be false
+    end
   end
 
   describe '#branch' do
-    pending
+    it 'returns the branch of the release' do
+      expect(release.branch).to be_a(Branch)
+      expect(release.branch.to_s).to eq('2.6')
+    end
   end
 
   describe '#status' do
-    pending
+    it 'returns the branch status of the release' do
+      expect(release.status).to eq 'normal'
+    end
   end
 
   describe '#to_s' do
-    pending
+    it 'returns the release version as string' do
+      expect(release.to_s).to eq('2.6.4')
+    end
   end
 
   describe '#to_json' do
-    pending
+    it 'returns the release attributes as json' do
+      expect(release.to_json).to eq(
+        '{"release":"2.6.4","branch":"2.6","status":"normal","release_date":' \
+        '"2019-08-28","latest":false,"prerelease":false}'
+      )
+    end
   end
 
   describe '#attributes' do
-    pending
+    it 'returns the release attributes as hash' do
+      expect(release.attributes).to eq({
+        release:      '2.6.4',
+        branch:       '2.6',
+        status:       'normal',
+        release_date: Date.new(2019, 8, 28),
+        latest:       false,
+        prerelease:   false
+      })
+    end
   end
 
   describe '.[]' do
-    pending
+    it 'returns the release with the matching version' do
+      expect(described_class['2.6.4']).to be_a(described_class)
+      expect(described_class['2.6.4'].to_s).to eq('2.6.4')
+    end
   end
 
   describe '.branch' do
-    pending
+    it 'returns the releases of a branch' do
+      branch = Branch['2.6']
+
+      expect(described_class.branch(branch)).to all(be_a(described_class))
+      expect(described_class.branch(branch).first.to_s).to eq('2.6.6')
+    end
   end
 
   describe '.hashmap_releases' do
-    pending
+    it 'returns all releases as hash' do
+      expect(described_class.hashmap_releases.keys).to all(be_a String)
+      expect(described_class.hashmap_releases.values).to all(be_a Hash)
+    end
   end
 
   describe '.all' do
-    pending
+    it 'returns all releases' do
+      expect(described_class.all).to all(be_a(described_class))
+    end
   end
 
   describe '.purge!' do
