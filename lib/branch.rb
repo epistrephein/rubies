@@ -93,14 +93,14 @@ class Branch < Remote
       raise self::ValidationError unless valid?(remote)
 
       @data ||= remote.map do |branch|
-        version     = branch['name'].to_s
-        status      = branch['status'].match(Regexp.union(STATUSES)).to_s
-        branch_date = branch['date']
-        eol_date    = branch['eol_date']
+        version      = branch['name'].to_s
+        status       = branch['status'].match(Regexp.union(STATUSES)).to_s
+        release_date = branch['date']
+        eol_date     = branch['eol_date']
 
         next if version < self::MIN_VERSION
 
-        Branch.new(version, status, branch_date, eol_date)
+        Branch.new(version, status, release_date, eol_date)
       end.compact
     end
   end
