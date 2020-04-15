@@ -39,7 +39,7 @@ class Rubies < Sinatra::Base
             'Access-Control-Allow-Headers' => 'accept, authorization, origin'
   end
 
-  get %r{/api/(.*)} do |key|
+  get '/api/:key' do |key|
     halt 404 unless REDIS.exists(key.to_s)
     REDIS.get(key.to_s)
   end
