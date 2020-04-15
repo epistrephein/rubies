@@ -35,13 +35,12 @@ RSpec.describe Rubies, :redis do
       all_endpoints.each do |endpoint|
         get "/api/#{endpoint}"
 
-        expect(json).to include('status', 'branches', 'latest')
-                    .or include('branch', 'status', 'release_date', 'eol_date',
-                                'latest', 'releases')
-                    .or include('release', 'branch', 'status', 'release_date',
-                                'latest', 'prerelease')
-                    .or include('version')
-                    .or include('last_update')
+        expect(json)
+          .to include('status', 'branches', 'latest')
+          .or include('branch', 'status', 'release_date', 'eol_date', 'latest', 'releases')
+          .or include('release', 'branch', 'status', 'release_date', 'latest', 'prerelease')
+          .or include('version')
+          .or include('last_update')
       end
     end
 

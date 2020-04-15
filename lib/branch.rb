@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
 class Branch < Remote
-  REMOTE_YML = '_data/branches.yml'
-
   attr_reader :branch, :status, :release_date, :eol_date
+
+  REMOTE_YML = '_data/branches.yml'
+  STATUSES   = %w[preview normal security eol].freeze
+
+  SCHEMA = {
+    'name'     => [String, Float],
+    'status'   => [String],
+    'date'     => [Date, String],
+    'eol_date' => [Date, String, NilClass]
+  }.freeze
 
   def initialize(branch, status, release_date, eol_date)
     @branch       = branch
@@ -56,7 +64,7 @@ class Branch < Remote
     end
 
     def hashmap_statuses
-      self::STATUSES.each_with_object({}) do |status, hash|
+      STATUSES.each_with_object({}) do |status, hash|
         branches = status(status)
 
         hash[status.to_s] = {
@@ -72,15 +80,21 @@ class Branch < Remote
     end
     alias build! all
 
+    def purge!
+      @data = nil
+    end
+
     private
 
     def data
       return @data if @data
 
-      remote  = fetch(REMOTE_YML)
+      remote = fetch(REMOTE_YML)
+      raise self::ValidationError unless valid?(remote)
+
       @data ||= remote.map do |branch|
         version     = branch['name'].to_s
-        status      = branch['status'].match(Regexp.union(self::STATUSES)).to_s
+        status      = branch['status'].match(Regexp.union(STATUSES)).to_s
         branch_date = branch['date']
         eol_date    = branch['eol_date']
 

@@ -61,12 +61,12 @@ RSpec.configure do |config|
   redis_fixture.each { |k, v| MOCKREDIS.set(k, v.to_json) }
 
   # Stub Redis as MockRedis
-  config.before(:example, :redis) do
+  config.before(:each, :redis) do
     stub_const('REDIS', MOCKREDIS)
   end
 
   # Stub GitHub API responses
-  config.before(:all, :github) do
+  config.before(:each, :github) do
     stub_request(:get, %r{_data/branches.yml})
       .to_return(
         status:  200,
@@ -75,7 +75,7 @@ RSpec.configure do |config|
       )
   end
 
-  config.before(:all, :github) do
+  config.before(:each, :github) do
     stub_request(:get, %r{_data/releases.yml})
       .to_return(
         status:  200,

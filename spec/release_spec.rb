@@ -51,4 +51,13 @@ RSpec.describe Release, :github do
   describe '.all' do
     pending
   end
+
+  describe '.purge!' do
+    it 'purges all cached data' do
+      expect { described_class.purge! }
+        .to change { described_class.instance_variable_get(:@data).class }
+        .from(Array)
+        .to(NilClass)
+    end
+  end
 end

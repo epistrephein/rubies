@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
 class Release < Remote
+  attr_reader :release, :comparable, :release_date
+
   REMOTE_YML = '_data/releases.yml'
 
-  attr_reader :release, :comparable, :release_date
+  SCHEMA = {
+    'version' => [String, Float],
+    'date'    => [Date, String]
+  }.freeze
 
   def initialize(release, comparable, release_date)
     @release      = release
@@ -67,12 +72,18 @@ class Release < Remote
     end
     alias build! all
 
+    def purge!
+      @data = nil
+    end
+
     private
 
     def data
       return @data if @data
 
-      remote   = fetch(REMOTE_YML)
+      remote = fetch(REMOTE_YML)
+      raise self::ValidationError unless valid?(remote)
+
       unsorted = remote.map do |release|
         version_string     = release['version']
         version_comparable = Gem::Version.new(version_string)

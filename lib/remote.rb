@@ -7,17 +7,30 @@ require 'yaml'
 
 class Remote
   REPOSITORY   = 'ruby/www.ruby-lang.org'
-
-  STATUSES     = %w[preview normal security eol].freeze
   MIN_VERSION  = '2.1'
+
+  class ValidationError < StandardError
+    def message
+      'schema validation failed'
+    end
+  end
 
   # Abstract class, initialize is implemented in subclasses
   def initialize
-    raise "Don't instantiate an abstract class"
+    raise 'abstract classes cannot be instantiated'
   end
 
   class << self
     private
+
+    # Validate remote data against the class schema
+    def valid?(remote)
+      remote.is_a?(Array) && remote.all? do |item|
+        (self::SCHEMA.keys - item.keys).empty? && item.all? do |key, value|
+          self::SCHEMA[key].nil? || self::SCHEMA[key].include?(value.class)
+        end
+      end
+    end
 
     # Fetch, decode and parse a remote YAML data file
     def fetch(path)
