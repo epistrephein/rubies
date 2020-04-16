@@ -7,6 +7,6 @@ set :output,               error:   'log/rake.log'
 set :environment_variable, 'REDIS_URL'
 set :environment,          'redis://localhost:6379/0'
 
-every 8.hours do
+every 1.hour do
   rake 'redis:populate'
 end
