@@ -10,7 +10,7 @@ namespace :redis do
   task :populate do
     puts 'Redis: populating...'
 
-    VERSION = '1.0.2'
+    VERSION = '1.0.3'
 
     RELEASES ||= scrape_releases
     BRANCHES ||= scrape_branches
