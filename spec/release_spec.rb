@@ -40,7 +40,7 @@ RSpec.describe Release, :github do
   end
 
   describe '#to_json' do
-    it 'returns the release attributes as json' do
+    it 'returns the release attributes as JSON' do
       expect(release.to_json).to eq(
         '{"release":"2.6.4","branch":"2.6","status":"normal","release_date":' \
         '"2019-08-28","latest":false,"prerelease":false}'
@@ -78,7 +78,7 @@ RSpec.describe Release, :github do
   end
 
   describe '.hashmap_releases' do
-    it 'returns all releases as hash' do
+    it 'returns all releases attributes as hash' do
       expect(described_class.hashmap_releases.keys).to all(be_a String)
       expect(described_class.hashmap_releases.values).to all(be_a Hash)
     end

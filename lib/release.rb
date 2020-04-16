@@ -16,31 +16,37 @@ class Release < Remote
     @release_date = release_date
   end
 
+  # Return whether the release is the latest version of the branch
   def latest?
     self == self.class.branch(branch).first
   end
 
+  # Return whether the release is a prerelease
   def prerelease?
     comparable.prerelease?
   end
 
+  # Return the branch of the release
   def branch
     Branch[comparable.segments.first(2).join('.')]
   end
 
+  # Return the branch status of the release
   def status
     branch.status
   end
 
+  # Return the release version as string
   def to_s
     release.to_s
   end
 
-  # Dump attributes as JSON string
+  # Return the release attributes as JSON
   def to_json(*_args)
     JSON.generate(attributes)
   end
 
+  # Return the release attributes as hash
   def attributes
     {
       release:      to_s,
@@ -53,31 +59,37 @@ class Release < Remote
   end
 
   class << self
+    # Return the release with the matching version
     def [](release)
       all.find { |r| r.release == release }
     end
 
+    # Return the releases of a branch
     def branch(branch)
       all.select { |r| r.branch == branch }
     end
 
+    # Return all releases attributes as hash
     def hashmap_releases
       all.each_with_object({}) do |release, hash|
         hash[release.to_s] = release.attributes
       end
     end
 
+    # Return all releases
     def all
       data
     end
     alias build! all
 
+    # Purge all cached data
     def purge!
       @data = nil
     end
 
     private
 
+    # Fetch and memoize remote data
     def data
       return @data if @data
 

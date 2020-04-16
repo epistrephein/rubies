@@ -20,23 +20,27 @@ class Branch < Remote
     @eol_date     = eol_date
   end
 
+  # Return the latest version of the branch
   def latest
     releases.first
   end
 
+  # Return the releases of the branch
   def releases
     Release.branch(self)
   end
 
+  # Return the branch name as string
   def to_s
     branch.to_s
   end
 
-  # Dump attributes as JSON string
+  # Return the branch attributes as JSON
   def to_json(*_args)
     JSON.generate(attributes)
   end
 
+  # Return the branch attributes as hash
   def attributes
     {
       branch:       to_s,
@@ -49,20 +53,24 @@ class Branch < Remote
   end
 
   class << self
+    # Return the branch with the matching name
     def [](branch)
       all.find { |b| b.branch == branch }
     end
 
+    # Return the branches with the matching status
     def status(*status)
       all.select { |b| status.include?(b.status) }
     end
 
+    # Return all branches attributes as hash
     def hashmap_branches
       all.each_with_object({}) do |branch, hash|
         hash[branch.to_s] = branch.attributes
       end
     end
 
+    # Return all statuses attributes as hash
     def hashmap_statuses
       STATUSES.each_with_object({}) do |status, hash|
         branches = status(status)
@@ -75,17 +83,20 @@ class Branch < Remote
       end
     end
 
+    # Return all branches
     def all
       data
     end
     alias build! all
 
+    # Purge all cached data
     def purge!
       @data = nil
     end
 
     private
 
+    # Fetch and memoize remote data
     def data
       return @data if @data
 
