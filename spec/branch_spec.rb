@@ -119,7 +119,7 @@ RSpec.describe Branch, :github do
           )
       end
 
-      it 'raises an exception' do
+      it 'raises a Remote::ValidationError exception' do
         expect { described_class.all }.to raise_exception(Remote::ValidationError)
       end
     end

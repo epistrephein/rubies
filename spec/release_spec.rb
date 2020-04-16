@@ -88,6 +88,44 @@ RSpec.describe Release, :github do
     it 'returns all releases' do
       expect(described_class.all).to all(be_a(described_class))
     end
+
+    context 'request timed out' do
+      before do
+        described_class.purge!
+        stub_request(:get, %r{_data/releases.yml}).to_timeout
+      end
+
+      it 'raises Faraday::ConnectionFailed exception' do
+        expect { described_class.all }.to raise_exception(Faraday::ConnectionFailed)
+      end
+    end
+
+    context 'remote not found' do
+      before do
+        described_class.purge!
+        stub_request(:get, %r{_data/releases.yml}).to_return(status: 404)
+      end
+
+      it 'raises Octokit::NotFound exception' do
+        expect { described_class.all }.to raise_exception(Octokit::NotFound)
+      end
+    end
+
+    context 'content malformed' do
+      before do
+        described_class.purge!
+        stub_request(:get, %r{_data/releases.yml})
+          .to_return(
+            status:  200,
+            body:    { content: Base64.encode64('a string'.to_yaml) }.to_json,
+            headers: { 'Content-Type' => 'application/json' }
+          )
+      end
+
+      it 'raises a Remote::ValidationError exception' do
+        expect { described_class.all }.to raise_exception(Remote::ValidationError)
+      end
+    end
   end
 
   describe '.purge!' do
