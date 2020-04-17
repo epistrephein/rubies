@@ -22,14 +22,22 @@
     <div class="mb-4">
       <p class="mb-1">Statuses</p>
       <% @statuses_ex.each do |status| %>
-      <p class="api mb-0"><code>/<%= status %></code></p>
+      <p class="api mb-0">
+        <a href="/api/<%= status %>">
+          <code>/<%= status %></code>
+        </a>
+      </p>
       <% end %>
     </div>
 
     <div class="mb-4">
       <p class="mb-1">Branches</p>
       <% @branches_ex.each do |branch| %>
-      <p class="api mb-0"><code>/<%= branch %></code></p>
+      <p class="api mb-0">
+        <a href="/api/<%= branch %>">
+          <code>/<%= branch %></code>
+        </a>
+      </p>
       <% end %>
       <p class="mb-0"><code>etc...</code></p>
     </div>
@@ -37,7 +45,11 @@
     <div class="mb-4">
       <p class="mb-1">Releases</p>
       <% @releases_ex.each do |release| %>
-      <p class="api mb-0"><code>/<%= release %></code></p>
+      <p class="api mb-0">
+        <a href="/api/<%= release %>">
+          <code>/<%= release %></code>
+        </a>
+      </p>
       <% end %>
       <p class="mb-0"><code>etc...</code></p>
     </div>
