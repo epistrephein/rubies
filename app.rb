@@ -21,12 +21,19 @@ class Rubies < Sinatra::Base
   set :root,          File.dirname(settings.app_file)
   set :public_folder, File.join(settings.root, 'public')
 
-  get '/' do
-    @normal      = JSON.parse(REDIS.get('normal'))['latest']
-    @security    = JSON.parse(REDIS.get('security'))['latest']
+  before do
+    @version = REDIS.get('__version')
+  end
 
-    @last_update = JSON.parse(REDIS.get('last_update'))['last_update']
-    @version     = JSON.parse(REDIS.get('version'))['version']
+  get '/' do
+    @normal      = REDIS.lrange('__normal', 0, -1)
+    @security    = REDIS.lrange('__security', 0, -1)
+
+    @statuses_ex = REDIS.lrange('__statuses_ex', 0, -1)
+    @branches_ex = REDIS.lrange('__branches_ex', 0, -1).sample(4)
+    @releases_ex = REDIS.lrange('__releases_ex', 0, -1).sample(6)
+
+    @last_update = REDIS.get('__last_update')
 
     erb :index
   end
@@ -40,7 +47,7 @@ class Rubies < Sinatra::Base
   end
 
   get '/api/:key' do |key|
-    halt 404 unless REDIS.exists(key.to_s)
+    halt 404 if key.start_with?('__') || !REDIS.exists(key.to_s)
     REDIS.get(key.to_s)
   end
 

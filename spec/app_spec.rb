@@ -11,7 +11,7 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(last_response).to be_ok
-        expect(html).to include('Monitor for Ruby versions status')
+        expect(html).to include('API interface to Ruby versions, releases and branches')
       end
     end
 
@@ -22,7 +22,7 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(last_response).to be_not_found
-        expect(html).to include("The page you're looking for doesn't exist.")
+        expect(html).to include("The page you're looking for doesn't exist")
       end
     end
 

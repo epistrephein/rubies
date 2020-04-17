@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title><%= @title || 'Rubies' %></title>
-    <meta name="description" content="an API interface to Ruby versions status and filters">
-    <meta name="author" content="epistrephein">
+    <meta name="description" content="an API interface to Ruby versions, releases and branches">
+    <meta name="author" content="Tommaso Barbato">
 
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="/css/bootstrap.cosmo.min.css">
-    <link rel="stylesheet" href="/css/inter.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/rubies.css">
   </head>
-  <body>
-
-    <div class="container">
-      <div class="text-center">
-        <a href="/"><img class="img-fluid mt-4 mb-2" width="150" src="/img/rubies.png" alt="rubies"></a>
-        <h1 class="display-4">Rubies.io</h1>
-        <p class="lead">Monitor for Ruby versions status</p>
-
-        <hr style="width: 50%;" class="my-5">
-        <%= yield %>
+  <body class="d-flex flex-column h-100">
+    <main role="main" class="flex-shrink-0">
+      <div class="container">
+        <h1 class="mt-5"><a class="header" href="/">Rubies.io</a></h1>
+        <p class="lead">API interface to Ruby versions, releases and branches.</p>
       </div>
-    </div>
+    </main>
+
+    <%= yield %>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="small text-muted">
+          Rubies.io &middot;
+          v<%= @version %> &middot;
+          <a href="https://github.com/epistrephein/rubies">GitHub</a> &middot;
+          <a href="https://status.rubies.io">Status</a>
+        </span>
+      </div>
+    </footer>
   </body>
 </html>

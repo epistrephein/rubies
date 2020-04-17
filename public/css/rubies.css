@@ -1,3 +1,23 @@
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
 a, a:hover, code {
   color: #cc3333;
+}
+
+.header {
+  color: #212529;
+  text-decoration: none;
+}
+
+.header:hover {
+  color: #cc3333;
+  text-decoration: none;
 }
