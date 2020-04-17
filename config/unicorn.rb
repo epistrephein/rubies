@@ -2,22 +2,24 @@
 
 require 'fileutils'
 
+app_dir = File.expand_path('..', __dir__)
+
 worker_processes 2
-working_directory __dir__
+working_directory app_dir
 
 timeout 30
 
 # Create folders
-FileUtils.mkdir_p "#{__dir__}/tmp/sockets"
-FileUtils.mkdir_p "#{__dir__}/tmp/pids"
-FileUtils.mkdir_p "#{__dir__}/log"
+FileUtils.mkdir_p "#{app_dir}/tmp/sockets"
+FileUtils.mkdir_p "#{app_dir}/tmp/pids"
+FileUtils.mkdir_p "#{app_dir}/log"
 
 # Set socket path for nginx
-listen "#{__dir__}/tmp/sockets/unicorn.sock", backlog: 64
+listen "#{app_dir}/tmp/sockets/unicorn.sock", backlog: 64
 
 # Set process id path
-pid "#{__dir__}/tmp/pids/unicorn.pid"
+pid "#{app_dir}/tmp/pids/unicorn.pid"
 
 # Set log file paths
-stdout_path "#{__dir__}/log/unicorn.stdout.log"
-stderr_path "#{__dir__}/log/unicorn.stderr.log"
+stdout_path "#{app_dir}/log/unicorn.stdout.log"
+stderr_path "#{app_dir}/log/unicorn.stderr.log"
