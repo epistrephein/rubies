@@ -9,15 +9,5 @@
 }
 
 a, a:hover, code {
-  color: #cc3333;
-}
-
-.header {
-  color: #212529;
-  text-decoration: none;
-}
-
-.header:hover {
-  color: #cc3333;
-  text-decoration: none;
+  color: #db2525;
 }

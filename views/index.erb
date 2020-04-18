@@ -1,26 +1,28 @@
-<section class="flex-shrink-0 mt-5">
+<section class="flex-shrink-0 mt-4 text-center">
   <div class="container">
     <h3>Active branches</h3>
     <p class="text-muted mb-4">Latest stable releases under active maintenance</p>
-    <p class="lead mb-1"><strong>Normal maintenance</strong></p>
+    <p class="lead mb-0"><strong>Normal maintenance</strong></p>
     <p><code><%= @normal.join(', ') %></code></p>
 
-    <p class="lead mb-1"><strong>Security maintenance</strong></p>
+    <p class="lead mb-0"><strong>Security maintenance</strong></p>
     <p><code><%= @security.join(', ') %></code></p>
 
-    <p class="text-muted small">Last update: <%= @last_update %></p>
+    <p class="text-muted small my-4">Last update: <%= @last_update %></p>
   </div>
 </section>
 
-<section class="flex-shrink-0 mt-5">
+<hr style="width: 50%;" class="mt-5">
+
+<section class="flex-shrink-0 mt-5 text-center">
   <div class="container">
     <h3>API</h3>
-    <p class="text-muted mb-4">Programmatic access to branches status and release infos</p>
+    <p class="text-muted mb-4">Programmatic access to statuses, branches and releases</p>
     <p class="mb-1"><strong>Endpoint</strong></p>
     <p class="mb-4"><code>https://rubies.io/api</code></p>
 
     <div class="mb-4">
-      <p class="mb-1">Statuses</p>
+      <p class="mb-2">Statuses</p>
       <% @statuses_ex.each do |status| %>
       <p class="api mb-0">
         <a href="/api/<%= status %>">
@@ -31,7 +33,7 @@
     </div>
 
     <div class="mb-4">
-      <p class="mb-1">Branches</p>
+      <p class="mb-2">Branches</p>
       <% @branches_ex.each do |branch| %>
       <p class="api mb-0">
         <a href="/api/<%= branch %>">
@@ -42,8 +44,8 @@
       <p class="mb-0"><code>etc...</code></p>
     </div>
 
-    <div class="mb-4">
-      <p class="mb-1">Releases</p>
+    <div class="mb-5">
+      <p class="mb-2">Releases</p>
       <% @releases_ex.each do |release| %>
       <p class="api mb-0">
         <a href="/api/<%= release %>">

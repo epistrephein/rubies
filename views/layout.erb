@@ -8,23 +8,29 @@
     <meta name="description" content="an API interface to Ruby versions, releases and branches">
     <meta name="author" content="Tommaso Barbato">
 
-    <link rel="icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/rubies.css">
   </head>
   <body class="d-flex flex-column h-100">
-    <main role="main" class="flex-shrink-0">
-      <div class="container">
-        <h1 class="mt-5"><a class="header" href="/">Rubies.io</a></h1>
-        <p class="lead">API interface to Ruby versions, releases and branches.</p>
+    <main role="main" class="flex-shrink-0 text-center">
+      <div class="container mb-5">
+        <a href="/"><img class="img-fluid mt-4" width="160" src="/img/rubies.png" alt="Rubies"></a>
+        <h1 class="mt-4">Rubies.io</h1>
+        <p class="lead">API interface to Ruby versions, releases and branches</p>
       </div>
     </main>
 
     <%= yield %>
 
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 text-center">
       <div class="container">
         <span class="small text-muted">
           Rubies.io &middot;
