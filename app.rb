@@ -8,7 +8,7 @@ require 'json'
 REDIS ||= Redis.new(url: ENV['REDIS_URL'])
 
 class Rubies < Sinatra::Base
-  configure :production, :development do
+  configure do
     set :logging,    true
     set :protection, except: [:json_csrf]
   end

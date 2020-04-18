@@ -1,9 +1,11 @@
 ---
 language: ruby
+os: linux
 dist: bionic
 cache: bundler
-before_install: gem install bundler
-install: bundle install --without development production
+before_install:
+  - gem install bundler:2.1.2
+  - bundle config set without 'development production'
 script: bundle exec rspec
 rvm:
   - 2.7.0
