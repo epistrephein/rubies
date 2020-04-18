@@ -1,85 +1,186 @@
-# Rubies.io [![Build Status](https://travis-ci.org/epistrephein/rubies.svg?branch=master)](https://travis-ci.org/epistrephein/rubies)
+# Rubies.io
 
-An API interface to Ruby versions status and filters.
+[![Endpoint Status](https://img.shields.io/website?down_message=offline&label=endpoint&up_message=online&url=https%3A%2F%2Frubies.io)](https://rubies.io)
+[![Version](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=version&query=%24.version&url=https%3A%2F%2Frubies.io%2Fapi%2Fversion)](https://rubies.io/api/version)
+[![Build Status](https://travis-ci.org/epistrephein/rubies.svg?branch=master)](https://travis-ci.org/epistrephein/rubies)
+[![Dependencies](https://badges.depfu.com/badges/90e3488355f731bba22b6984fbd8effe/overview.svg)](https://depfu.com/github/epistrephein/rubies?project_id=5864)
 
-## API
+A Sinatra API interface to Ruby versions, releases and branches.
 
-The endpoint is `https://rubies.io/api`.  
-All successful requests return a JSON with Content-Type `application/json; charset=utf-8`.  
+## Usage
+
+The API endpoint is `https://rubies.io/api`.  
+All successful requests return a JSON response with Content-Type `application/json; charset=utf-8` and status `200`.  
 CORS is enabled by default.
 
-### Status
+### Statuses
 
-[`/active`](https://rubies.io/api/active) - returns the latest releases currently active (meaning in either normal or security maintenance).
-
-```bash
-$ curl -s https://rubies.io/api/active | jq
-[
-  "2.5.1",
-  "2.4.4",
-  "2.3.7",
-  "2.2.10"
-]
-```
-
----
-
-[`/preview`](https://rubies.io/api/preview) - returns the latest releases currently in preview.
-
-```bash
-$ curl -s https://rubies.io/api/preview | jq
-[
-  "2.6.0-preview1"
-]
-```
-
----
-
-[`/normal`](https://rubies.io/api/normal) - returns the latest releases in normal maintenance (receiving bug fixes and security fixes).
+[`/normal`](https://rubies.io/api/normal) - returns the branches and the latest releases in normal maintenance (receiving bug fixes and security fixes).
 
 ```bash
 $ curl -s https://rubies.io/api/normal | jq
-[
-  "2.5.1",
-  "2.4.4"
-]
+{
+  "status": "normal",
+  "branches": [
+    "2.7",
+    "2.6"
+  ],
+  "latest": [
+    "2.7.1",
+    "2.6.6"
+  ]
+}
 ```
 
 ---
 
-[`/security`](https://rubies.io/api/security) - returns the latest releases in security maintenance (receiving security fixes only).
+[`/security`](https://rubies.io/api/security) - returns the branches and the latest releases in security maintenance (receiving security fixes only).
 
 ```bash
 $ curl -s https://rubies.io/api/security | jq
-[
-  "2.3.7",
-  "2.2.10"
-]
+{
+  "status": "security",
+  "branches": [
+    "2.5"
+  ],
+  "latest": [
+    "2.5.8"
+  ]
+}
 ```
 
 ---
 
-[`/eol`](https://rubies.io/api/eol) - returns the latest end-of-life releases (no longer supported and not receiving any fixes).
+[`/preview`](https://rubies.io/api/preview) - returns the branches and the latest releases currently in preview.
+
+```bash
+$ curl -s https://rubies.io/api/preview | jq
+{
+  "status": "preview",
+  "branches": [],
+  "latest": []
+}
+```
+
+---
+
+[`/eol`](https://rubies.io/api/eol) - returns the end-of-life branches and latest releases (no longer supported and not receiving any fixes).
 
 ```bash
 $ curl -s https://rubies.io/api/eol | jq
-[
-  "2.1.10",
-  "2.0.0-p648",
-  "1.9.3-p551"
-]
+{
+  "status": "eol",
+  "branches": [
+    "2.4",
+    "2.3",
+    "2.2",
+    "2.1"
+  ],
+  "latest": [
+    "2.4.10",
+    "2.3.8",
+    "2.2.10",
+    "2.1.10"
+  ]
+}
+```
+
+### Branches
+
+[`/<major>.<minor>`](https://rubies.io/api/2.7) - returns the status, release date, eol date (if any), latest release and all releases of a branch.
+
+```bash
+$ curl -s https://rubies.io/api/2.7 | jq
+{
+  "branch": "2.7",
+  "status": "normal",
+  "release_date": "2019-12-25",
+  "eol_date": null,
+  "latest": "2.7.1",
+  "releases": [
+    "2.7.1",
+    "2.7.0",
+    "2.7.0-rc2",
+    "2.7.0-rc1",
+    "2.7.0-preview3",
+    "2.7.0-preview2",
+    "2.7.0-preview1"
+  ]
+}
+```
+
+```bash
+$ curl -s https://rubies.io/api/2.3 | jq
+{
+  "branch": "2.3",
+  "status": "eol",
+  "release_date": "2015-12-25",
+  "eol_date": "2019-03-31",
+  "latest": "2.3.8",
+  "releases": [
+    "2.3.8",
+    "2.3.7",
+    "2.3.6",
+    "2.3.5",
+    "2.3.4",
+    "2.3.3",
+    "2.3.2",
+    "2.3.1",
+    "2.3.0",
+    "2.3.0-preview2",
+    "2.3.0-preview1"
+  ]
+}
+```
+
+### Releases
+
+[`/<major>.<minor>.<patch>`](https://rubies.io/api/2.7.0) - returns the branch, status and release date of a release, and whether it's the latest version of the branch and/or a prerelease.
+
+```bash
+$ curl -s https://rubies.io/api/2.7.0 | jq
+{
+  "release": "2.7.0",
+  "branch": "2.7",
+  "status": "normal",
+  "release_date": "2019-12-25",
+  "latest": false,
+  "prerelease": false
+}
+```
+
+```bash
+$ curl -s https://rubies.io/api/2.6.6 | jq
+{
+  "release": "2.6.6",
+  "branch": "2.6",
+  "status": "normal",
+  "release_date": "2020-03-31",
+  "latest": true,
+  "prerelease": false
+}
+```
+
+```bash
+$ curl -s https://rubies.io/api/2.2.4 | jq
+{
+  "release": "2.2.4",
+  "branch": "2.2",
+  "status": "eol",
+  "release_date": "2015-12-16",
+  "latest": false,
+
+  "prerelease": false
+}
 ```
 
 ### Errors
 
-[Invalid requests](https://rubies.io/api/invalid_path) return a JSON with 404 status code.
+Invalid requests return a `404` status with no body.
 
 ```bash
-$ curl -s https://rubies.io/api/invalid_path | jq
-{
-  "error": "Not Found",
-  "status": 404
-}
+$ curl -I https://rubies.io/api/invalid
+HTTP/1.1 404 Not Found
 ```
 
 ## Contributing
@@ -95,8 +196,9 @@ You can contribute changes by forking the project and submitting a pull request.
 2. Install the dependencies (`bin/setup`)
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create a new pull request
+5. Pass the test suite (`bundle exec rspec`)
+6. Push to the branch (`git push origin my-new-feature`)
+7. Create a new pull request
 
 ## License
 

@@ -1,45 +1,49 @@
-*.gem
-*.rbc
+# Environment normalization
+/.bundle
 /.config
-/coverage/
-/InstalledFiles
-/pkg/
-/test/tmp/
-/test/version_tmp/
-/tmp/
+/vendor/bundle
+/lib/bundler/man
 
-## Version specifiers:
-.ruby-version
-.ruby-gemset
+# Gems
+*.gem
+/pkg
 
-## Environment normalization:
-/.bundle/
-/lib/bundler/man/
-
-## RSpec:
-/spec/reports/
-/spec/examples.txt
+# RSpec
 .rspec_status
+/spec/reports
+/spec/examples.txt
+/coverage
 
-## Documentation cache:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+# Documentation cache
+/.yardoc
+/_yardoc
+/doc
+/rdoc
 
-## Sass:
-.sass-cache/
-
-## Logs:
+# Logs
 *.log
 *.log.[0-9]*
 
-## Databases:
+# Temp
+/InstalledFiles
+/test/tmp
+/test/version_tmp
+/tmp
+
+# Databases
 *.sqlite
 *.db
 
-## Redis:
+# Redis
 *.rdb
 
-## RVM:
+# Pry/Byebug
+.pryrc
+.pry_history
+.byebug_history
+
+# RVM
 .rvmrc
+
+# RuboCop
+.rubocop-https?--*

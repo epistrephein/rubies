@@ -1,63 +1,68 @@
 # frozen_string_literal: true
 
+require 'bundler/setup'
 require 'sinatra/base'
-
-require 'json'
 require 'redis'
+require 'json'
 
-REDIS = Redis.new(url: ENV['REDIS_URL'])
+REDIS ||= Redis.new(url: ENV['REDIS_URL'])
 
 class Rubies < Sinatra::Base
-  # Configuration
-  configure :production, :development do
-    enable :logging
+  configure do
+    set :logging,    true
+    set :protection, except: [:json_csrf]
   end
 
   configure :production do
     set :raise_errors,    false
     set :show_exceptions, false
-    set :protection,      except: [:json_csrf]
   end
 
-  # Settings
   set :app_file,      __FILE__
   set :root,          File.dirname(settings.app_file)
   set :public_folder, File.join(settings.root, 'public')
 
-  # Filters
   before do
-    @title = 'Rubies'
+    @version = REDIS.get('__version')
   end
 
-  # Routes
   get '/' do
-    @normal      = JSON.parse(REDIS.get('normal'))
-    @security    = JSON.parse(REDIS.get('security'))
-    @last_update = JSON.parse(REDIS.get('last_update'))['last_update']
-    @version     = JSON.parse(REDIS.get('version'))['version']
+    @normal      = REDIS.lrange('__normal',   0, -1)
+    @security    = REDIS.lrange('__security', 0, -1)
+
+    @statuses_ex = REDIS.lrange('__statuses_ex', 0, -1)
+    @branches_ex = REDIS.lrange('__branches_ex', 0, -1).sample(4)
+    @releases_ex = REDIS.lrange('__releases_ex', 0, -1).sample(6)
+
+    @last_update = REDIS.get('__last_update')
+
     erb :index
   end
 
-  # API
   before '/api/*' do
     content_type 'application/json; charset=utf-8'
-    headers 'Access-Control-Allow-Origin'  => '*',
-            'Access-Control-Allow-Methods' => %w[OPTIONS GET]
+
+    headers 'Access-Control-Allow-Methods' => 'HEAD, GET, OPTIONS',
+            'Access-Control-Allow-Origin'  => '*',
+            'Access-Control-Allow-Headers' => 'accept, authorization, origin'
   end
 
-  get %r{/api/(.*)} do |key|
-    halt 404 unless REDIS.exists(key.to_s)
+  get '/api/:key' do |key|
+    halt 404 if key.start_with?('__') || !REDIS.exists(key.to_s)
     REDIS.get(key.to_s)
   end
 
-  # Errors
   not_found do
-    status 404
-    if request.path_info =~ %r{^/api/}
-      { error: 'Not Found', status: 404 }.to_json
-    else
-      @title = 'Rubies - 404'
-      erb :error
-    end
+    halt if request.path_info =~ %r{^/api/}
+
+    @title = 'Rubies | 404'
+    erb :not_found
+  end
+
+  error do
+    halt if request.path_info =~ %r{^/api/}
+
+    @title = 'Rubies | Error'
+    erb :error
   end
 end

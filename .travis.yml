@@ -1,16 +1,13 @@
-sudo: false
+---
 language: ruby
-cache: bundler
-before_install: gem install bundler -v '< 2.0'
-install: bundle install --with test --without development production
-services:
-  - redis-server
-before_script:
-  - bundle exec rake redis:populate
-  - bundle exec thin start -R config.ru -e $RACK_ENV &
+os: linux
+dist: bionic
+before_install:
+  - gem install bundler:2.1.2
+  - bundle config set without 'development production'
 script: bundle exec rspec
 rvm:
-  - 2.3.1
+  - 2.7.0
 branches:
   only: master
 notifications:

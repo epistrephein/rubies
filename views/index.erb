@@ -1,52 +1,59 @@
-<div>
-  <h2><strong>Active branches</strong></h2>
-  <p class="text-muted mb-4">Latest stable releases under active maintenance</p>
-  <p class="lead mb-1"><strong>Normal maintenance</strong></p>
-  <p><code><%= @normal.join(', ') %></code></p>
+<section class="flex-shrink-0 mt-4 text-center">
+  <div class="container">
+    <h3>Active branches</h3>
+    <p class="text-muted mb-4">Latest stable releases under active maintenance</p>
+    <p class="lead mb-0"><strong>Normal maintenance</strong></p>
+    <p><code><%= @normal.join(', ') %></code></p>
 
-  <p class="lead mb-1"><strong>Security maintenance</strong></p>
-  <p><code><%= @security.join(', ') %></code></p>
-</div>
+    <p class="lead mb-0"><strong>Security maintenance</strong></p>
+    <p><code><%= @security.join(', ') %></code></p>
 
-<div class="mt-5">
-  <p class="text-muted small">Last update: <%= @last_update %></p>
-</div>
+    <p class="text-muted small my-4">Last update: <%= @last_update %></p>
+  </div>
+</section>
 
-<hr style="width: 50%;" class="my-5">
+<hr class="separator mt-5">
 
-<div>
-  <h2><strong>API</strong></h2>
-  <p class="text-muted mb-4">Programmatic access to branches status and release infos</p>
-  <p class="mb-1"><strong>Endpoint</strong></p>
-  <p class="mb-4"><code>https://rubies.io/api</code></p>
+<section class="flex-shrink-0 mt-5 text-center">
+  <div class="container">
+    <h3>API</h3>
+    <p class="text-muted mb-4">Programmatic access to statuses, branches and releases</p>
+    <p class="mb-1"><strong>Endpoint</strong></p>
+    <p class="mb-4"><code>https://rubies.io/api</code></p>
 
-  <p class="mb-1">Status</p>
-  <p class="api mb-0"><code>/active</code></p>
-  <p class="api mb-0"><code>/preview</code></p>
-  <p class="api mb-0"><code>/normal</code></p>
-  <p class="api mb-0"><code>/security</code></p>
-  <p class="api mb-4"><code>/eol</code></p>
+    <div class="mb-4">
+      <p class="mb-2">Statuses</p>
+      <% @statuses_ex.each do |status| %>
+      <p class="api mb-0">
+        <a href="/api/<%= status %>">
+          <code>/<%= status %></code>
+        </a>
+      </p>
+      <% end %>
+    </div>
 
-  <p class="mb-1">Branches</p>
-  <p class="api mb-0"><code>/2.6</code></p>
-  <p class="api mb-0"><code>/2.5</code></p>
-  <p class="mb-4"><code>etc...</code></p>
+    <div class="mb-4">
+      <p class="mb-2">Branches</p>
+      <% @branches_ex.each do |branch| %>
+      <p class="api mb-0">
+        <a href="/api/<%= branch %>">
+          <code>/<%= branch %></code>
+        </a>
+      </p>
+      <% end %>
+      <p class="mb-0"><code>etc...</code></p>
+    </div>
 
-  <p class="mb-0">Branches</p>
-  <p class="text-muted small mb-1">latest release</p>
-  <p class="api mb-0"><code>/2.6/latest</code></p>
-  <p class="api mb-0"><code>/2.5/latest</code></p>
-  <p class="mb-4"><code>etc...</code></p>
-
-  <p class="mb-1">Releases</p>
-  <p class="api mb-0"><code>/2.6.5</code></p>
-  <p class="api mb-0"><code>/2.6.4</code></p>
-  <p class="api mb-0"><code>/2.5.7</code></p>
-  <p class="api mb-0"><code>/2.4.9</code></p>
-  <p class="mb-4"><code>etc...</code></p>
-</div>
-
-<footer class="text-center mt-5 mb-4">
-  <p class="small text-muted mb-1">Made with Ruby for rubyists</p>
-  <p class="small text-muted">MIT License &middot; v<%= @version %> &middot; <a href="https://github.com/epistrephein/rubies">GitHub</a> &middot; <a href="https://status.rubies.io">Status</a></p>
-</footer>
+    <div class="mb-5">
+      <p class="mb-2">Releases</p>
+      <% @releases_ex.each do |release| %>
+      <p class="api mb-0">
+        <a href="/api/<%= release %>">
+          <code>/<%= release %></code>
+        </a>
+      </p>
+      <% end %>
+      <p class="mb-0"><code>etc...</code></p>
+    </div>
+  </div>
+</section>

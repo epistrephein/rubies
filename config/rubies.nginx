@@ -1,0 +1,77 @@
+upstream unicorn_server {
+    server unix:/var/www/rubies.io/tmp/sockets/unicorn.sock
+    fail_timeout=0;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name rubies.io;
+
+    root /var/www/rubies;
+
+    access_log  /var/log/nginx/rubies.io.access.log;
+    error_log   /var/log/nginx/rubies.io.error.log;
+
+    ssl_certificate /home/rubies/.certbot/config/live/rubies.io/fullchain.pem;
+    ssl_certificate_key /home/rubies/.certbot/config/live/rubies.io/privkey.pem;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:MozSSL:10m;
+    ssl_session_tickets off;
+
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+
+    add_header Strict-Transport-Security "max-age=63072000" always;
+
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    ssl_trusted_certificate /home/rubies/.certbot/config/live/rubies.io/fullchain.pem;
+
+    resolver 1.1.1.1;
+
+    location / {
+      try_files $uri @app;
+    }
+
+    location @app {
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_redirect off;
+      proxy_pass http://unicorn_server;
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name www.rubies.io;
+
+    ssl_certificate /home/rubies/.certbot/config/live/www.rubies.io/fullchain.pem;
+    ssl_certificate_key /home/rubies/.certbot/config/live/www.rubies.io/privkey.pem;
+
+    rewrite ^(.*) https://rubies.io$1 permanent;
+}
+
+server {
+   listen 80;
+   listen [::]:80;
+
+   server_name rubies.io;
+
+   return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name www.rubies.io;
+
+    rewrite ^(.*) https://rubies.io$1 permanent;
+}
