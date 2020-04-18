@@ -4,7 +4,7 @@ class Branch < Remote
   attr_reader :branch, :status, :release_date, :eol_date
 
   REMOTE_YML = '_data/branches.yml'
-  STATUSES   = %w[preview normal security eol].freeze
+  STATUSES   = %w[normal security preview eol].freeze
 
   SCHEMA = {
     'name'     => [String, Float],
