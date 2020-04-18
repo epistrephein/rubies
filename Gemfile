@@ -15,7 +15,8 @@ group :production do
   gem 'whenever', '~> 1.0', require: false
 end
 
-group :test, :development do
+group :development, :test do
+  gem 'rubocop', '~> 0.80.0'
   gem 'thin', '~> 1.7'
 end
 
@@ -31,5 +32,4 @@ group :development do
   gem 'foreman'
   gem 'pry', '~> 0.12'
   gem 'rerun', '~> 0.13'
-  gem 'rubocop', '~> 0.80.0'
 end
