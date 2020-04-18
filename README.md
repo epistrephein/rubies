@@ -1,12 +1,15 @@
-# Rubies.io [![Build Status](https://travis-ci.org/epistrephein/rubies.svg?branch=master)](https://travis-ci.org/epistrephein/rubies)
+# Rubies.io
+
+[![Endpoint Status](https://img.shields.io/website?down_message=offline&label=endpoint&up_message=online&url=https%3A%2F%2Frubies.io)](https://rubies.io)
+[![Version](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=version&query=%24.version&url=https%3A%2F%2Frubies.io%2Fapi%2Fversion)](https://rubies.io/api/version)
+[![Build Status](https://travis-ci.org/epistrephein/rubies.svg?branch=master)](https://travis-ci.org/epistrephein/rubies)
+[![Dependencies](https://badges.depfu.com/badges/90e3488355f731bba22b6984fbd8effe/overview.svg)](https://depfu.com/github/epistrephein/rubies?project_id=5864)
 
 A Sinatra API interface to Ruby versions, releases and branches.
 
 The API endpoint is `https://rubies.io/api`.  
 All successful requests return a JSON response with Content-Type `application/json; charset=utf-8` and status `200`.  
 CORS is enabled by default.
-
-Invalid requests return a `404` status with no body.
 
 ## Statuses
 
@@ -172,10 +175,10 @@ $ curl -s https://rubies.io/api/2.2.4 | jq
 
 ## Errors
 
-[Invalid requests](https://rubies.io/api/invalid_path) return a `404` status code with no body.
+Invalid requests return a `404` status with no body.
 
 ```bash
-$ curl -I https://rubies.io/api/invalid_path
+$ curl -I https://rubies.io/api/invalid
 HTTP/1.1 404 Not Found
 ```
 
