@@ -1,3 +1,7 @@
+body {
+  overflow-anchor: none;
+}
+
 a, a:hover, code {
   color: #db2525;
 }

@@ -52,8 +52,8 @@ server {
 
     server_name www.rubies.io;
 
-    ssl_certificate /home/rubies/.certbot/config/live/www.rubies.io/fullchain.pem;
-    ssl_certificate_key /home/rubies/.certbot/config/live/www.rubies.io/privkey.pem;
+    ssl_certificate /home/rubies/.certbot/config/live/rubies.io/fullchain.pem;
+    ssl_certificate_key /home/rubies/.certbot/config/live/rubies.io/privkey.pem;
 
     rewrite ^(.*) https://rubies.io$1 permanent;
 }
