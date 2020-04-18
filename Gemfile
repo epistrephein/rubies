@@ -2,8 +2,6 @@
 
 source 'https://rubygems.org'
 
-ruby '2.3.1'
-
 gem 'octokit', '~> 4.18'
 gem 'rack-cors', '~> 1.1'
 gem 'rake', '~> 13.0'
