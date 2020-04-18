@@ -2,15 +2,13 @@
 
 A Sinatra API interface to Ruby versions, releases and branches.
 
-## API
-
 The API endpoint is `https://rubies.io/api`.  
-All successful requests return a JSON response body with Content-Type `application/json; charset=utf-8` and status code `200`.  
+All successful requests return a JSON response with Content-Type `application/json; charset=utf-8` and status `200`.  
 CORS is enabled by default.
 
-[Invalid requests](https://rubies.io/api/invalid_path) return a `404` status code with no body.
+Invalid requests return a `404` status with no body.
 
-### Statuses
+## Statuses
 
 [`/normal`](https://rubies.io/api/normal) - returns the branches and the latest releases in normal maintenance (receiving bug fixes and security fixes).
 
@@ -82,7 +80,7 @@ $ curl -s https://rubies.io/api/eol | jq
 }
 ```
 
-### Branches
+## Branches
 
 [`/<major>.<minor>`](https://rubies.io/api/2.7) - returns the status, release date, eol date (if any), latest release and all releases of a branch.
 
@@ -130,7 +128,7 @@ $ curl -s https://rubies.io/api/2.3 | jq
 }
 ```
 
-### Releases
+## Releases
 
 [`/<major>.<minor>.<patch>`](https://rubies.io/api/2.7.0) - returns the status, release date, eol date (if any), latest release and all releases of a branch.
 
@@ -166,13 +164,13 @@ $ curl -s https://rubies.io/api/2.2.4 | jq
   "status": "eol",
   "release_date": "2015-12-16",
   "latest": false,
-  
+
   "prerelease": false
 }
 ```
 
 
-### Errors
+## Errors
 
 [Invalid requests](https://rubies.io/api/invalid_path) return a `404` status code with no body.
 
