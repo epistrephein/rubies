@@ -27,7 +27,7 @@ class Rubies < Sinatra::Base
   end
 
   get '/' do
-    @normal      = REDIS.lrange('__normal', 0, -1)
+    @normal      = REDIS.lrange('__normal',   0, -1)
     @security    = REDIS.lrange('__security', 0, -1)
 
     @statuses_ex = REDIS.lrange('__statuses_ex', 0, -1)
@@ -55,14 +55,14 @@ class Rubies < Sinatra::Base
   not_found do
     halt if request.path_info =~ %r{^/api/}
 
-    @title = 'Rubies - 404'
+    @title = 'Rubies | 404'
     erb :not_found
   end
 
   error do
     halt if request.path_info =~ %r{^/api/}
 
-    @title = 'Rubies - 500'
+    @title = 'Rubies | Error'
     erb :error
   end
 end
