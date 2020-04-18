@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'bundler/setup'
 require 'sinatra/base'
 require 'redis'
 require 'json'
