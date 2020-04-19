@@ -193,7 +193,7 @@ and contributors are expected to adhere to the [Code of Conduct](https://github.
 You can contribute changes by forking the project and submitting a pull request. To get started:
 
 1. Fork the repo
-2. Install the dependencies (`bin/setup`)
+2. Install the dependencies (`bundle install`)
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Pass the test suite (`bundle exec rspec`)
