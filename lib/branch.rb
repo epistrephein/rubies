@@ -83,6 +83,19 @@ class Branch < Remote
       end
     end
 
+    # Return the latest 4 branches as string
+    def example_branches(size = 4)
+      all.first(size).map(&:to_s)
+    end
+
+    # Return 6 releases of the 4 most recent branches as string
+    def example_releases(size = 4)
+      all.first(size).each_with_object([]).with_index do |(branch, array), index|
+        count = [0, 1].include?(index) ? 2 : 1
+        array.concat(branch.releases.take(count).map(&:to_s))
+      end
+    end
+
     # Return all branches
     def all
       data

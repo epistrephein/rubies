@@ -33,8 +33,8 @@ class Rubies < Sinatra::Base
     @security    = REDIS.lrange('__security', 0, -1)
 
     @statuses_ex = REDIS.lrange('__statuses_ex', 0, -1)
-    @branches_ex = REDIS.lrange('__branches_ex', 0, -1).sample(4)
-    @releases_ex = REDIS.lrange('__releases_ex', 0, -1).sample(6)
+    @branches_ex = REDIS.lrange('__branches_ex', 0, -1)
+    @releases_ex = REDIS.lrange('__releases_ex', 0, -1)
 
     @last_update = REDIS.get('__last_update')
 
