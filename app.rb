@@ -16,6 +16,8 @@ class Rubies < Sinatra::Base
   configure :production do
     set :raise_errors,    false
     set :show_exceptions, false
+
+    set :static_cache_control, [:public, :must_revalidate, max_age: 30672000]
   end
 
   set :app_file,      __FILE__
