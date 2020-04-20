@@ -121,7 +121,7 @@ class Branch < Remote
       remote = fetch(REMOTE_YML)
       raise self::ValidationError unless valid?(remote)
 
-      unsorted = remote.map do |branch|
+      unsorted = remote.filter_map do |branch|
         version      = branch['name'].to_s
         status       = branch['status'].match(Regexp.union(STATUSES)).to_s
         release_date = branch['date']
@@ -132,7 +132,7 @@ class Branch < Remote
         Branch.new(version, status, release_date, eol_date)
       end
 
-      @data ||= unsorted.compact.sort_by(&:to_s).reverse
+      @data ||= unsorted.sort_by(&:to_s).reverse
     end
   end
 end

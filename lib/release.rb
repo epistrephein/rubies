@@ -96,7 +96,7 @@ class Release < Remote
       remote = fetch(REMOTE_YML)
       raise self::ValidationError unless valid?(remote)
 
-      unsorted = remote.map do |release|
+      unsorted = remote.filter_map do |release|
         version_string     = release['version']
         version_comparable = Gem::Version.new(version_string)
         release_date       = release['date']
@@ -106,7 +106,7 @@ class Release < Remote
         Release.new(version_string, version_comparable, release_date)
       end
 
-      @data ||= unsorted.compact.sort_by(&:comparable).reverse
+      @data ||= unsorted.sort_by(&:comparable).reverse
     end
   end
 end
