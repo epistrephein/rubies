@@ -26,9 +26,9 @@ namespace :redis do
     REDIS.rpush('__normal',   normal)   if normal.any?
     REDIS.rpush('__security', security) if security.any?
 
-    REDIS.rpush('__statuses_ex', Branch.hashmap_statuses.keys)
-    REDIS.rpush('__branches_ex', Branch.example_branches)
-    REDIS.rpush('__releases_ex', Branch.example_releases)
+    REDIS.rpush('__statuses_ex', Branch.examples_statuses)
+    REDIS.rpush('__branches_ex', Branch.examples_branches)
+    REDIS.rpush('__releases_ex', Branch.examples_releases)
 
     REDIS.set('__version',     VERSION_FULL)
     REDIS.set('__last_update', last_update)
@@ -39,7 +39,7 @@ namespace :redis do
     Release.hashmap_releases.each { |key, attr| REDIS.set(key, attr.to_json) }
 
     REDIS.set('version',     { version:     VERSION_FULL }.to_json)
-    REDIS.set('last_update', { last_update: last_update }.to_json)
+    REDIS.set('last_update', { last_update: last_update  }.to_json)
 
     puts "#{last_update}: Redis OK (#{REDIS.dbsize})"
   end

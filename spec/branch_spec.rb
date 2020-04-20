@@ -81,19 +81,28 @@ RSpec.describe Branch, :github do
     end
   end
 
-  describe '.example_branches' do
+  describe '.examples_branches' do
     it 'returns the latest 4 branches as string' do
-      expect(described_class.example_branches).to all(be_a String)
-      expect(described_class.example_branches).to eq([
+      expect(described_class.examples_branches).to all(be_a String)
+      expect(described_class.examples_branches).to eq([
         '2.7', '2.6', '2.5', '2.4'
       ])
     end
   end
 
-  describe '.example_releases' do
+  describe '.examples_statuses' do
+    it 'returns all statuses as string' do
+      expect(described_class.examples_statuses).to all(be_a String)
+      expect(described_class.examples_statuses).to eq([
+        'normal', 'security', 'preview', 'eol'
+      ])
+    end
+  end
+
+  describe '.examples_releases' do
     it 'returns 6 releases of the 4 most recent branches as string' do
-      expect(described_class.example_releases).to all(be_a String)
-      expect(described_class.example_releases).to eq([
+      expect(described_class.examples_releases).to all(be_a String)
+      expect(described_class.examples_releases).to eq([
         '2.7.1', '2.7.0', '2.6.6', '2.6.5', '2.5.8', '2.4.10'
       ])
     end
