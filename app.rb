@@ -42,6 +42,10 @@ class Rubies < Sinatra::Base
     erb :index
   end
 
+  get '/ping' do
+    halt :ok
+  end
+
   before '/api/*' do
     content_type 'application/json; charset=utf-8'
 

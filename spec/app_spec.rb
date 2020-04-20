@@ -15,6 +15,17 @@ RSpec.describe Rubies, :redis do
       end
     end
 
+    describe 'ping' do
+      let(:endpoint) { '/ping' }
+
+      it 'returns a 200 status with no body' do
+        get endpoint
+
+        expect(last_response).to be_ok
+        expect(html).to be_empty
+      end
+    end
+
     describe 'not found' do
       let(:endpoint) { '/non-existent' }
 
