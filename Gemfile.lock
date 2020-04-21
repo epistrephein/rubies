@@ -123,7 +123,7 @@ DEPENDENCIES
   rerun (~> 0.13)
   rspec (~> 3.6)
   rubocop (~> 0.80.0)
-  simplecov (< 0.18)
+  simplecov (~> 0.17.1)
   sinatra (~> 2.0)
   thin (~> 1.7)
   unicorn (~> 5.4)
