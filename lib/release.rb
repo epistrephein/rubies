@@ -3,11 +3,12 @@
 class Release < Remote
   attr_reader :release, :comparable, :release_date
 
-  REMOTE_YML = '_data/releases.yml'
+  RELEASES_REF  = ENV.fetch('RELEASES_REF',  'master')
+  RELEASES_PATH = ENV.fetch('RELEASES_PATH', '_data/releases.yml')
 
   SCHEMA = {
     'version' => [String, Float],
-    'date'    => [Date, String]
+    'date'    => [Date, String, NilClass]
   }.freeze
 
   def initialize(release, comparable, release_date)
@@ -93,7 +94,7 @@ class Release < Remote
     def data
       return @data if @data
 
-      remote = fetch(REMOTE_YML)
+      remote = fetch(ref: RELEASES_REF, path: RELEASES_PATH)
       raise self::ValidationError unless valid?(remote)
 
       unsorted = remote.filter_map do |release|

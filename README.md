@@ -33,8 +33,6 @@ $ curl -s https://rubies.io/api/normal | jq
 }
 ```
 
----
-
 [`/security`](https://rubies.io/api/security) - returns the branches and the latest releases in security maintenance (receiving security fixes only).
 
 ```bash
@@ -50,8 +48,6 @@ $ curl -s https://rubies.io/api/security | jq
 }
 ```
 
----
-
 [`/preview`](https://rubies.io/api/preview) - returns the branches and the latest releases currently in preview.
 
 ```bash
@@ -62,8 +58,6 @@ $ curl -s https://rubies.io/api/preview | jq
   "latest": []
 }
 ```
-
----
 
 [`/eol`](https://rubies.io/api/eol) - returns the end-of-life branches and latest releases (no longer supported and not receiving any fixes).
 
@@ -88,7 +82,7 @@ $ curl -s https://rubies.io/api/eol | jq
 
 ### Branches
 
-[`/<major>.<minor>`](https://rubies.io/api/2.7) - returns the status, release date, eol date (if any), latest release and all releases of a branch.
+[`/<major>.<minor>`](https://rubies.io/api/2.7) - returns the status, release date, eol date (if any), latest release and all releases of a branch.  
 Lowest branch returned: `2.1`.
 
 ```bash

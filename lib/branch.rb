@@ -3,13 +3,15 @@
 class Branch < Remote
   attr_reader :branch, :status, :release_date, :eol_date
 
-  REMOTE_YML = '_data/branches.yml'
-  STATUSES   = %w[normal security preview eol].freeze
+  BRANCHES_REF  = ENV.fetch('BRANCHES_REF',  'master')
+  BRANCHES_PATH = ENV.fetch('BRANCHES_PATH', '_data/branches.yml')
+
+  STATUSES      = %w[normal security preview eol].freeze
 
   SCHEMA = {
     'name'     => [String, Float],
     'status'   => [String],
-    'date'     => [Date, String],
+    'date'     => [Date, String, NilClass],
     'eol_date' => [Date, String, NilClass]
   }.freeze
 
@@ -118,7 +120,7 @@ class Branch < Remote
     def data
       return @data if @data
 
-      remote = fetch(REMOTE_YML)
+      remote = fetch(ref: BRANCHES_REF, path: BRANCHES_PATH)
       raise self::ValidationError unless valid?(remote)
 
       unsorted = remote.filter_map do |branch|

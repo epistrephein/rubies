@@ -6,8 +6,8 @@ require 'json'
 require 'yaml'
 
 class Remote
-  REPOSITORY   = 'ruby/www.ruby-lang.org'
-  MIN_VERSION  = '2.1'
+  REPOSITORY  = ENV.fetch('REPOSITORY',  'ruby/www.ruby-lang.org')
+  MIN_VERSION = ENV.fetch('MIN_VERSION', '2.1')
 
   class ValidationError < StandardError
     def message
@@ -33,8 +33,8 @@ class Remote
     end
 
     # Fetch, decode and parse a remote YAML data file
-    def fetch(path)
-      remote  = Octokit.contents(REPOSITORY, path: path)
+    def fetch(ref:, path:)
+      remote  = Octokit.contents(REPOSITORY, ref: ref, path: path)
       decoded = Base64.decode64(remote.content)
 
       YAML.safe_load(decoded, [Date])
