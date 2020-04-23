@@ -60,6 +60,8 @@ class Release < Remote
   end
 
   class << self
+    attr_reader :sha
+
     # Return the release with the matching version
     def [](release)
       all.find { |r| r.release == release }
@@ -95,9 +97,12 @@ class Release < Remote
       return @data if @data
 
       remote = fetch(ref: RELEASES_REF, path: RELEASES_PATH)
-      raise self::ValidationError unless valid?(remote)
+      @sha   = remote.sha
 
-      unsorted = remote.filter_map do |release|
+      content = parse(remote.content)
+      raise self::ValidationError unless valid?(content)
+
+      unsorted = content.filter_map do |release|
         version_string     = release['version']
         version_comparable = Gem::Version.new(version_string)
         release_date       = release['date']

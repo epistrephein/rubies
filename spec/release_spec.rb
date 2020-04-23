@@ -84,6 +84,12 @@ RSpec.describe Release, :github do
     end
   end
 
+  describe '.sha' do
+    it 'returns the commit sha of the data' do
+      expect(described_class.sha).to eq('3ba746cecdad80ad2e78db8f19db1820e1127356')
+    end
+  end
+
   describe '.all' do
     it 'returns all releases' do
       expect(described_class.all).to all(be_a(described_class))

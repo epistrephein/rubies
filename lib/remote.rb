@@ -23,7 +23,7 @@ class Remote
   class << self
     private
 
-    # Validate remote data against the class schema
+    # Validate data structure against the class schema
     def valid?(remote)
       remote.is_a?(Array) && remote.all? do |item|
         (self::SCHEMA.keys - item.keys).empty? && item.all? do |key, value|
@@ -32,13 +32,16 @@ class Remote
       end
     end
 
-    # Fetch, decode and parse a remote YAML data file
-    def fetch(ref:, path:)
-      remote  = Octokit.contents(REPOSITORY, ref: ref, path: path)
-      decoded = Base64.decode64(remote.content)
-
+    # Decode and parse a data file
+    def parse(content)
+      decoded = Base64.decode64(content)
       YAML.safe_load(decoded, [Date])
-    rescue Octokit::Error, Faraday::Error, Psych::SyntaxError => e
+    end
+
+    # Fetch a remote data file
+    def fetch(ref:, path:)
+      Octokit.contents(REPOSITORY, ref: ref, path: path)
+    rescue Octokit::Error, Faraday::Error => e
       retries ||= 2
       retry if (retries -= 1).positive?
 

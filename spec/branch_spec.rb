@@ -108,6 +108,12 @@ RSpec.describe Branch, :github do
     end
   end
 
+  describe '.sha' do
+    it 'returns the commit sha of the data' do
+      expect(described_class.sha).to eq('6bd57c1980830504dbfc6c02b93ca9640d6dc25d')
+    end
+  end
+
   describe '.all' do
     it 'returns all branches' do
       expect(described_class.all).to all(be_a(described_class))

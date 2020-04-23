@@ -18,8 +18,7 @@ namespace :redis do
     last_update = Time.now
 
     # Internal use
-    REDIS.del(%w[__normal __security __version __last_update
-                 __statuses_ex __branches_ex __releases_ex])
+    REDIS.del(%w[__normal __security __statuses_ex __branches_ex __releases_ex])
 
     normal   = Branch.hashmap_statuses.dig('normal',   :latest)
     security = Branch.hashmap_statuses.dig('security', :latest)
@@ -29,6 +28,9 @@ namespace :redis do
     REDIS.rpush('__statuses_ex', Branch.examples_statuses)
     REDIS.rpush('__branches_ex', Branch.examples_branches)
     REDIS.rpush('__releases_ex', Branch.examples_releases)
+
+    REDIS.set('__branches_sha', Branch.sha)
+    REDIS.set('__releases_sha', Release.sha)
 
     REDIS.set('__version',     VERSION_FULL)
     REDIS.set('__last_update', last_update)

@@ -55,6 +55,8 @@ class Branch < Remote
   end
 
   class << self
+    attr_reader :sha
+
     # Return the branch with the matching name
     def [](branch)
       all.find { |b| b.branch == branch }
@@ -121,9 +123,12 @@ class Branch < Remote
       return @data if @data
 
       remote = fetch(ref: BRANCHES_REF, path: BRANCHES_PATH)
-      raise self::ValidationError unless valid?(remote)
+      @sha   = remote.sha
 
-      unsorted = remote.filter_map do |branch|
+      content = parse(remote.content)
+      raise self::ValidationError unless valid?(content)
+
+      unsorted = content.filter_map do |branch|
         version      = branch['name'].to_s
         status       = branch['status'].match(Regexp.union(STATUSES)).to_s
         release_date = branch['date']
