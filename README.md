@@ -166,8 +166,27 @@ $ curl -s https://rubies.io/api/2.2.4 | jq
   "status": "eol",
   "release_date": "2015-12-16",
   "latest": false,
-
   "prerelease": false
+}
+```
+
+### Meta
+
+[`/last_update`](https://rubies.io/api/last_update) - returns the time the data was updated. Time format is `%Y-%m-%d %H:%M:%S %z`.
+
+```bash
+$ curl -s https://rubies.io/api/last_update | jq
+{
+  "last_update": "2020-04-24 15:00:03 +0000"
+}
+```
+
+[`/version`](https://rubies.io/api/version) - returns the version of the API. It's the same value of the latest tag of the GitHub repo.
+
+```bash
+$ curl -s https://rubies.io/api/version | jq
+{
+  "version": "2.0.0"
 }
 ```
 
