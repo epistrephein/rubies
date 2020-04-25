@@ -7,7 +7,9 @@ require 'yaml'
 
 class Remote
   REPOSITORY  = ENV.fetch('REPOSITORY',  'ruby/www.ruby-lang.org')
-  MIN_VERSION = ENV.fetch('MIN_VERSION', '2.1')
+
+  SEMVER_MIN  = ENV.fetch('SEMVER_MIN',  '2.1')
+  ENABLED_MIN = ENV.fetch('ENABLED_MIN', '1.9')
 
   class ValidationError < StandardError
     def message

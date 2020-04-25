@@ -93,6 +93,8 @@ RSpec.describe Release, :github do
   describe '.all' do
     it 'returns all releases' do
       expect(described_class.all).to all(be_a(described_class))
+      expect(described_class.all.first.to_s).to eq('2.7.1')
+      expect(described_class.all.last.to_s).to eq('1.9.0')
     end
 
     context 'request timed out' do

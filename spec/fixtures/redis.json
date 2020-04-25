@@ -1,9 +1,4 @@
 {
-  "preview": {
-    "status": "preview",
-    "branches": [],
-    "latest": []
-  },
   "normal": {
     "status": "normal",
     "branches": [
@@ -24,19 +19,28 @@
       "2.5.8"
     ]
   },
+  "preview": {
+    "status": "preview",
+    "branches": [],
+    "latest": []
+  },
   "eol": {
     "status": "eol",
     "branches": [
       "2.4",
       "2.3",
       "2.2",
-      "2.1"
+      "2.1",
+      "2.0",
+      "1.9"
     ],
     "latest": [
       "2.4.10",
       "2.3.8",
       "2.2.10",
-      "2.1.10"
+      "2.1.10",
+      "2.0.0-p648",
+      "1.9.3-p551"
     ]
   },
   "2.7": {
@@ -184,6 +188,72 @@
       "2.1.0-rc1",
       "2.1.0-preview2",
       "2.1.0-preview1"
+    ]
+  },
+  "2.0": {
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2013-02-24",
+    "eol_date": "2016-02-24",
+    "latest": "2.0.0-p648",
+    "releases": [
+      "2.0.0-p648",
+      "2.0.0-p647",
+      "2.0.0-p645",
+      "2.0.0-p643",
+      "2.0.0-p598",
+      "2.0.0-p594",
+      "2.0.0-p576",
+      "2.0.0-p481",
+      "2.0.0-p451",
+      "2.0.0-p353",
+      "2.0.0-p247",
+      "2.0.0-p195",
+      "2.0.0",
+      "2.0.0-rc2"
+    ]
+  },
+  "1.9": {
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2011-10-31",
+    "eol_date": "2015-02-23",
+    "latest": "1.9.3-p551",
+    "releases": [
+      "1.9.3-p551",
+      "1.9.3-p550",
+      "1.9.3-p547",
+      "1.9.3-p545",
+      "1.9.3-p484",
+      "1.9.3-p448",
+      "1.9.3-p429",
+      "1.9.3-p392",
+      "1.9.3-p385",
+      "1.9.3-p374",
+      "1.9.3-p362",
+      "1.9.3-p327",
+      "1.9.3-p286",
+      "1.9.3-p194",
+      "1.9.3-p125",
+      "1.9.3",
+      "1.9.3-rc1",
+      "1.9.3-preview1",
+      "1.9.2-p330",
+      "1.9.2-p320",
+      "1.9.2-p290",
+      "1.9.2-p136",
+      "1.9.2",
+      "1.9.2-rc2",
+      "1.9.2-rc1",
+      "1.9.2-preview1",
+      "1.9.1-p430",
+      "1.9.1-p429",
+      "1.9.1-p376",
+      "1.9.1-p243",
+      "1.9.1-p129",
+      "1.9.1",
+      "1.9.1-preview1",
+      "1.9.0"
     ]
   },
   "2.7.1": {
@@ -858,10 +928,394 @@
     "latest": false,
     "prerelease": true
   },
+  "2.0.0-p648": {
+    "release": "2.0.0-p648",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2015-12-16",
+    "latest": true,
+    "prerelease": false
+  },
+  "2.0.0-p647": {
+    "release": "2.0.0-p647",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2015-08-18",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p645": {
+    "release": "2.0.0-p645",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2015-04-13",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p643": {
+    "release": "2.0.0-p643",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2015-02-25",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p598": {
+    "release": "2.0.0-p598",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2014-11-13",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p594": {
+    "release": "2.0.0-p594",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2014-10-27",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p576": {
+    "release": "2.0.0-p576",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2014-09-19",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p481": {
+    "release": "2.0.0-p481",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2014-05-09",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p451": {
+    "release": "2.0.0-p451",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2014-02-24",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p353": {
+    "release": "2.0.0-p353",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2013-11-22",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p247": {
+    "release": "2.0.0-p247",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2013-06-27",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-p195": {
+    "release": "2.0.0-p195",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2013-05-14",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0": {
+    "release": "2.0.0",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2013-02-24",
+    "latest": false,
+    "prerelease": false
+  },
+  "2.0.0-rc2": {
+    "release": "2.0.0-rc2",
+    "branch": "2.0",
+    "status": "eol",
+    "release_date": "2013-02-08",
+    "latest": false,
+    "prerelease": true
+  },
+  "1.9.3-p551": {
+    "release": "1.9.3-p551",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2014-11-13",
+    "latest": true,
+    "prerelease": false
+  },
+  "1.9.3-p550": {
+    "release": "1.9.3-p550",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2014-10-27",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p547": {
+    "release": "1.9.3-p547",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2014-05-16",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p545": {
+    "release": "1.9.3-p545",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2014-02-24",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p484": {
+    "release": "1.9.3-p484",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2013-11-22",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p448": {
+    "release": "1.9.3-p448",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2013-06-27",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p429": {
+    "release": "1.9.3-p429",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2013-05-14",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p392": {
+    "release": "1.9.3-p392",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2013-02-22",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p385": {
+    "release": "1.9.3-p385",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2013-02-06",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p374": {
+    "release": "1.9.3-p374",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2013-01-17",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p362": {
+    "release": "1.9.3-p362",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2012-12-25",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p327": {
+    "release": "1.9.3-p327",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2012-11-09",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p286": {
+    "release": "1.9.3-p286",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2012-10-12",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p194": {
+    "release": "1.9.3-p194",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2012-04-20",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-p125": {
+    "release": "1.9.3-p125",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2012-02-16",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3": {
+    "release": "1.9.3",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2011-10-31",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.3-rc1": {
+    "release": "1.9.3-rc1",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2011-09-24",
+    "latest": false,
+    "prerelease": true
+  },
+  "1.9.3-preview1": {
+    "release": "1.9.3-preview1",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2011-08-01",
+    "latest": false,
+    "prerelease": true
+  },
+  "1.9.2-p330": {
+    "release": "1.9.2-p330",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2014-08-19",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.2-p320": {
+    "release": "1.9.2-p320",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2012-04-21",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.2-p290": {
+    "release": "1.9.2-p290",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2011-07-15",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.2-p136": {
+    "release": "1.9.2-p136",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2010-12-25",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.2": {
+    "release": "1.9.2",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2010-08-18",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.2-rc2": {
+    "release": "1.9.2-rc2",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2010-07-11",
+    "latest": false,
+    "prerelease": true
+  },
+  "1.9.2-rc1": {
+    "release": "1.9.2-rc1",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2010-07-02",
+    "latest": false,
+    "prerelease": true
+  },
+  "1.9.2-preview1": {
+    "release": "1.9.2-preview1",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2009-07-20",
+    "latest": false,
+    "prerelease": true
+  },
+  "1.9.1-p430": {
+    "release": "1.9.1-p430",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2010-08-16",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.1-p429": {
+    "release": "1.9.1-p429",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2010-07-02",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.1-p376": {
+    "release": "1.9.1-p376",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2009-12-07",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.1-p243": {
+    "release": "1.9.1-p243",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2009-07-20",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.1-p129": {
+    "release": "1.9.1-p129",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2009-05-12",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.1": {
+    "release": "1.9.1",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2009-01-30",
+    "latest": false,
+    "prerelease": false
+  },
+  "1.9.1-preview1": {
+    "release": "1.9.1-preview1",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2008-10-28",
+    "latest": false,
+    "prerelease": true
+  },
+  "1.9.0": {
+    "release": "1.9.0",
+    "branch": "1.9",
+    "status": "eol",
+    "release_date": "2007-12-25",
+    "latest": false,
+    "prerelease": false
+  },
   "version": {
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "last_update": {
-    "last_update": "2020-04-14 07:30:00 +0000"
+    "last_update": "2020-04-25 07:30:00 +0000"
   }
 }

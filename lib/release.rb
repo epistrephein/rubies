@@ -34,7 +34,7 @@ class Release < Remote
 
   # Return the branch status of the release
   def status
-    branch.status
+    branch&.status
   end
 
   # Return the release version as string
@@ -103,11 +103,17 @@ class Release < Remote
       raise self::ValidationError unless valid?(content)
 
       unsorted = content.filter_map do |release|
-        version_string     = release['version']
-        version_comparable = Gem::Version.new(version_string)
-        release_date       = release['date']
+        version_string = release['version']
+        release_date   = release['date']
 
-        next if version_string < self::MIN_VERSION
+        next if version_string < self::ENABLED_MIN
+
+        if version_string < self::SEMVER_MIN
+          version_fix        = version_string.gsub(/-p(\d+)/, '.\1')
+          version_comparable = Gem::Version.new(version_fix)
+        else
+          version_comparable = Gem::Version.new(version_string)
+        end
 
         Release.new(version_string, version_comparable, release_date)
       end

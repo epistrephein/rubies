@@ -113,7 +113,7 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(json).to eq({
-          'version' => '2.0.0'
+          'version' => '2.1.0'
         })
       end
     end
@@ -125,7 +125,7 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(json).to eq({
-          'last_update' => '2020-04-14 07:30:00 +0000'
+          'last_update' => '2020-04-25 07:30:00 +0000'
         })
       end
     end

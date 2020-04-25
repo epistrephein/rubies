@@ -134,7 +134,11 @@ class Branch < Remote
         release_date = branch['date']
         eol_date     = branch['eol_date']
 
-        next if version < self::MIN_VERSION
+        next if version < self::ENABLED_MIN
+
+        if version < self::SEMVER_MIN
+          version = version.split('.').first(2).join('.')
+        end
 
         Branch.new(version, status, release_date, eol_date)
       end
