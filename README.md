@@ -69,13 +69,17 @@ $ curl -s https://rubies.io/api/eol | jq
     "2.4",
     "2.3",
     "2.2",
-    "2.1"
+    "2.1",
+    "2.0",
+    "1.9"
   ],
   "latest": [
     "2.4.10",
     "2.3.8",
     "2.2.10",
-    "2.1.10"
+    "2.1.10",
+    "2.0.0-p648",
+    "1.9.3-p551"
   ]
 }
 ```
@@ -83,7 +87,7 @@ $ curl -s https://rubies.io/api/eol | jq
 ### Branches
 
 [`/<major>.<minor>`](https://rubies.io/api/2.7) - returns the status, release date, eol date (if any), latest release and all releases of a branch.  
-Lowest branch returned: `2.1`.
+Lowest branch returned: `1.9`.
 
 ```bash
 $ curl -s https://rubies.io/api/2.7 | jq
@@ -132,7 +136,7 @@ $ curl -s https://rubies.io/api/2.3 | jq
 ### Releases
 
 [`/<major>.<minor>.<patch>`](https://rubies.io/api/2.7.0) - returns the branch, status and release date of a release, and whether it's the latest version of the branch and/or a prerelease.  
-Lowest release returned: `2.1.0`.
+Lowest release returned: `1.9.0`.
 
 ```bash
 $ curl -s https://rubies.io/api/2.7.0 | jq
@@ -177,7 +181,7 @@ $ curl -s https://rubies.io/api/2.2.4 | jq
 ```bash
 $ curl -s https://rubies.io/api/last_update | jq
 {
-  "last_update": "2020-04-24 15:00:03 +0000"
+  "last_update": "2020-04-25 15:00:03 +0000"
 }
 ```
 
@@ -186,7 +190,7 @@ $ curl -s https://rubies.io/api/last_update | jq
 ```bash
 $ curl -s https://rubies.io/api/version | jq
 {
-  "version": "2.0.0"
+  "version": "2.1.0"
 }
 ```
 
