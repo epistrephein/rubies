@@ -1,5 +1,5 @@
 upstream unicorn_server {
-    server unix:/var/www/rubies.io/tmp/sockets/unicorn.sock
+    server unix:/var/www/rubies/tmp/sockets/unicorn.sock
     fail_timeout=0;
 }
 
