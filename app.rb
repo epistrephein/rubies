@@ -55,7 +55,7 @@ class Rubies < Sinatra::Base
   end
 
   get '/api/:key' do |key|
-    halt 404 if key.start_with?('__') || !REDIS.exists(key)
+    halt 404 if key.start_with?('__') || !REDIS.exists?(key)
 
     REDIS.incr("__metric:#{key}")
     REDIS.get(key)
