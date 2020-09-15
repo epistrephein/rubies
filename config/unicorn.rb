@@ -21,5 +21,4 @@ listen "#{APP_DIR}/tmp/sockets/unicorn.sock", backlog: 64
 pid "#{APP_DIR}/tmp/pids/unicorn.pid"
 
 # Set log file paths
-stdout_path "#{APP_DIR}/log/unicorn.stdout.log"
 stderr_path "#{APP_DIR}/log/unicorn.stderr.log"
