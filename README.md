@@ -27,7 +27,7 @@ $ curl -s https://rubies.io/api/normal | jq
     "2.6"
   ],
   "latest": [
-    "2.7.1",
+    "2.7.2",
     "2.6.6"
   ]
 }
@@ -54,8 +54,12 @@ $ curl -s https://rubies.io/api/security | jq
 $ curl -s https://rubies.io/api/preview | jq
 {
   "status": "preview",
-  "branches": [],
-  "latest": []
+  "branches": [
+    "3.0"
+  ],
+  "latest": [
+    "3.0.0-preview1"
+  ]
 }
 ```
 
@@ -96,8 +100,9 @@ $ curl -s https://rubies.io/api/2.7 | jq
   "status": "normal",
   "release_date": "2019-12-25",
   "eol_date": null,
-  "latest": "2.7.1",
+  "latest": "2.7.2",
   "releases": [
+    "2.7.2",
     "2.7.1",
     "2.7.0",
     "2.7.0-rc2",
@@ -190,7 +195,7 @@ $ curl -s https://rubies.io/api/last_update | jq
 ```bash
 $ curl -s https://rubies.io/api/version | jq
 {
-  "version": "2.1.0"
+  "version": "2.2.1"
 }
 ```
 

@@ -64,7 +64,7 @@ RSpec.describe Rubies, :redis do
         expect(json).to eq({
           'status'   => 'normal',
           'branches' => ['2.7', '2.6'],
-          'latest'   => ['2.7.1', '2.6.6']
+          'latest'   => ['2.7.2', '2.6.6']
         })
       end
     end
@@ -80,9 +80,9 @@ RSpec.describe Rubies, :redis do
           'status'       => 'normal',
           'release_date' => '2019-12-25',
           'eol_date'     => nil,
-          'latest'       => '2.7.1',
+          'latest'       => '2.7.2',
           'releases'     => [
-            '2.7.1', '2.7.0', '2.7.0-rc2', '2.7.0-rc1',
+            '2.7.2', '2.7.1', '2.7.0', '2.7.0-rc2', '2.7.0-rc1',
             '2.7.0-preview3', '2.7.0-preview2', '2.7.0-preview1'
           ]
         })
@@ -125,7 +125,7 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(json).to eq({
-          'last_update' => '2020-04-25 07:30:00 +0000'
+          'last_update' => '2020-10-24 07:30:00 +0000'
         })
       end
     end

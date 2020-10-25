@@ -85,7 +85,7 @@ RSpec.describe Branch, :github do
     it 'returns the latest 4 branches as string' do
       expect(described_class.examples_branches).to all(be_a String)
       expect(described_class.examples_branches).to eq([
-        '2.7', '2.6', '2.5', '2.4'
+        '3.0', '2.7', '2.6', '2.5'
       ])
     end
   end
@@ -103,21 +103,21 @@ RSpec.describe Branch, :github do
     it 'returns 6 releases of the 4 most recent branches as string' do
       expect(described_class.examples_releases).to all(be_a String)
       expect(described_class.examples_releases).to eq([
-        '2.7.1', '2.7.0', '2.6.6', '2.6.5', '2.5.8', '2.4.10'
+        '3.0.0-preview1', '2.7.2', '2.7.1', '2.6.6', '2.5.8', '2.4.10'
       ])
     end
   end
 
   describe '.sha' do
     it 'returns the commit sha of the data' do
-      expect(described_class.sha).to eq('6bd57c1980830504dbfc6c02b93ca9640d6dc25d')
+      expect(described_class.sha).to eq('8c7d486e4ac97fc2aa31db3f16881e438b4cd863')
     end
   end
 
   describe '.all' do
     it 'returns all branches' do
       expect(described_class.all).to all(be_a(described_class))
-      expect(described_class.all.first.to_s).to eq('2.7')
+      expect(described_class.all.first.to_s).to eq('3.0')
       expect(described_class.all.last.to_s).to eq('1.9')
     end
 

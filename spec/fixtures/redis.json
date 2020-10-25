@@ -6,7 +6,7 @@
       "2.6"
     ],
     "latest": [
-      "2.7.1",
+      "2.7.2",
       "2.6.6"
     ]
   },
@@ -21,8 +21,12 @@
   },
   "preview": {
     "status": "preview",
-    "branches": [],
-    "latest": []
+    "branches": [
+      "3.0"
+    ],
+    "latest": [
+      "3.0.0-preview1"
+    ]
   },
   "eol": {
     "status": "eol",
@@ -43,13 +47,24 @@
       "1.9.3-p551"
     ]
   },
+  "3.0": {
+    "branch": "3.0",
+    "status": "preview",
+    "release_date": null,
+    "eol_date": null,
+    "latest": "3.0.0-preview1",
+    "releases": [
+      "3.0.0-preview1"
+    ]
+  },
   "2.7": {
     "branch": "2.7",
     "status": "normal",
     "release_date": "2019-12-25",
     "eol_date": null,
-    "latest": "2.7.1",
+    "latest": "2.7.2",
     "releases": [
+      "2.7.2",
       "2.7.1",
       "2.7.0",
       "2.7.0-rc2",
@@ -256,12 +271,28 @@
       "1.9.0"
     ]
   },
+  "3.0.0-preview1": {
+    "release": "3.0.0-preview1",
+    "branch": "3.0",
+    "status": "preview",
+    "release_date": "2020-09-25",
+    "latest": true,
+    "prerelease": true
+  },
+  "2.7.2": {
+    "release": "2.7.2",
+    "branch": "2.7",
+    "status": "normal",
+    "release_date": "2020-10-02",
+    "latest": true,
+    "prerelease": false
+  },
   "2.7.1": {
     "release": "2.7.1",
     "branch": "2.7",
     "status": "normal",
     "release_date": "2020-03-31",
-    "latest": true,
+    "latest": false,
     "prerelease": false
   },
   "2.7.0": {
@@ -1316,6 +1347,6 @@
     "version": "2.2.1"
   },
   "last_update": {
-    "last_update": "2020-04-25 07:30:00 +0000"
+    "last_update": "2020-10-24 07:30:00 +0000"
   }
 }
