@@ -11,7 +11,7 @@ A Sinatra API interface to Ruby versions, releases and branches.
 ## Usage
 
 The API endpoint is `https://rubies.io/api`.  
-All successful requests return a JSON response with Content-Type `application/json; charset=utf-8` and status `200`.  
+All successful requests return a JSON response with Content-Type `application/json;charset=utf-8` and status `200`.  
 CORS is enabled by default.
 
 ### Statuses

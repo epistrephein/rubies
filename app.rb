@@ -47,7 +47,7 @@ class Rubies < Sinatra::Base
   end
 
   before '/api/*' do
-    content_type 'application/json; charset=utf-8'
+    content_type :json, charset: 'utf-8'
 
     headers 'Access-Control-Allow-Methods' => 'HEAD, GET',
             'Access-Control-Allow-Origin'  => '*',
