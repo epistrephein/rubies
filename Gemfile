@@ -9,7 +9,7 @@ gem 'redis', '~> 4.0'
 gem 'sinatra', '~> 2.0'
 
 group :production do
-  gem 'unicorn', '~> 5.4'
+  gem 'unicorn', '~> 6.0'
   gem 'whenever', '~> 1.0', require: false
 end
 
