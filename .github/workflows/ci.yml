@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  lint:
+  rubocop:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -12,9 +12,8 @@ jobs:
         ruby-version: 2.7.2
         bundler-cache: true
     - run: bundle install
-    - name: Run RuboCop
-      run: bundle exec rubocop
-  test:
+    - run: bundle exec rubocop
+  rspec:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -23,5 +22,4 @@ jobs:
         ruby-version: 2.7.2
         bundler-cache: true
     - run: bundle install
-    - name: Run RSpec
-      run: bundle exec rspec
+    - run: bundle exec rspec
