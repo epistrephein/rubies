@@ -14,7 +14,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'rubocop', '~> 0.80.0'
+  gem 'rubocop', '< 2.0'
   gem 'thin', '~> 1.7'
 end
 
