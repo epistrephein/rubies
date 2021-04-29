@@ -58,7 +58,7 @@ GEM
     redis (4.2.5)
     rerun (0.13.1)
       listen (~> 3.0)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
