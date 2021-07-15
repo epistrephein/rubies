@@ -59,7 +59,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.2.5)
+    redis (4.3.1)
     rerun (0.13.1)
       listen (~> 3.0)
     rexml (3.2.5)
