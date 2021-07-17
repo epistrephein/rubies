@@ -1,0 +1,308 @@
+{
+  "info": {
+    "name": "rubies.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "normal rubies",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/normal",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "normal"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies with security status",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/security",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "security"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies with preview status",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/preview",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "preview"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies that are eol",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/eol",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "eol"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies branch 2.7",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/2.7",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "2.7"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies branch 2.7.1",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/2.7.1",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "2.7.1"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies branch 2.7.0",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/2.7.0",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "2.7.0"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies branch 2.6",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/2.6",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "2.6"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies branch 2.6.6",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/2.6.6",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "2.6.6"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "rubies branch 2.6.5",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://rubies.io/api/2.6.5",
+          "query": null,
+          "protocol": "https",
+          "host": [
+            "rubies",
+            "io"
+          ],
+          "port": null,
+          "path": [
+            "api",
+            "2.6.5"
+          ]
+        },
+        "description": "",
+        "header": [],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    }
+  ]
+}
