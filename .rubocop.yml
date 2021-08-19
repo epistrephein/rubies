@@ -1,7 +1,9 @@
 AllCops:
+  NewCops: disable
   DisplayCopNames: true
   DisplayStyleGuide: true
   TargetRubyVersion: 2.7
+  SuggestExtensions: false
 
 # Check the indentation of the first argument in a method call.
 Layout/FirstArgumentIndentation:
@@ -30,6 +32,10 @@ Layout/MultilineMethodCallIndentation:
 
 # Check for ambiguous regexp literals in the first argument of a method invocation without parentheses.
 Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+
+# Checks for the presence of constructors and lifecycle callbacks without calls to super.
+Lint/MissingSuper:
   Enabled: false
 
 # A calculated magnitude based on number of assignments, branches, and conditions.
@@ -84,17 +90,9 @@ Style/Documentation:
 Style/EmptyMethod:
   Enabled: false
 
-# Enforce each_key and each_value Hash methods.
-Style/HashEachMethods:
-  Enabled: true
-
 # Enforce the use of transform_keys Hash method.
 Style/HashTransformKeys:
   Enabled: false
-
-# Enforce the use of transform_values Hash method.
-Style/HashTransformValues:
-  Enabled: true
 
 # Favor modifier if/unless usage when you have a single-line body.
 Style/IfUnlessModifier:
