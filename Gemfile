@@ -22,7 +22,7 @@ group :test do
   gem 'mock_redis', '~> 0.19'
   gem 'rack-test', '~> 1.1'
   gem 'rspec', '~> 3.6'
-  gem 'simplecov', '~> 0.17.1'
+  gem 'simplecov', '~> 0.21.2'
   gem 'webmock', '~> 3.8'
 end
 
