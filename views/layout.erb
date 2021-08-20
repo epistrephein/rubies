@@ -46,32 +46,13 @@
     <footer class="footer mt-auto py-3 text-center">
       <div class="container">
         <span class="small text-muted">
-          Rubies.io &middot;
-          v<%= @version %><br>
-          <a href="https://github.com/epistrephein/rubies" title="GitHub">GitHub</a> &middot;
-          <a href="https://status.rubies.io" title="Status">Status</a> &middot;
-          <a href="https://www.iubenda.com/privacy-policy/81257353" class="iubenda-nostyle no-brand iubenda-embed" title="Privacy Policy">Privacy</a> &middot;
-          <a href="https://www.iubenda.com/privacy-policy/81257353/cookie-policy" class="iubenda-nostyle no-brand iubenda-embed" title="Cookie Policy">Cookies</a>
+          rubies.io &middot;
+          v<%= @version %> &middot;
+          <a href="https://github.com/epistrephein/rubies" title="GitHub">github</a> &middot;
+          <a href="https://status.rubies.io" title="Status">status</a><br>
+          <p class="small mt-2 mb-1">We do not use cookies or collect any personal data.</p>
         </span>
       </div>
     </footer>
-
-    <script type="text/javascript">
-      (function(w, d) {
-        var loader = function() {
-          var s = d.createElement("script"),
-            tag = d.getElementsByTagName("script")[0];
-          s.src = "https://cdn.iubenda.com/iubenda.js";
-          tag.parentNode.insertBefore(s, tag);
-        };
-        if (w.addEventListener) {
-          w.addEventListener("load", loader, false);
-        } else if (w.attachEvent) {
-          w.attachEvent("onload", loader);
-        } else {
-          w.onload = loader;
-        }
-      })(window, document);
-    </script>
   </body>
 </html>
