@@ -9,12 +9,12 @@ gem 'redis', '~> 4.0'
 gem 'sinatra', '~> 2.0'
 
 group :production do
-  gem 'unicorn', '~> 5.4'
+  gem 'unicorn', '~> 6.0'
   gem 'whenever', '~> 1.0', require: false
 end
 
 group :development, :test do
-  gem 'rubocop', '< 2.0'
+  gem 'rubocop', '~> 1.19'
   gem 'thin', '~> 1.7'
 end
 
@@ -22,7 +22,7 @@ group :test do
   gem 'mock_redis', '~> 0.19'
   gem 'rack-test', '~> 1.1'
   gem 'rspec', '~> 3.6'
-  gem 'simplecov', '~> 0.17.1'
+  gem 'simplecov', '~> 0.21.2'
   gem 'webmock', '~> 3.8'
 end
 
