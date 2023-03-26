@@ -6,7 +6,7 @@ gem 'octokit', '~> 4.18'
 gem 'rack-cors', '~> 1.1'
 gem 'rake', '~> 13.0'
 gem 'redis', '~> 4.0'
-gem 'sinatra', '~> 2.0'
+gem 'sinatra', '~> 3.0'
 
 group :production do
   gem 'unicorn', '~> 6.0'
