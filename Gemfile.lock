@@ -59,7 +59,7 @@ GEM
       method_source (~> 1.0)
     public_suffix (5.0.0)
     rack (2.2.6.4)
-    rack-cors (1.1.1)
+    rack-cors (2.0.1)
       rack (>= 2.0.0)
     rack-protection (2.2.4)
       rack
@@ -140,7 +140,7 @@ DEPENDENCIES
   mock_redis (~> 0.19)
   octokit (~> 4.18)
   pry (~> 0.12)
-  rack-cors (~> 1.1)
+  rack-cors (~> 2.0)
   rack-test (~> 2.0)
   rake (~> 13.0)
   redis (~> 4.0)
