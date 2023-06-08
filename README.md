@@ -1,10 +1,4 @@
-# Rubies.io
-[![API Status](https://img.shields.io/website?down_message=offline&label=api&up_message=online&url=https%3A%2F%2Frubies.io%2Fping)](https://rubies.io)
-[![Version](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=version&query=%24.version&url=https%3A%2F%2Frubies.io%2Fapi%2Fversion)](https://rubies.io/api/version)
-[![Build Status](https://app.travis-ci.com/epistrephein/rubies.svg?branch=master)](https://app.travis-ci.com/epistrephein/rubies)
-[![Dependencies](https://badges.depfu.com/badges/90e3488355f731bba22b6984fbd8effe/overview.svg)](https://depfu.com/github/epistrephein/rubies?project_id=5864)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/epistrephein/rubies)](https://codeclimate.com/github/epistrephein/rubies/maintainability)
-[![Test Coverage](https://img.shields.io/codeclimate/coverage/epistrephein/rubies)](https://codeclimate.com/github/epistrephein/rubies/test_coverage)
+# Rubies.io [![CI](https://github.com/epistrephein/rubies/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/epistrephein/rubies/actions/workflows/ci.yml)
 
 A Sinatra API interface to Ruby versions, releases and branches.
 
