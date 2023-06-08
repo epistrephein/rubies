@@ -10,6 +10,7 @@ jobs:
     - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
+    - run: ruby -v
     - run: bundle install
     - run: bundle exec rubocop
   rspec:
@@ -19,5 +20,6 @@ jobs:
     - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
+    - run: ruby -v
     - run: bundle install
     - run: bundle exec rspec
