@@ -8,10 +8,10 @@ After=redis-server.service
 Type=simple
 User=rubies
 WorkingDirectory=/var/www/rubies
-Environment="REDIS_URL=redis://localhost:6379/0"
+Environment="REDIS_URL=redis://localhost:6379/1"
 SyslogIdentifier=rubies
 PIDFile=/var/www/rubies/tmp/pids/unicorn.pid
-ExecStart=/usr/local/bin/bundle exec unicorn -D -c /var/www/rubies/config/unicorn.rb -E production
+ExecStart=/usr/bin/bundle exec unicorn -D -c /var/www/rubies/config/unicorn.rb -E production
 Restart=always
 TimeoutSec=10
 
