@@ -184,15 +184,6 @@ $ curl -s https://rubies.io/api/last_update | jq
 }
 ```
 
-[`/version`](https://rubies.io/api/version) - returns the version of the API. It's the same value of the latest tag of the GitHub repo.
-
-```bash
-$ curl -s https://rubies.io/api/version | jq
-{
-  "version": "2.2.1"
-}
-```
-
 ### Errors
 
 Invalid requests return a `404` status with no body.

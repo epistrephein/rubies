@@ -5,7 +5,6 @@ require 'redis'
 require_relative '../lib/remote'
 require_relative '../lib/branch'
 require_relative '../lib/release'
-require_relative '../lib/version'
 
 REDIS ||= Redis.new(url: ENV['REDIS_URL'])
 
@@ -32,7 +31,6 @@ namespace :redis do
     REDIS.set('__branches_sha', Branch.sha)
     REDIS.set('__releases_sha', Release.sha)
 
-    REDIS.set('__version',     VERSION_FULL)
     REDIS.set('__last_update', last_update)
 
     # API endpoints
@@ -40,8 +38,7 @@ namespace :redis do
     Branch.hashmap_branches.each  { |key, attr| REDIS.set(key, attr.to_json) }
     Release.hashmap_releases.each { |key, attr| REDIS.set(key, attr.to_json) }
 
-    REDIS.set('version',     { version:     VERSION_FULL }.to_json)
-    REDIS.set('last_update', { last_update: last_update  }.to_json)
+    REDIS.set('last_update', { last_update: last_update }.to_json)
 
     puts "#{last_update}: Redis OK (#{REDIS.dbsize})"
   end

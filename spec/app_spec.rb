@@ -106,18 +106,6 @@ RSpec.describe Rubies, :redis do
       end
     end
 
-    describe 'version endpoint' do
-      let(:endpoint) { '/api/version' }
-
-      it 'returns the API version' do
-        get endpoint
-
-        expect(json).to eq({
-          'version' => '2.2.1'
-        })
-      end
-    end
-
     describe 'last update endpoint' do
       let(:endpoint) { '/api/last_update' }
 

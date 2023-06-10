@@ -24,10 +24,6 @@ class Rubies < Sinatra::Base
   set :root,          File.dirname(settings.app_file)
   set :public_folder, File.join(settings.root, 'public')
 
-  before do
-    @version = REDIS.get('__version')
-  end
-
   get '/' do
     @normal      = REDIS.lrange('__normal',   0, -1)
     @security    = REDIS.lrange('__security', 0, -1)
