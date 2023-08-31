@@ -33,7 +33,7 @@ GEM
     mock_redis (0.37.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
-    octokit (7.0.0)
+    octokit (7.1.0)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
     parallel (1.23.0)
