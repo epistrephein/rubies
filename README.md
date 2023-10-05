@@ -1,4 +1,4 @@
-# Rubies.io [![CI](https://github.com/epistrephein/rubies/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/epistrephein/rubies/actions/workflows/ci.yml)
+# Rubies.io [![CI](https://github.com/epistrephein/rubies/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/epistrephein/rubies/actions/workflows/ci.yml)
 
 A Sinatra API interface to Ruby versions, releases and branches.
 
