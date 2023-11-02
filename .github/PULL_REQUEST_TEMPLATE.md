@@ -1,4 +1,5 @@
 ## Pull Request description
+
 A clear and concise explanation of what changes your PR introduces and why this was needed.
 
 ## Pull Request checklist
@@ -17,6 +18,3 @@ A clear and concise explanation of what changes your PR introduces and why this 
 ###### Documentation
 - [ ] My changes require a change to the documentation
 - [ ] I have updated the documentation accordingly
-
-###### Changelog
-- [ ] I have included the CHANGELOG entry for the changes
