@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'faraday-retry', '~> 2.2'
-gem 'octokit', '~> 7.0'
+gem 'octokit', '~> 8.0'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.0'
 gem 'redis', '~> 5.0'
