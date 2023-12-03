@@ -37,7 +37,7 @@ class Remote
     # Decode and parse a data file
     def parse(content)
       decoded = Base64.decode64(content)
-      YAML.safe_load(decoded, [Date])
+      YAML.safe_load(decoded, permitted_classes: [Date])
     end
 
     # Fetch a remote data file
