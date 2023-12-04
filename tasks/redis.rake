@@ -19,9 +19,6 @@ task :redis do
   REDIS.rpush('__branches_ex', Branch.examples_branches)
   REDIS.rpush('__releases_ex', Branch.examples_releases)
 
-  REDIS.set('__branches_sha', Branch.sha)
-  REDIS.set('__releases_sha', Release.sha)
-
   REDIS.set('__last_update', last_update)
 
   # API endpoints
