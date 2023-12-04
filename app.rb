@@ -25,14 +25,14 @@ class Rubies < Sinatra::Base
   set :public_folder, File.join(settings.root, 'public')
 
   get '/' do
-    @normal      = REDIS.lrange('__normal',   0, -1)
-    @security    = REDIS.lrange('__security', 0, -1)
+    @normal      = REDIS.lrange('rubies:web:normal',   0, -1)
+    @security    = REDIS.lrange('rubies:web:security', 0, -1)
 
-    @statuses_ex = REDIS.lrange('__statuses_ex', 0, -1)
-    @branches_ex = REDIS.lrange('__branches_ex', 0, -1)
-    @releases_ex = REDIS.lrange('__releases_ex', 0, -1)
+    @statuses_ex = REDIS.lrange('rubies:web:statuses_ex', 0, -1)
+    @branches_ex = REDIS.lrange('rubies:web:branches_ex', 0, -1)
+    @releases_ex = REDIS.lrange('rubies:web:releases_ex', 0, -1)
 
-    @last_update = REDIS.get('__last_update')
+    @last_update = REDIS.get('rubies:web:last_update')
 
     erb :index
   end
@@ -50,9 +50,9 @@ class Rubies < Sinatra::Base
   end
 
   get '/api/:key' do |key|
-    halt 404 if key.start_with?('__') || !REDIS.exists?(key)
+    halt 404 unless REDIS.exists?("rubies:api:#{key}")
 
-    REDIS.get(key)
+    REDIS.get("rubies:api:#{key}")
   end
 
   not_found do
