@@ -34,7 +34,6 @@ class Rubies < Sinatra::Base
 
     @last_update = REDIS.get('__last_update')
 
-    REDIS.incr('__metric:home')
     erb :index
   end
 
@@ -53,7 +52,6 @@ class Rubies < Sinatra::Base
   get '/api/:key' do |key|
     halt 404 if key.start_with?('__') || !REDIS.exists?(key)
 
-    REDIS.incr("__metric:#{key}")
     REDIS.get(key)
   end
 
