@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Release, :github do
-  subject(:release) { described_class['2.6.4'] }
+  subject(:release) { described_class['3.1.2'] }
 
   before(:each) do
     Branch.build!
@@ -23,7 +23,7 @@ RSpec.describe Release, :github do
   describe '#branch' do
     it 'returns the branch of the release' do
       expect(release.branch).to be_a(Branch)
-      expect(release.branch.to_s).to eq('2.6')
+      expect(release.branch.to_s).to eq('3.1')
     end
   end
 
@@ -35,15 +35,15 @@ RSpec.describe Release, :github do
 
   describe '#to_s' do
     it 'returns the release version as string' do
-      expect(release.to_s).to eq('2.6.4')
+      expect(release.to_s).to eq('3.1.2')
     end
   end
 
   describe '#to_json' do
     it 'returns the release attributes as JSON' do
       expect(release.to_json).to eq(
-        '{"release":"2.6.4","branch":"2.6","status":"normal","release_date":' \
-        '"2019-08-28","latest":false,"prerelease":false}'
+        '{"release":"3.1.2","branch":"3.1","status":"normal","release_date":' \
+        '"2022-04-12","latest":false,"prerelease":false}'
       )
     end
   end
@@ -51,10 +51,10 @@ RSpec.describe Release, :github do
   describe '#attributes' do
     it 'returns the release attributes as hash' do
       expect(release.attributes).to eq({
-        release:      '2.6.4',
-        branch:       '2.6',
+        release:      '3.1.2',
+        branch:       '3.1',
         status:       'normal',
-        release_date: Date.new(2019, 8, 28),
+        release_date: '2022-04-12',
         latest:       false,
         prerelease:   false
       })
@@ -63,17 +63,17 @@ RSpec.describe Release, :github do
 
   describe '.[]' do
     it 'returns the release with the matching version' do
-      expect(described_class['2.6.4']).to be_a(described_class)
-      expect(described_class['2.6.4'].to_s).to eq('2.6.4')
+      expect(described_class['3.1.2']).to be_a(described_class)
+      expect(described_class['3.1.2'].to_s).to eq('3.1.2')
     end
   end
 
   describe '.branch' do
     it 'returns the releases of a branch' do
-      branch = Branch['2.6']
+      branch = Branch['3.1']
 
       expect(described_class.branch(branch)).to all(be_a(described_class))
-      expect(described_class.branch(branch).first.to_s).to eq('2.6.6')
+      expect(described_class.branch(branch).first.to_s).to eq('3.1.4')
     end
   end
 
@@ -86,14 +86,14 @@ RSpec.describe Release, :github do
 
   describe '.sha' do
     it 'returns the commit sha of the data' do
-      expect(described_class.sha).to eq('39f327ba6d87a745e9a695c80a1c443e328fcb99')
+      expect(described_class.sha).to eq('7333cd8e25691bbb2325f6d5d4e1a07b0805cd2b')
     end
   end
 
   describe '.all' do
     it 'returns all releases' do
       expect(described_class.all).to all(be_a(described_class))
-      expect(described_class.all.first.to_s).to eq('3.0.0-preview1')
+      expect(described_class.all.first.to_s).to eq('3.3.0-preview3')
       expect(described_class.all.last.to_s).to eq('1.9.0')
     end
 
