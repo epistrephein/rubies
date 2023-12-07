@@ -8,5 +8,5 @@ set :environment_variable, 'REDIS_URL'
 set :environment,          'redis://localhost:6379/1'
 
 every 1.hour do
-  rake 'redis:populate'
+  rake 'redis'
 end
