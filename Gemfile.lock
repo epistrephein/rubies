@@ -22,7 +22,6 @@ GEM
     faraday-retry (2.2.0)
       faraday (~> 2.0)
     ffi (1.15.5)
-    foreman (0.87.2)
     hashdiff (1.0.1)
     json (2.6.3)
     kgio (2.11.4)
@@ -130,7 +129,6 @@ PLATFORMS
 
 DEPENDENCIES
   faraday-retry (~> 2.2)
-  foreman
   mock_redis (~> 0.19)
   octokit (~> 8.0)
   pry (~> 0.12)

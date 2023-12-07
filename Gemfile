@@ -28,7 +28,6 @@ group :test do
 end
 
 group :development do
-  gem 'foreman'
   gem 'pry', '~> 0.12'
   gem 'rerun', '~> 0.13'
 end
