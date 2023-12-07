@@ -11,7 +11,7 @@ WorkingDirectory=/var/www/rubies
 Environment="REDIS_URL=redis://localhost:6379/0"
 SyslogIdentifier=rubies
 PIDFile=/var/www/rubies/tmp/pids/unicorn.pid
-ExecStart=/usr/bin/bundle exec unicorn -D -c /var/www/rubies/config/unicorn.rb -E production
+ExecStart=/usr/local/bin/bundle exec unicorn -D -c /var/www/rubies/config/unicorn.rb -E production
 Restart=always
 TimeoutSec=10
 
