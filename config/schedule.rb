@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-set :bundle_command,       '/usr/local/bin/bundle exec'
-set :output,               'log/rake.log'
-set :chronic_options,      hours24: true
+job_type :rake, 'cd :path && :database_variable=:database :bundle_command rake :task :output'
 
-set :environment_variable, 'REDIS_URL'
-set :environment,          'redis://localhost:6379/0'
+set :chronic_options,   hours24: true
+
+set :database_variable, 'REDIS_URL'
+set :database,          'redis://localhost:6379/0'
 
 every 1.hour do
-  rake 'redis'
+  rake 'redis', output: 'log/redis.log'
 end
