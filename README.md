@@ -1,4 +1,4 @@
-# Rubies [![CI](https://github.com/epistrephein/rubies/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/epistrephein/rubies/actions/workflows/master.yml)
+# Rubies [![CI](https://github.com/epistrephein/rubies/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/epistrephein/rubies/actions/workflows/main.yml)
 
 A Sinatra API interface to Ruby versions, releases and branches.
 
@@ -206,7 +206,7 @@ HTTP/1.1 404 Not Found
 Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rubies).
 
 This project is intended to be a safe, welcoming space for collaboration,
-and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rubies/blob/master/CODE_OF_CONDUCT.md).
+and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rubies/blob/main/CODE_OF_CONDUCT.md).
 
 You can contribute changes by forking the project and submitting a pull request. To get started:
 
@@ -220,4 +220,4 @@ You can contribute changes by forking the project and submitting a pull request.
 
 ## License
 
-This project is released as open source under the terms of the [MIT License](https://github.com/epistrephein/rubies/blob/master/LICENSE).
+This project is released as open source under the terms of the [MIT License](https://github.com/epistrephein/rubies/blob/main/LICENSE).
