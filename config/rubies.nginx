@@ -36,7 +36,7 @@ server {
     resolver 1.1.1.1;
 
     location / {
-        try_files $uri @app;
+        try_files /public/$uri @app;
     }
 
     location @app {
