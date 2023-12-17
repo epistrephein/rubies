@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+usage() {
+  echo "Usage: $0 <args>" >&2
+  echo "  -d  Run setup for development env"
+  echo "  -p  Run setup for production env"
+}
+
+# Show usage if no option is selected
+if [ $# -eq 0 ]; then usage; exit 0; fi
+
+# Setup getops flags
+while getopts "dph" flag; do
+  case "${flag}" in
+    d) SETUP_ENV="development" ;;
+    p) SETUP_ENV="production" ;;
+    h) usage; exit 0 ;;
+    *) usage; exit 1 ;;
+  esac
+done
+
+echo "Running setup for environment: $SETUP_ENV"
+sleep 1
+
+# Configure bundler based on environment
+if [ "$SETUP_ENV" == "production" ]; then
+  bundle config set --local deployment true
+  bundle config set --local without development test
+  bundle config set --local clean true
+else
+  bundle config set --local without production
+fi
+
+# Install gem dependencies
+bundle install
