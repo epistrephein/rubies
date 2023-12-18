@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 usage() {
-  echo "Usage: $0 <args>" >&2
+  echo "Usage: $0 <args>"
   echo "  -d  Run setup for development env"
   echo "  -p  Run setup for production env"
 }
