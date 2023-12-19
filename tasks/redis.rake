@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+require 'redis'
+
+require_relative '../lib/remote'
+require_relative '../lib/branch'
+require_relative '../lib/release'
+
+REDIS ||= Redis.new(url: ENV['REDIS_URL'])
+
 desc 'Fetch remote data and populate Redis'
 task :redis do
   Branch.build!
