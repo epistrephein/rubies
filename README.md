@@ -2,15 +2,19 @@
 
 A Sinatra API interface to Ruby versions, releases and branches.
 
+The application is live at [https://rubies.io](https://rubies.io).
+
 ## Usage
 
 The API endpoint is `https://rubies.io/api`.  
-All successful requests return a JSON response with Content-Type `application/json` and status `200`.  
+All successful requests return a JSON response with Content-Type `application/json`
+and status `200`.  
 CORS is enabled by default.
 
 ### Statuses
 
-[`/normal`](https://rubies.io/api/normal) - returns the branches and the latest releases in normal maintenance (receiving bug fixes and security fixes).
+[`/normal`](https://rubies.io/api/normal) - returns the branches and the latest
+releases in normal maintenance (receiving bug fixes and security fixes).
 
 ```bash
 $ curl -s https://rubies.io/api/normal | jq
@@ -27,7 +31,8 @@ $ curl -s https://rubies.io/api/normal | jq
 }
 ```
 
-[`/security`](https://rubies.io/api/security) - returns the branches and the latest releases in security maintenance (receiving security fixes only).
+[`/security`](https://rubies.io/api/security) - returns the branches and the latest
+releases in security maintenance (receiving security fixes only).
 
 ```bash
 $ curl -s https://rubies.io/api/security | jq
@@ -42,7 +47,8 @@ $ curl -s https://rubies.io/api/security | jq
 }
 ```
 
-[`/preview`](https://rubies.io/api/preview) - returns the branches and the latest releases currently in preview.
+[`/preview`](https://rubies.io/api/preview) - returns the branches and the latest
+releases currently in preview.
 
 ```bash
 $ curl -s https://rubies.io/api/preview | jq
@@ -57,7 +63,8 @@ $ curl -s https://rubies.io/api/preview | jq
 }
 ```
 
-[`/eol`](https://rubies.io/api/eol) - returns the end-of-life branches and latest releases (no longer supported and not receiving any fixes).
+[`/eol`](https://rubies.io/api/eol) - returns the end-of-life branches and latest
+releases (no longer supported and not receiving any fixes).
 
 ```bash
 $ curl -s https://rubies.io/api/eol | jq
@@ -90,7 +97,8 @@ $ curl -s https://rubies.io/api/eol | jq
 
 ### Branches
 
-[`/<major>.<minor>`](https://rubies.io/api/3.2) - returns the status, release date, eol date (if any), latest release and all releases of a branch.  
+[`/<major>.<minor>`](https://rubies.io/api/3.2) - returns the status, release date,
+eol date (if any), latest release and all releases of a branch.  
 Lowest branch returned: `1.9`.
 
 ```bash
@@ -142,7 +150,9 @@ $ curl -s https://rubies.io/api/2.7 | jq
 
 ### Releases
 
-[`/<major>.<minor>.<patch>`](https://rubies.io/api/3.2.0) - returns the branch, status and release date of a release, and whether it's the latest version of the branch and/or a prerelease.  
+[`/<major>.<minor>.<patch>`](https://rubies.io/api/3.2.0) - returns the branch,
+status and release date of a release, and whether it's the latest version of the
+branch and/or a prerelease.  
 Lowest release returned: `1.9.0`.
 
 ```bash
@@ -183,7 +193,8 @@ $ curl -s https://rubies.io/api/2.7.7 | jq
 
 ### Meta
 
-[`/last_update`](https://rubies.io/api/last_update) - returns the time the data was updated. Time format is `%Y-%m-%d %H:%M:%S %z`.
+[`/last_update`](https://rubies.io/api/last_update) - returns the time the data
+was updated. Time format is `%Y-%m-%d %H:%M:%S %z`.
 
 ```bash
 $ curl -s https://rubies.io/api/last_update | jq
@@ -201,23 +212,41 @@ $ curl -I https://rubies.io/api/invalid
 HTTP/1.1 404 Not Found
 ```
 
+## Development
+
+After checking out the repo, run `bin/setup -d` to install dependencies for the
+development environment.
+
+This application fetches data regarding Ruby branches and releases from the official
+repo [ruby/www.ruby-lang.org](https://github.com/ruby/www.ruby-lang.org) and stores
+it in Redis for fast access.  
+Use `rake redis` to populate Redis with the latest data.
+
+The Sinatra server is automatically reloaded when files change using [rerun](https://github.com/alexch/rerun/).  
+Use `rake server` to start the development server locally.
+
+Use `rake console` to start a console session.
+
+Use `rake spec` to run the tests and `rake rubocop` to run RuboCop.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rubies).
 
 This project is intended to be a safe, welcoming space for collaboration,
-and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rubies/blob/main/CODE_OF_CONDUCT.md).
+and contributors are expected to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-You can contribute changes by forking the project and submitting a pull request. To get started:
+You can contribute changes by forking the project and submitting a pull request.
+To get started:
 
 1. Fork the repo
-2. Install the dependencies (`bundle install`)
+2. Install the dependencies (`bin/setup -d`)
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Pass the test suite (`bundle exec rspec`)
+5. Pass the test suite (`bundle exec rake spec rubocop`)
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new pull request
 
 ## License
 
-This project is released as open source under the terms of the [MIT License](https://github.com/epistrephein/rubies/blob/main/LICENSE).
+This project is released as open source under the terms of the [MIT License](LICENSE).
