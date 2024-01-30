@@ -7,7 +7,7 @@ gem 'octokit', '~> 8.0'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.0'
 gem 'redis', '~> 5.0'
-gem 'sinatra', '~> 3.0'
+gem 'sinatra', '~> 4.0'
 
 group :production do
   gem 'unicorn', '~> 6.0'
@@ -15,8 +15,8 @@ group :production do
 end
 
 group :development, :test do
+  gem 'rackup', '~> 2.1'
   gem 'rubocop', '~> 1.19'
-  gem 'thin', '~> 1.7'
 end
 
 group :test do
