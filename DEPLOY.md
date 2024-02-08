@@ -3,6 +3,17 @@
 The repository contains all the configuration files needed to deploy the application
 on a standard Linux server.
 
+## Requirements
+
+* Ruby
+* Redis
+* Nginx
+* Systemd
+
+## Installation
+
+### Clone
+
 First off, clone the repository
 
 ```bash
@@ -11,13 +22,15 @@ cd /var/www/rubies
 git clone https://github.com/epistrephein/rubies.git .
 ```
 
+### Bundler
+
 Use `bin/setup` to configure bundler automatically for production
 
 ```bash
 bin/setup -p
 ```
 
-or manually set the needed bundler flags
+or manually set the needed bundler flags and install
 
 ```bash
 bundle config set --local deployment true
@@ -26,6 +39,8 @@ bundle config set --local clean true
 bundle install
 ```
 
+### Redis
+
 Populate Redis manually once and setup cron for automatic updates
 
 ```bash
@@ -33,7 +48,9 @@ bundle exec rake redis
 bundle exec whenever --update-crontab
 ```
 
-Next, copy the systemd service and enable it
+### Systemd
+
+Copy the systemd service and enable it
 
 ```bash
 sudo cp config/rubies.service /etc/systemd/system/rubies.service
@@ -41,7 +58,9 @@ sudo systemctl enable --now /etc/systemd/system/rubies.service
 sudo systemctl status rubies
 ```
 
-Finally, copy the nginx configuration and enable it.  
+### Nginx
+
+Copy the nginx configuration and enable it.  
 SSL certificates are expected in `/etc/nginx/certs/rubies.io/`.
 
 ```bash
@@ -50,9 +69,11 @@ sudo ln -s /etc/nginx/sites-available/rubies.io /etc/nginx/sites-enabled/rubies.
 sudo systemctl restart nginx
 ```
 
+### Logrotate
+
 Both the Redis cron and unicorn produce logs in `/var/www/rubies/log/` so it's recommended
 to setup logrotate.  
-Let's add a file `/etc/logrotate.d/rubies` with the following content:
+Create a `/etc/logrotate.d/rubies` file with the following content:
 
 ```
 /var/www/rubies/log/*.log {
