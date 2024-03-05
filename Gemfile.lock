@@ -48,7 +48,7 @@ GEM
     public_suffix (5.0.4)
     racc (1.7.3)
     rack (3.0.9.1)
-    rack-cors (2.0.1)
+    rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
