@@ -2,6 +2,7 @@
 
 require 'octokit'
 require 'rubygems'
+require 'base64'
 require 'json'
 require 'yaml'
 
