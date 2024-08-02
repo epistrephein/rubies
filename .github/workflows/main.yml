@@ -37,4 +37,5 @@ jobs:
             git reset --hard @{upstream} && \
             git clean -d --force && \
             bundle install && \
-            sudo systemctl restart rubies"
+            sudo systemctl restart rubies && \
+            bundle exec rake redis"
