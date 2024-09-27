@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'irb'
 
 require_relative '../lib/remote'
 require_relative '../lib/branch'
@@ -9,13 +10,5 @@ require_relative '../lib/release'
 
 require_relative '../app'
 
-# Launch Pry or IRB
-begin
-  require 'pry'
-
-  Pry.start
-rescue LoadError
-  require 'irb'
-
-  IRB.start(__FILE__)
-end
+# Start IRB
+IRB.start(__FILE__)

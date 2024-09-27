@@ -225,9 +225,9 @@ Use `rake redis` to populate Redis with the latest data.
 The Sinatra server is automatically reloaded when files change using [rerun](https://github.com/alexch/rerun/).  
 Use `rake server` to start the development server locally.
 
-Use `rake console` to start a console session.
-
 Use `rake spec` to run the tests and `rake rubocop` to run RuboCop.
+
+Use `bin/console` to start a console session.
 
 ## Contributing
 
