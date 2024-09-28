@@ -5,3 +5,4 @@ require 'bundler/setup'
 Rake.add_rakelib 'tasks/**'
 
 task default: 'server'
+task build: ['spec', 'rubocop']
