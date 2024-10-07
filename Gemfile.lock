@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.6)
-      public_suffix (>= 2.0.2, < 6.0)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.8)
@@ -22,7 +22,7 @@ GEM
     faraday-retry (2.2.1)
       faraday (~> 2.0)
     ffi (1.15.5)
-    hashdiff (1.1.0)
+    hashdiff (1.1.1)
     io-console (0.7.2)
     irb (1.14.1)
       rdoc (>= 4.0.0)
@@ -48,7 +48,7 @@ GEM
       racc
     psych (5.1.2)
       stringio
-    public_suffix (5.1.1)
+    public_suffix (6.0.1)
     racc (1.8.1)
     rack (3.0.9.1)
     rack-cors (2.0.2)
@@ -80,7 +80,7 @@ GEM
       io-console (~> 0.5)
     rerun (0.14.0)
       listen (~> 3.0)
-    rexml (3.3.7)
+    rexml (3.3.8)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -130,7 +130,7 @@ GEM
       kgio (~> 2.6)
       raindrops (~> 0.7)
     uri (0.13.0)
-    webmock (3.23.1)
+    webmock (3.24.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
