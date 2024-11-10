@@ -20,6 +20,7 @@ end
 group :development, :test do
   gem 'rackup', '~> 2.1'
   gem 'rubocop', '~> 1.19'
+  gem 'webrick', '~> 1.9'
 end
 
 group :test do
