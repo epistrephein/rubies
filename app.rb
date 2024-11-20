@@ -11,6 +11,7 @@ class Rubies < Sinatra::Base
   configure do
     set :logging,    true
     set :protection, except: [:json_csrf]
+    set :host_authorization, { permitted_hosts: [] }
   end
 
   configure :production do
