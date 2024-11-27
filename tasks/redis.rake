@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'redis'
+require 'benchmark'
 
 require_relative '../lib/remote'
 require_relative '../lib/branch'
@@ -10,8 +11,10 @@ REDIS ||= Redis.new(url: ENV['REDIS_URL'])
 
 desc 'Fetch remote data and populate Redis'
 task :redis do
-  Branch.build!
-  Release.build!
+  benchmark = Benchmark.realtime do
+    Branch.build!
+    Release.build!
+  end
 
   last_update = Time.now
 
@@ -36,5 +39,5 @@ task :redis do
 
   REDIS.set('rubies:api:last_update', { last_update: last_update }.to_json)
 
-  puts "#{last_update}: Redis OK (#{REDIS.dbsize})"
+  puts "#{last_update}: Redis OK | #{benchmark.round(2)}s | #{REDIS.dbsize} items"
 end
