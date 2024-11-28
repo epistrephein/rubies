@@ -39,5 +39,5 @@ task :redis do
 
   REDIS.set('rubies:api:last_update', { last_update: last_update }.to_json)
 
-  puts "#{last_update}: Redis OK | #{benchmark.round(2)}s | #{REDIS.dbsize} items"
+  puts "#{last_update}: Redis OK | #{format('%.2f', benchmark)}s | #{REDIS.dbsize} items"
 end
