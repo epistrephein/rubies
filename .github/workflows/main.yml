@@ -14,7 +14,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          rubygems: latest
+          rubygems: 3.5.23
           bundler-cache: true
       - name: Run RSpec
         run: bundle exec rake spec
