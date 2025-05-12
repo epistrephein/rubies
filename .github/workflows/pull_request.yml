@@ -3,7 +3,7 @@ name: pull_request
 on: pull_request
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
