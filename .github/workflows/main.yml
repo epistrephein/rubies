@@ -38,4 +38,4 @@ jobs:
             git clean -d --force && \
             bundle install && \
             sudo systemctl restart rubies && \
-            bundle exec rake redis"
+            bundle exec rake redis 2>&1 | tee -a log/redis.log"
