@@ -4,5 +4,5 @@ require 'bundler/setup'
 
 Rake.add_rakelib 'tasks/**'
 
-task default: 'server'
+task default: 'dev'
 task test: ['spec', 'rubocop']
