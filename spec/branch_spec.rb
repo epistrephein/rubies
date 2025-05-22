@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Branch, :github do
-  subject(:branch) { described_class['3.0'] }
+  subject(:branch) { described_class['3.3'] }
 
   before(:each) do
     Branch.build!
@@ -11,7 +11,7 @@ RSpec.describe Branch, :github do
   describe '#latest' do
     it 'returns the latest version of the branch' do
       expect(branch.latest).to be_a(Release)
-      expect(branch.latest.to_s).to eq('3.0.6')
+      expect(branch.latest.to_s).to eq('3.3.8')
     end
   end
 
@@ -23,16 +23,17 @@ RSpec.describe Branch, :github do
 
   describe '#to_s' do
     it 'returns the branch name as string' do
-      expect(branch.to_s).to eq('3.0')
+      expect(branch.to_s).to eq('3.3')
     end
   end
 
   describe '#to_json' do
     it 'returns the branch attributes as JSON' do
       expect(branch.to_json).to eq(
-        '{"branch":"3.0","status":"security","release_date":"2020-12-25",' \
-        '"eol_date":null,"latest":"3.0.6","releases":["3.0.6","3.0.5",' \
-        '"3.0.4","3.0.3","3.0.2","3.0.1","3.0.0","3.0.0-rc1","3.0.0-preview2","3.0.0-preview1"]}'
+        '{"branch":"3.3","status":"normal","release_date":"2023-12-25",' \
+        '"eol_date":null,"latest":"3.3.8","releases":["3.3.8","3.3.7","3.3.6",' \
+        '"3.3.5","3.3.4","3.3.3","3.3.2","3.3.1","3.3.0","3.3.0-rc1",' \
+        '"3.3.0-preview3","3.3.0-preview2","3.3.0-preview1"]}'
       )
     end
   end
@@ -40,14 +41,15 @@ RSpec.describe Branch, :github do
   describe '#attributes' do
     it 'returns the branch attributes as hash' do
       expect(branch.attributes).to eq({
-        branch:       '3.0',
-        status:       'security',
-        release_date: Date.new(2020, 12, 25),
+        branch:       '3.3',
+        status:       'normal',
+        release_date: Date.new(2023, 12, 25),
         eol_date:     nil,
-        latest:       '3.0.6',
+        latest:       '3.3.8',
         releases:     [
-          '3.0.6', '3.0.5', '3.0.4', '3.0.3', '3.0.2', '3.0.1',
-          '3.0.0', '3.0.0-rc1', '3.0.0-preview2', '3.0.0-preview1'
+          '3.3.8', '3.3.7', '3.3.6', '3.3.5', '3.3.4',
+          '3.3.3', '3.3.2', '3.3.1', '3.3.0', '3.3.0-rc1',
+          '3.3.0-preview3', '3.3.0-preview2', '3.3.0-preview1'
         ]
       })
     end
@@ -55,15 +57,15 @@ RSpec.describe Branch, :github do
 
   describe '.[]' do
     it 'returns the branch with the matching name' do
-      expect(described_class['3.0']).to be_a(described_class)
-      expect(described_class['3.0'].to_s).to eq('3.0')
+      expect(described_class['3.3']).to be_a(described_class)
+      expect(described_class['3.3'].to_s).to eq('3.3')
     end
   end
 
   describe '.status' do
     it 'returns the branches with the matching status' do
       expect(described_class.status('security')).to all(be_a(described_class))
-      expect(described_class.status('security').first.to_s).to eq('3.0')
+      expect(described_class.status('security').first.to_s).to eq('3.2')
     end
   end
 
@@ -85,7 +87,7 @@ RSpec.describe Branch, :github do
     it 'returns the latest 4 branches as string' do
       expect(described_class.examples_branches).to all(be_a String)
       expect(described_class.examples_branches).to eq([
-        '3.3', '3.2', '3.1', '3.0'
+        '3.5', '3.4', '3.3', '3.2'
       ])
     end
   end
@@ -103,21 +105,21 @@ RSpec.describe Branch, :github do
     it 'returns 6 releases of the 4 most recent branches as string' do
       expect(described_class.examples_releases).to all(be_a String)
       expect(described_class.examples_releases).to eq([
-        '3.3.0-preview3', '3.3.0-preview2', '3.2.2', '3.2.1', '3.1.4', '3.0.6'
+        '3.5.0-preview1', '3.4.4', '3.4.3', '3.3.8', '3.2.8', '3.1.7'
       ])
     end
   end
 
   describe '.sha' do
     it 'returns the commit sha of the data' do
-      expect(described_class.sha).to eq('54cfc1f1332e0e7888c9266fcb0c351b3534a661')
+      expect(described_class.sha).to eq('57cf7f91599b99d166fad9490e573e8abc391104')
     end
   end
 
   describe '.all' do
     it 'returns all branches' do
       expect(described_class.all).to all(be_a(described_class))
-      expect(described_class.all.first.to_s).to eq('3.3')
+      expect(described_class.all.first.to_s).to eq('3.5')
       expect(described_class.all.last.to_s).to eq('1.9')
     end
 

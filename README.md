@@ -21,12 +21,12 @@ $ curl -s https://rubies.io/api/normal | jq
 {
   "status": "normal",
   "branches": [
-    "3.2",
-    "3.1"
+    "3.4",
+    "3.3"
   ],
   "latest": [
-    "3.2.2",
-    "3.1.4"
+    "3.4.4",
+    "3.3.8"
   ]
 }
 ```
@@ -39,10 +39,10 @@ $ curl -s https://rubies.io/api/security | jq
 {
   "status": "security",
   "branches": [
-    "3.0"
+    "3.2"
   ],
   "latest": [
-    "3.0.6"
+    "3.2.8"
   ]
 }
 ```
@@ -55,10 +55,10 @@ $ curl -s https://rubies.io/api/preview | jq
 {
   "status": "preview",
   "branches": [
-    "3.3"
+    "3.5"
   ],
   "latest": [
-    "3.3.0-preview3"
+    "3.5.0-preview1"
   ]
 }
 ```
@@ -71,6 +71,8 @@ $ curl -s https://rubies.io/api/eol | jq
 {
   "status": "eol",
   "branches": [
+    "3.1",
+    "3.0",
     "2.7",
     "2.6",
     "2.5",
@@ -82,6 +84,8 @@ $ curl -s https://rubies.io/api/eol | jq
     "1.9"
   ],
   "latest": [
+    "3.1.7",
+    "3.0.7",
     "2.7.8",
     "2.6.10",
     "2.5.9",
@@ -97,26 +101,32 @@ $ curl -s https://rubies.io/api/eol | jq
 
 ### Branches
 
-[`/<major>.<minor>`](https://rubies.io/api/3.2) - returns the status, release date,
+[`/<major>.<minor>`](https://rubies.io/api/3.3) - returns the status, release date,
 eol date (if any), latest release and all releases of a branch.  
 Lowest branch returned: `1.9`.
 
 ```bash
-$ curl -s https://rubies.io/api/3.2 | jq
+$ curl -s https://rubies.io/api/3.3 | jq
 {
-  "branch": "3.2",
+  "branch": "3.3",
   "status": "normal",
-  "release_date": "2022-12-25",
+  "release_date": "2023-12-25",
   "eol_date": null,
-  "latest": "3.2.2",
+  "latest": "3.3.8",
   "releases": [
-    "3.2.2",
-    "3.2.1",
-    "3.2.0",
-    "3.2.0-rc1",
-    "3.2.0-preview3",
-    "3.2.0-preview2",
-    "3.2.0-preview1"
+    "3.3.8",
+    "3.3.7",
+    "3.3.6",
+    "3.3.5",
+    "3.3.4",
+    "3.3.3",
+    "3.3.2",
+    "3.3.1",
+    "3.3.0",
+    "3.3.0-rc1",
+    "3.3.0-preview3",
+    "3.3.0-preview2",
+    "3.3.0-preview1"
   ]
 }
 ```
@@ -150,30 +160,30 @@ $ curl -s https://rubies.io/api/2.7 | jq
 
 ### Releases
 
-[`/<major>.<minor>.<patch>`](https://rubies.io/api/3.2.0) - returns the branch,
+[`/<major>.<minor>.<patch>`](https://rubies.io/api/3.3.5) - returns the branch,
 status and release date of a release, and whether it's the latest version of the
 branch and/or a prerelease.  
 Lowest release returned: `1.9.0`.
 
 ```bash
-$ curl -s https://rubies.io/api/3.2.0 | jq
+$ curl -s https://rubies.io/api/3.3.5 | jq
 {
-  "release": "3.2.0",
-  "branch": "3.2",
+  "release": "3.3.5",
+  "branch": "3.3",
   "status": "normal",
-  "release_date": "2022-12-25",
+  "release_date": "2024-09-03",
   "latest": false,
   "prerelease": false
 }
 ```
 
 ```bash
-$ curl -s https://rubies.io/api/3.0.6 | jq
+$ curl -s https://rubies.io/api/3.2.8 | jq
 {
-  "release": "3.0.6",
-  "branch": "3.0",
+  "release": "3.2.8",
+  "branch": "3.2",
   "status": "security",
-  "release_date": "2023-03-30",
+  "release_date": "2025-03-26",
   "latest": true,
   "prerelease": false
 }
@@ -199,7 +209,7 @@ was updated. Time format is `%Y-%m-%d %H:%M:%S %z`.
 ```bash
 $ curl -s https://rubies.io/api/last_update | jq
 {
-  "last_update": "2023-11-27 09:00:00 +0000"
+  "last_update": "2025-05-21 09:00:00 +0000"
 }
 ```
 

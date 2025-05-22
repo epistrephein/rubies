@@ -63,43 +63,44 @@ RSpec.describe Rubies, :redis do
 
         expect(json).to eq({
           'status'   => 'normal',
-          'branches' => ['3.2', '3.1'],
-          'latest'   => ['3.2.2', '3.1.4']
+          'branches' => ['3.4', '3.3'],
+          'latest'   => ['3.4.4', '3.3.8']
         })
       end
     end
 
     describe 'branch endpoint' do
-      let(:endpoint) { '/api/3.2' }
+      let(:endpoint) { '/api/3.3' }
 
       it 'returns the branch info' do
         get endpoint
 
         expect(json).to eq({
-          'branch'       => '3.2',
+          'branch'       => '3.3',
           'status'       => 'normal',
-          'release_date' => '2022-12-25',
+          'release_date' => '2023-12-25',
           'eol_date'     => nil,
-          'latest'       => '3.2.2',
+          'latest'       => '3.3.8',
           'releases'     => [
-            '3.2.2', '3.2.1', '3.2.0', '3.2.0-rc1',
-            '3.2.0-preview3', '3.2.0-preview2', '3.2.0-preview1'
+            '3.3.8', '3.3.7', '3.3.6', '3.3.5', '3.3.4',
+            '3.3.3', '3.3.2', '3.3.1', '3.3.0', '3.3.0-rc1',
+            '3.3.0-preview3', '3.3.0-preview2', '3.3.0-preview1'
           ]
         })
       end
     end
 
     describe 'release endpoint' do
-      let(:endpoint) { '/api/3.2.0' }
+      let(:endpoint) { '/api/3.3.5' }
 
       it 'returns the release info' do
         get endpoint
 
         expect(json).to eq({
-          'release'      => '3.2.0',
-          'branch'       => '3.2',
+          'release'      => '3.3.5',
+          'branch'       => '3.3',
           'status'       => 'normal',
-          'release_date' => '2022-12-25',
+          'release_date' => '2024-09-03',
           'latest'       => false,
           'prerelease'   => false
         })
@@ -113,7 +114,7 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(json).to eq({
-          'last_update' => '2023-12-03 11:23:35 +0000'
+          'last_update' => '2025-05-21 09:18:14 +0000'
         })
       end
     end
