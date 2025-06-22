@@ -23,6 +23,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: test
+    if: github.repository == 'epistrephein/rubies'
     steps:
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
