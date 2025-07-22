@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'base64', '~> 0.2'
+gem 'benchmark', '~> 0.4'
 gem 'faraday-multipart', '~> 1.0'
 gem 'faraday-retry', '~> 2.2'
 gem 'irb', '~> 1.14'
