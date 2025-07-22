@@ -8,10 +8,10 @@ After=redis-server.service
 Type=forking
 User=epistrephein
 SyslogIdentifier=rubies
-WorkingDirectory=/var/www/rubies
-PIDFile=/var/www/rubies/tmp/pids/unicorn.pid
+WorkingDirectory=/var/www/rubies.io
+PIDFile=/var/www/rubies.io/tmp/pids/unicorn.pid
 Environment="REDIS_URL=redis://localhost:6379/0"
-ExecStart=/bin/bash -l -c 'bundle exec unicorn -D -c /var/www/rubies/config/unicorn.rb -E production'
+ExecStart=/bin/bash -l -c 'bundle exec unicorn -D -c /var/www/rubies.io/config/unicorn.rb -E production'
 Restart=always
 TimeoutSec=10
 

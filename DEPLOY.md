@@ -17,8 +17,8 @@ on a standard Linux server.
 First off, clone the repository
 
 ```bash
-mkdir -p /var/www/rubies
-cd /var/www/rubies
+mkdir -p /var/www/rubies.io
+cd /var/www/rubies.io
 git clone https://github.com/epistrephein/rubies.git .
 ```
 
@@ -76,7 +76,7 @@ to setup logrotate.
 Create a `/etc/logrotate.d/rubies` file with the following content:
 
 ```
-/var/www/rubies/log/*.log {
+/var/www/rubies.io/log/*.log {
   monthly
   missingok
   rotate 7

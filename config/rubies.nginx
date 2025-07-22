@@ -4,7 +4,7 @@ server {
 
     server_name rubies.io;
 
-    root /var/www/rubies;
+    root /var/www/rubies.io;
 
     access_log /var/log/nginx/rubies.io.access.log;
     error_log /var/log/nginx/rubies.io.error.log;
