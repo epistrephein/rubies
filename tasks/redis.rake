@@ -11,12 +11,12 @@ REDIS ||= Redis.new(url: ENV['REDIS_URL'])
 
 desc 'Fetch remote data and populate Redis'
 task :redis do
+  last_update = Time.now
+
   benchmark = Benchmark.realtime do
     Branch.build!
     Release.build!
   end
-
-  last_update = Time.now
 
   # Internal use
   REDIS.del(REDIS.keys('rubies:web:*'))
@@ -40,4 +40,6 @@ task :redis do
   REDIS.set('rubies:api:last_update', { last_update: last_update }.to_json)
 
   puts "#{last_update}: Redis OK | #{format('%.2f', benchmark)}s | #{REDIS.dbsize} items"
+rescue StandardError => e
+  abort "#{last_update}: Redis ERROR | #{e.class} - #{e.message}"
 end
