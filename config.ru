@@ -10,21 +10,4 @@ use Rack::Cors do
   end
 end
 
-class IPFilterMiddleware
-  def initialize(app)
-    @app = app
-  end
-
-  def call(env)
-    env.delete('HTTP_X_FORWARDED_FOR')
-    env.delete('REMOTE_USER')
-
-    env['REMOTE_ADDR'] = '0.0.0.0'
-
-    @app.call(env)
-  end
-end
-
-use IPFilterMiddleware
-
 run Rubies
