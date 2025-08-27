@@ -40,7 +40,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    mock_redis (0.51.0)
+    mock_redis (0.52.0)
       redis (~> 5)
     multipart-post (2.4.1)
     mustermann (3.0.3)
@@ -88,7 +88,7 @@ GEM
       psych (>= 4.0.0)
     redis (5.4.1)
       redis-client (>= 0.22.0)
-    redis-client (0.25.1)
+    redis-client (0.25.2)
       connection_pool
     regexp_parser (2.11.1)
     reline (0.6.1)
