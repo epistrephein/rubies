@@ -57,7 +57,7 @@ GEM
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.4.0)
+    prism (1.5.1)
     psych (5.2.3)
       date
       stringio
@@ -90,7 +90,7 @@ GEM
       redis-client (>= 0.22.0)
     redis-client (0.25.2)
       connection_pool
-    regexp_parser (2.11.2)
+    regexp_parser (2.11.3)
     reline (0.6.1)
       io-console (~> 0.5)
     rerun (0.14.0)
@@ -109,7 +109,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.4)
-    rubocop (1.80.1)
+    rubocop (1.80.2)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -143,9 +143,9 @@ GEM
       tilt (~> 2.0)
     stringio (3.1.6)
     tilt (2.4.0)
-    unicode-display_width (3.1.5)
-      unicode-emoji (~> 4.0, >= 4.0.4)
-    unicode-emoji (4.0.4)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.1.0)
     unicorn (6.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
