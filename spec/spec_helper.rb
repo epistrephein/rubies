@@ -9,14 +9,13 @@ require 'mock_redis'
 require 'rack/test'
 require 'webmock/rspec'
 
+ENV['RACK_ENV'] = 'test'
+MOCKREDIS = MockRedis.new
+
 require_relative '../lib/remote'
 require_relative '../lib/branch'
 require_relative '../lib/release'
 require_relative '../app'
-
-ENV['RACK_ENV'] = 'test'
-
-MOCKREDIS = MockRedis.new
 
 RSpec.configure do |config|
   # Make Rack::Test available to all spec contexts
