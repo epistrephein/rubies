@@ -11,9 +11,7 @@ SyslogIdentifier=rubies
 WorkingDirectory=/var/www/rubies.io
 Environment="RACK_ENV=production"
 Environment="REDIS_URL=redis://localhost:6379/0"
-ExecStart=/bin/bash -l -c 'bundle exec puma -C /var/www/rubies.io/config/puma.rb'
-StandardOutput=append:/var/www/rubies.io/log/puma.log
-StandardError=inherit
+ExecStart=/bin/bash -l -c 'bundle exec puma -C config/puma.rb >> log/puma.log 2>&1'
 Restart=always
 TimeoutSec=10
 
