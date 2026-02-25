@@ -23,6 +23,6 @@ if ENV['RACK_ENV'] == 'production'
   threads threads_count, threads_count
 
   # Set socket and PID paths
-  bind "unix://#{APP_DIR}/tmp/sockets/puma.sock"
+  bind "unix:#{APP_DIR}/tmp/sockets/puma.sock"
   pidfile "#{APP_DIR}/tmp/pids/puma.pid"
 end
