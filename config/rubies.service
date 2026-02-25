@@ -5,13 +5,15 @@ Requires=redis-server.service
 After=redis-server.service
 
 [Service]
-Type=forking
+Type=simple
 User=epistrephein
 SyslogIdentifier=rubies
 WorkingDirectory=/var/www/rubies.io
-PIDFile=/var/www/rubies.io/tmp/pids/unicorn.pid
+Environment="RACK_ENV=production"
 Environment="REDIS_URL=redis://localhost:6379/0"
-ExecStart=/bin/bash -l -c 'bundle exec unicorn -D -c /var/www/rubies.io/config/unicorn.rb -E production'
+ExecStart=/bin/bash -l -c 'bundle exec puma -C /var/www/rubies.io/config/puma.rb'
+StandardOutput=append:/var/www/rubies.io/log/puma.log
+StandardError=inherit
 Restart=always
 TimeoutSec=10
 

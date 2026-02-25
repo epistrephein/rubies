@@ -71,7 +71,7 @@ sudo systemctl restart nginx
 
 ### Logrotate
 
-Both the Redis cron and unicorn produce logs in `/var/www/rubies/log/` so it's recommended
+Both the Redis cron and Puma produce logs in `/var/www/rubies/log/` so it's recommended
 to setup logrotate.  
 Create a `/etc/logrotate.d/rubies` file with the following content:
 

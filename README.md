@@ -232,7 +232,6 @@ repo [ruby/www.ruby-lang.org](https://github.com/ruby/www.ruby-lang.org) and sto
 it in Redis for fast access.  
 Use `rake redis` to populate Redis with the latest data.
 
-The Sinatra server is automatically reloaded when files change using [rerun](https://github.com/alexch/rerun/).  
 Use `rake dev` to start the development server locally.
 
 Use `rake spec` to run the tests and `rake rubocop` to run RuboCop.
