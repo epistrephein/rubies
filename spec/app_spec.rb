@@ -10,7 +10,7 @@ RSpec.describe Rubies, :redis do
       it 'returns the home page' do
         get endpoint
 
-        expect(last_response).to be_ok
+        expect(last_response.status).to eq(200)
         expect(html).to include('API interface to Ruby versions, releases and branches')
       end
     end
@@ -21,7 +21,7 @@ RSpec.describe Rubies, :redis do
       it 'returns a 200 status with no body' do
         get endpoint
 
-        expect(last_response).to be_ok
+        expect(last_response.status).to eq(200)
         expect(html).to be_empty
       end
     end
@@ -32,8 +32,21 @@ RSpec.describe Rubies, :redis do
       it 'returns a 404 page' do
         get endpoint
 
-        expect(last_response).to be_not_found
+        expect(last_response.status).to eq(404)
         expect(html).to include("The page you're looking for doesn't exist")
+      end
+    end
+
+    describe 'server error' do
+      let(:endpoint) { '/' }
+
+      it 'returns an error page' do
+        allow(REDIS).to receive(:lrange).and_raise(StandardError)
+
+        get endpoint
+
+        expect(last_response.status).to eq(500)
+        expect(html).to include('Internal server error')
       end
     end
   end
@@ -125,7 +138,19 @@ RSpec.describe Rubies, :redis do
       it 'returns status 404' do
         get endpoint
 
-        expect(last_response).to be_not_found
+        expect(last_response.status).to eq(404)
+      end
+    end
+
+    describe 'server error' do
+      let(:endpoint) { '/api/normal' }
+
+      it 'returns status 500' do
+        allow(REDIS).to receive(:exists?).and_raise(StandardError)
+
+        get endpoint
+
+        expect(last_response.status).to eq(500)
       end
     end
   end

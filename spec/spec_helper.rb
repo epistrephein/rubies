@@ -9,7 +9,9 @@ require 'mock_redis'
 require 'rack/test'
 require 'webmock/rspec'
 
-ENV['RACK_ENV'] = 'test'
+# Set RACK_ENV to production to test error handling in production mode
+ENV['RACK_ENV'] = 'production'
+
 MOCKREDIS = MockRedis.new
 
 require_relative '../lib/remote'
