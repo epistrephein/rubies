@@ -15,7 +15,6 @@ if ENV['RACK_ENV'] == 'production'
   # Create folders
   FileUtils.mkdir_p "#{APP_DIR}/tmp/sockets"
   FileUtils.mkdir_p "#{APP_DIR}/tmp/pids"
-  FileUtils.mkdir_p "#{APP_DIR}/log"
 
   # Set workers and threads
   workers Integer(ENV.fetch('PUMA_WORKERS', 2))
