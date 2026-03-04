@@ -1,2 +1,0 @@
---no-notify
---pattern '{config.ru,app.rb,views/**/*.erb}'
