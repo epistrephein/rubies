@@ -26,11 +26,11 @@ RSpec.configure do |config|
   # Attach WebMock and disable connections
   WebMock.disable_net_connect!(allow_localhost: true)
 
+  # Turn on all Ruby warnings
+  config.warnings = :all
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
-
-  # Disable RSpec exposing methods globally on `Module` and `main`
-  config.disable_monkey_patching!
 
   # Enable temporarily focused examples and groups
   config.filter_run_when_matching :focus
@@ -41,20 +41,18 @@ RSpec.configure do |config|
   # Run specs in random order to surface order dependencies
   config.order = :random
 
-  # Use expect syntax
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
+  # Seed Ruby's global RNG with RSpec's seed for reproducibility
+  Kernel.srand config.seed
+
+  # Load Sinatra app for Rack testing
+  def app
+    Rubies
   end
 
   # Load requests fixtures for WebMock
   def fixture(name)
     file = File.join(__dir__, 'fixtures', "#{name}.json")
     File.read(file)
-  end
-
-  # Load Sinatra app for Rack testing
-  def app
-    Rubies
   end
 
   # Populate MockRedis
