@@ -256,6 +256,8 @@ To get started:
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new pull request
 
+For more information about contributing to this project, check out [CONTRIBUTING](CONTRIBUTING.md).
+
 ## License
 
-This project is released as open source under the terms of the [MIT License](LICENSE).
+This project is released as open source under the terms of the [MIT License](LICENSE.md).
