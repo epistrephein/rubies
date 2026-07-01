@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
 
 /* ─── Tokens: light (default) ───────────────────── */
 :root {
@@ -18,7 +18,7 @@
   --badge-bg:   #c23b2a;
   --badge-text: #faf7f4;
   --vtag-hover: #c23b2a;
-  --mono:       'Fira Code', 'Courier New', monospace;
+  --mono:       'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
 }
 
 /* ─── Tokens: dark ──────────────────────────────── */
