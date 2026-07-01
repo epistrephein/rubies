@@ -34,7 +34,8 @@
     <link rel="stylesheet" href="/css/rubies.css">
     <script>
       (function() {
-        var stored = localStorage.getItem('rubies-theme');
+        var stored = null;
+        try { stored = localStorage.getItem('rubies-theme'); } catch(e) {}
         var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
       })();
@@ -85,12 +86,15 @@
       <p>No cookies. No tracking.</p>
     </footer>
     <script>
-      document.getElementById('theme-toggle').addEventListener('click', function() {
+      var toggle = document.getElementById('theme-toggle');
+      toggle.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+      toggle.addEventListener('click', function() {
         var html = document.documentElement;
         var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         html.classList.add('is-switching');
         html.setAttribute('data-theme', next);
-        localStorage.setItem('rubies-theme', next);
+        toggle.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+        try { localStorage.setItem('rubies-theme', next); } catch(e) {}
         setTimeout(function() { html.classList.remove('is-switching'); }, 300);
       });
     </script>

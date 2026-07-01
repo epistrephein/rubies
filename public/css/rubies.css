@@ -137,6 +137,15 @@ html[data-theme="dark"] .site-header::before {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .gem-icon,
+  .site-title,
+  .site-tagline,
+  .branches-section,
+  .api-section { animation: none; opacity: 1; }
+  .pulse-dot   { animation: none; }
+}
+
 /* ─── Main ──────────────────────────────────────── */
 main {
   flex: 1;
