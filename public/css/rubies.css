@@ -146,6 +146,13 @@ html[data-theme="dark"] .site-header::before {
   .pulse-dot   { animation: none; }
 }
 
+html.no-animate .gem-icon,
+html.no-animate .site-title,
+html.no-animate .site-tagline,
+html.no-animate .branches-section,
+html.no-animate .api-section { animation: none; opacity: 1; }
+html.no-animate .pulse-dot   { animation: none; }
+
 /* ─── Main ──────────────────────────────────────── */
 main {
   flex: 1;
