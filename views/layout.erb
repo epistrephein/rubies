@@ -39,8 +39,10 @@
         var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
         try {
-          if (performance.navigation.type === 2) {
+          if (sessionStorage.getItem('visited')) {
             document.documentElement.classList.add('no-animate');
+          } else {
+            sessionStorage.setItem('visited', '1');
           }
         } catch(e) {}
       })();
@@ -91,9 +93,6 @@
       <p>No cookies. No tracking.</p>
     </footer>
     <script>
-      window.addEventListener('pageshow', function(e) {
-        if (e.persisted) document.documentElement.classList.add('no-animate');
-      });
       var toggle = document.getElementById('theme-toggle');
       toggle.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
       toggle.addEventListener('click', function() {
