@@ -10,8 +10,8 @@ RSpec.describe Rubies, :redis do
       it 'returns the home page' do
         get endpoint
 
-        expect(last_response.status).to eq(200)
-        expect(html).to include('API interface to Ruby versions, releases and branches')
+        expect(last_response).to be_ok
+        expect(html).to include('API interface to Ruby versions')
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(last_response.status).to eq(500)
-        expect(html).to include('Internal server error')
+        expect(html).to include('Something went wrong on our end.')
       end
     end
   end
