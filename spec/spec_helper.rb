@@ -2,15 +2,14 @@
 
 require 'bundler/setup'
 
-# Set RACK_ENV to production to test error handling in production mode
-ENV['RACK_ENV'] = 'production'
+ENV['RACK_ENV'] ||= 'test'
 
-require 'simplecov'
-SimpleCov.start
-
-require 'mock_redis'
 require 'rack/test'
+require 'mock_redis'
 require 'webmock/rspec'
+require 'simplecov'
+
+SimpleCov.start
 
 MOCKREDIS = MockRedis.new
 

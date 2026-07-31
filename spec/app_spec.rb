@@ -36,19 +36,6 @@ RSpec.describe Rubies, :redis do
         expect(html).to include("The page you're looking for doesn't exist")
       end
     end
-
-    describe 'server error' do
-      let(:endpoint) { '/' }
-
-      it 'returns an error page' do
-        allow(REDIS).to receive(:lrange).and_raise(StandardError)
-
-        get endpoint
-
-        expect(last_response.status).to eq(500)
-        expect(html).to include('Something went wrong on our end.')
-      end
-    end
   end
 
   context 'JSON API' do
@@ -139,18 +126,6 @@ RSpec.describe Rubies, :redis do
         get endpoint
 
         expect(last_response.status).to eq(404)
-      end
-    end
-
-    describe 'server error' do
-      let(:endpoint) { '/api/normal' }
-
-      it 'returns status 500' do
-        allow(REDIS).to receive(:exists?).and_raise(StandardError)
-
-        get endpoint
-
-        expect(last_response.status).to eq(500)
       end
     end
   end

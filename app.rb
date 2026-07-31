@@ -13,13 +13,6 @@ class Rubies < Sinatra::Base
     set :protection, except: [:json_csrf]
   end
 
-  configure :production do
-    set :raise_errors,    false
-    set :show_exceptions, false
-
-    set :static_cache_control, [:public, :must_revalidate, { max_age: 30672000 }]
-  end
-
   set :app_file,      __FILE__
   set :root,          File.dirname(settings.app_file)
   set :public_folder, File.join(settings.root, 'public')
@@ -56,12 +49,5 @@ class Rubies < Sinatra::Base
 
     @title = 'Rubies | 404'
     erb :not_found
-  end
-
-  error do
-    halt if request.path_info =~ %r{^/api/}
-
-    @title = 'Rubies | Error'
-    erb :error
   end
 end
