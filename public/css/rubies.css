@@ -99,8 +99,6 @@ html[data-theme="dark"] .site-header::before {
 .gem-icon {
   display: inline-block;
   margin-bottom: 1.75rem;
-  opacity: 0;
-  animation: fade-up 0.55s ease forwards 0.1s;
 }
 
 .gem-icon svg { display: block; }
@@ -111,8 +109,6 @@ html[data-theme="dark"] .site-header::before {
   letter-spacing: -0.03em;
   color: var(--text);
   line-height: 1;
-  opacity: 0;
-  animation: fade-up 0.55s ease forwards 0.25s;
 }
 
 .site-title a {
@@ -128,30 +124,11 @@ html[data-theme="dark"] .site-header::before {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--text-3);
-  opacity: 0;
-  animation: fade-up 0.55s ease forwards 0.4s;
-}
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gem-icon,
-  .site-title,
-  .site-tagline,
-  .branches-section,
-  .api-section { animation: none; opacity: 1; }
-  .pulse-dot   { animation: none; }
+  .pulse-dot { animation: none; }
 }
-
-html.no-animate .gem-icon,
-html.no-animate .site-title,
-html.no-animate .site-tagline,
-html.no-animate .branches-section,
-html.no-animate .api-section { animation: none; opacity: 1; }
-html.no-animate .pulse-dot   { animation: none; }
 
 /* ─── Main ──────────────────────────────────────── */
 main {
@@ -185,8 +162,6 @@ main {
 /* ─── Branch cards ──────────────────────────────── */
 .branches-section {
   margin-bottom: 3.5rem;
-  opacity: 0;
-  animation: fade-up 0.5s ease forwards 0.55s;
 }
 
 .branches-grid {
@@ -279,11 +254,6 @@ main {
 }
 
 /* ─── API section ───────────────────────────────── */
-.api-section {
-  opacity: 0;
-  animation: fade-up 0.5s ease forwards 0.7s;
-}
-
 .api-block {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -404,8 +374,6 @@ main {
 .error-page {
   text-align: center;
   padding: 4rem 2rem;
-  opacity: 0;
-  animation: fade-up 0.55s ease forwards 0.2s;
 }
 
 .error-code {
