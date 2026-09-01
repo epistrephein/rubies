@@ -8,7 +8,6 @@ require 'yaml'
 
 class Remote
   REPOSITORY  = ENV.fetch('REPOSITORY',  'ruby/www.ruby-lang.org')
-
   SEMVER_MIN  = ENV.fetch('SEMVER_MIN',  '2.1')
   ENABLED_MIN = ENV.fetch('ENABLED_MIN', '1.9')
 
