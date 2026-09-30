@@ -13,10 +13,6 @@ class Rubies < Sinatra::Base
     set :protection, except: [:json_csrf]
   end
 
-  set :app_file,      __FILE__
-  set :root,          File.dirname(settings.app_file)
-  set :public_folder, File.join(settings.root, 'public')
-
   get '/' do
     @normal      = REDIS.lrange('rubies:web:normal',   0, -1)
     @security    = REDIS.lrange('rubies:web:security', 0, -1)
