@@ -11,7 +11,7 @@ gem 'octokit', '~> 10.0'
 gem 'puma', '~> 8.0'
 gem 'rack-cors', '~> 3.0'
 gem 'rake', '~> 13.0'
-gem 'redis', '~> 5.0'
+gem 'redis', '~> 6.0'
 gem 'sinatra', '~> 4.0'
 
 group :production do
