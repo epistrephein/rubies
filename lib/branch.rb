@@ -8,6 +8,14 @@ class Branch < Remote
 
   STATUSES      = %w[normal security preview eol].freeze
 
+  # Upstream status keywords mapped to their status
+  STATUS_KEYWORDS = {
+    'normal'  => 'normal',
+    'legacy'  => 'security',
+    'preview' => 'preview',
+    'eol'     => 'eol'
+  }.freeze
+
   SCHEMA = {
     'name'     => [String, Float],
     'status'   => [String],
@@ -130,7 +138,8 @@ class Branch < Remote
 
       unsorted = content.filter_map do |branch|
         version      = branch['name'].to_s
-        status       = branch['status'].match(Regexp.union(STATUSES)).to_s
+        keyword      = branch['status'][Regexp.union(STATUS_KEYWORDS.keys)]
+        status       = STATUS_KEYWORDS[keyword].to_s
         release_date = branch['date']
         eol_date     = branch['eol_date']
 
